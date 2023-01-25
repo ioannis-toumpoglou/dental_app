@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-$by70=72w$ryw=vx%3(+0&%^tz+1--f%e_0oz@p+bn374lj=u3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -74,9 +75,23 @@ WSGI_APPLICATION = 'dental_app.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': os.environ.get('MONGO_DB_NAME'),
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': os.environ.get('MONGO_DB_HOST'),
+            'port': int(os.environ.get('MONGO_DB_PORT')),
+            'username': os.environ.get('MONGO_DB_USERNAME'),
+            'password': os.environ.get('MONGO_DB_PASSWORD'),
+        },
+        'TEST': {
+            'MIRROR': 'default',
+        },
     }
 }
 
