@@ -1,0 +1,7 @@
+1. Build docker image
+
+docker build -t dental-app -f Dockerfile .
+
+2. Run Docker
+
+docker run -it --rm -p 8000:8000 dental-app

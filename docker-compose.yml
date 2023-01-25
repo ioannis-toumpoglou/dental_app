@@ -1,0 +1,45 @@
+version: '3.9'
+
+services:
+
+  mongodb:
+    container_name: mongodb
+    hostname: mongodb
+    image: mongo:4.2.23
+    restart: always
+    environment:
+      - MONGO_INITDB_DATABASE=${MONGO_DB_NAME}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_DB_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_DB_PASSWORD}
+    env_file:
+      - .env
+    volumes:
+      - ${MONGO_DB_PERSIST_DIR}:/data/db
+    ports:
+      - "27018:27017"
+    networks:
+      - dental-network
+
+  web:
+    container_name: django-app
+    hostname: django-app
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: sh -c "python manage.py makemigrations &&
+               python manage.py migrate &&
+               python manage.py createsuperuser --noinput || true &&
+               python manage.py runserver 0.0.0.0:8000 --noreload"
+    restart: always
+    environment:
+      ENV: ${ENV}
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    networks:
+      - dental-network
+
+networks:
+  dental-network:
+    external: true
