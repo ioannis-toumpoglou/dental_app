@@ -21,8 +21,8 @@ services:
       - dental-network
 
   web:
-    container_name: django-app
-    hostname: django-app
+    container_name: dental-app
+    hostname: dental-app
     build:
       context: .
       dockerfile: ./Dockerfile
