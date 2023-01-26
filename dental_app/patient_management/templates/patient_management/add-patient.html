@@ -13,7 +13,27 @@
         <a href="{% url 'main' %}">Main page</a>
     </nav>
 
-    Here we will add a new patient
+    <form action="/add-patient" method="POST">
+        {% csrf_token %}
+        <p>Add patient form</p>
+        {{ form.first_name }}
+        <br><br>
+        {{ form.last_name }}
+        <br><br>
+        {{ form.address }}
+        <br><br>
+        {{ form.email }}
+        <br><br>
+        {{ form.phone }}
+        <br><br>
+        {{ form.cell_phone }}
+        <br><br>
+        {{ form.amka }}
+        <br><br>
+        {{ form.date_of_birth }}
+        <br><br>
+        <button type="submit" name="save">Save</button>
+    </form>
 
 </body>
 </html>
