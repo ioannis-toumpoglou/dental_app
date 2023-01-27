@@ -9,10 +9,15 @@ from .forms import PatientForm
 # Create your views here.
 
 def main(request):
-    return render(request, 'patient_management/main.html')
+    uri = os.environ.get('MONGO_DB_URI')
+    db_name = os.environ.get('MONGO_DB_NAME')
+    client = connect_to_database(uri=uri, db_name=db_name)
+    collection = client['patients']
 
-def add_patient(request):
-    return render(request, 'patient_management/add-patient.html')
+    all_patients = collection.find({})
+
+    return render(request, 'patient_management/main.html', {'all_patients': all_patients})
+
 
 def connect_to_database(uri, db_name):
     """
@@ -32,20 +37,16 @@ def connect_to_database(uri, db_name):
 class AddPatientFormView(FormView):
     form_class = PatientForm
     template_name = 'patient_management/add-patient.html'
-    success_url = '/main'
+    success_url = '/main/'
 
     uri = os.environ.get('MONGO_DB_URI')
     db_name = os.environ.get('MONGO_DB_NAME')
     client = connect_to_database(uri=uri, db_name=db_name)
     collection = client['patients']
 
-    print(uri)
-    print(db_name)
-
     def post(self, request, *args, **kwargs):
         form_class = self.get_form_class()
         form = self.get_form(form_class)
-        print(request.POST)
 
         if 'save' in request.POST:
             if form.is_valid():
@@ -55,9 +56,10 @@ class AddPatientFormView(FormView):
                     'address': str(request.POST.get('address')),
                     'email': str(request.POST.get('email')),
                     'phone': str(request.POST.get('phone')),
-                    'cell_phone': str(request.POST.get('cell_phone')),
+                    'mobile_phone': str(request.POST.get('mobile_phone')),
                     'amka': str(request.POST.get('amka')),
-                    'date_of_birth': str(request.POST.get('date_of_birth'))
+                    'date_of_birth': str(request.POST.get('date_of_birth')),
+                    'notes': str(request.POST.get('notes'))
                 })
                 return self.form_valid(form)
             else:

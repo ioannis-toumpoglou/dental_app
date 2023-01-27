@@ -9,11 +9,41 @@
 </head>
 <body>
 
+<div>
     <nav>
         <a href="{% url 'add-patient' %}">Add new patient</a>
     </nav>
+</div>
 
-    This is the main page
+<div>
+    <h2>My Patients</h2>
+
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Mobile Phone</th>
+            <th>AMKA</th>
+            <th>Date of birth</th>
+        </tr>
+        {% for patient in all_patients %}
+        <tr>
+            <td> {{ patient.first_name }} </td>
+            <td> {{ patient.last_name }} </td>
+            <td> {{ patient.address }} </td>
+            <td> {{ patient.email }} </td>
+            <td> {{ patient.phone }} </td>
+            <td> {{ patient.mobile_phone }} </td>
+            <td> {{ patient.amka }} </td>
+            <td> {{ patient.date_of_birth }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
 
 </body>
 </html>
