@@ -11,7 +11,7 @@
 
 <div>
     <nav>
-        <a href="{% url 'add-patient' %}">Add new patient</a>
+        <button type="submit" name="add-new-patient" onclick="location.href='{% url 'add-patient' %}'">Add new patient</button>
     </nav>
 </div>
 
@@ -20,8 +20,8 @@
 
     <table>
         <tr>
-            <th>First Name</th>
             <th>Last Name</th>
+            <th>First Name</th>
             <th>Address</th>
             <th>Email</th>
             <th>Phone</th>
@@ -31,8 +31,8 @@
         </tr>
         {% for patient in all_patients %}
         <tr>
-            <td> {{ patient.first_name }} </td>
             <td> {{ patient.last_name }} </td>
+            <td> {{ patient.first_name }} </td>
             <td> {{ patient.address }} </td>
             <td> {{ patient.email }} </td>
             <td> {{ patient.phone }} </td>
@@ -42,7 +42,6 @@
         </tr>
         {% endfor %}
     </table>
-
 </div>
 
 </body>
