@@ -11,4 +11,4 @@ class PatientForm(forms.Form):
     mobile_phone = forms.CharField(label='Mobile phone:')
     amka = forms.CharField(label='AMKA:', required=False)
     date_of_birth = forms.DateField(label='Date of birth:', input_formats=settings.DATE_INPUT_FORMATS, required=False)
-    notes = forms.CharField(widget=forms.Textarea(attrs={"rows": "5"}))
+    notes = forms.CharField(widget=forms.Textarea(attrs={"rows": "5"}), required=False)
