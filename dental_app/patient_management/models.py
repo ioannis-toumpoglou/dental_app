@@ -6,9 +6,9 @@ class Patient(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
-    email_address = models.EmailField()
+    email = models.EmailField()
     phone = models.CharField(max_length=100)
-    cell_phone = models.CharField(max_length=100)
+    mobile_phone = models.CharField(max_length=100)
     amka = models.CharField(max_length=100)
     date_of_birth = models.DateField()
 
