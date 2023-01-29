@@ -34,11 +34,11 @@ button:active {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 7rem auto;
+  grid-template-columns: 110px 250px 110px 250px;
 }
 
 textarea {
-    width: 95%;
+    width: 195%;
     height: 95%;
     resize: none;
 }

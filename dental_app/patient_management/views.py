@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.edit import FormView
 import os
 from pymongo import MongoClient
+import datetime
 
 from .forms import PatientForm
 
@@ -50,6 +51,8 @@ class AddPatientFormView(FormView):
 
         if 'save' in request.POST:
             if form.is_valid():
+                original_date = datetime.datetime.strptime(request.POST.get('date_of_birth'), '%Y-%m-%d')
+                date_of_birth = original_date.strftime("%d/%m/%Y")
                 self.collection.insert_one({
                     'first_name': str(request.POST.get('first_name')),
                     'last_name': str(request.POST.get('last_name')),
@@ -58,7 +61,7 @@ class AddPatientFormView(FormView):
                     'phone': str(request.POST.get('phone')),
                     'mobile_phone': str(request.POST.get('mobile_phone')),
                     'amka': str(request.POST.get('amka')),
-                    'date_of_birth': str(request.POST.get('date_of_birth')),
+                    'date_of_birth': date_of_birth,
                     'notes': str(request.POST.get('notes'))
                 })
                 return self.form_valid(form)
