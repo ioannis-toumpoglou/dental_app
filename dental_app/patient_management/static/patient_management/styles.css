@@ -10,7 +10,7 @@ form {
   background-color: white;
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  height: 45rem;
+  height: 30rem;
 }
 
 button {
@@ -38,11 +38,19 @@ button:active {
 }
 
 textarea {
-    width: 195%;
+    width: 220%;
     height: 95%;
     resize: none;
 }
 
 input {
-    width: 50%;
+    width: 75%;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
+td {
+    padding-right: 50px;
 }
