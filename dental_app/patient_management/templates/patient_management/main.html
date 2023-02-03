@@ -20,6 +20,7 @@
 
     <table>
         <tr>
+            <th>ID</th>
             <th>Full Name</th>
             <th>Address</th>
             <th>Email</th>
@@ -30,7 +31,8 @@
         </tr>
         {% for patient in all_patients %}
         <tr>
-            <td> {{ patient.last_name }} {{ patient.first_name }}</td>
+            <td> {{ patient.id }} </td>
+            <td> <a href="{% url 'edit-patient' patient_id=patient.id %}" class="row-link">{{ patient.last_name }} {{ patient.first_name }}</a></td>
             <td> {{ patient.address }} </td>
             <td> {{ patient.email }} </td>
             <td> {{ patient.phone }} </td>
