@@ -1,21 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import FormView
-import os
 from pymongo import MongoClient
-import datetime
 
 from .forms import PatientForm
+from .models import Patient
 
 
 # Create your views here.
 
 def main(request):
-    uri = os.environ.get('MONGO_DB_URI')
-    db_name = os.environ.get('MONGO_DB_NAME')
-    client = connect_to_database(uri=uri, db_name=db_name)
-    collection = client['patients']
-
-    all_patients = collection.find({})
+    all_patients = Patient.objects.all()
 
     return render(request, 'patient_management/main.html', {'all_patients': all_patients})
 
@@ -30,6 +24,7 @@ def connect_to_database(uri, db_name):
     """
     try:
         client = MongoClient(uri)[db_name]
+
         return client
     except Exception as err:
         print(str(err))
@@ -39,31 +34,28 @@ class AddPatientFormView(FormView):
     form_class = PatientForm
     template_name = 'patient_management/add-patient.html'
     success_url = '/main/'
-
-    uri = os.environ.get('MONGO_DB_URI')
-    db_name = os.environ.get('MONGO_DB_NAME')
-    client = connect_to_database(uri=uri, db_name=db_name)
-    collection = client['patients']
+    context = {}
 
     def post(self, request, *args, **kwargs):
-        form_class = self.get_form_class()
-        form = self.get_form(form_class)
-
         if 'save' in request.POST:
-            if form.is_valid():
-                original_date = datetime.datetime.strptime(request.POST.get('date_of_birth'), '%Y-%m-%d')
-                date_of_birth = original_date.strftime("%d/%m/%Y")
-                self.collection.insert_one({
-                    'first_name': str(request.POST.get('first_name')),
-                    'last_name': str(request.POST.get('last_name')),
-                    'address': str(request.POST.get('address')),
-                    'email': str(request.POST.get('email')),
-                    'phone': str(request.POST.get('phone')),
-                    'mobile_phone': str(request.POST.get('mobile_phone')),
-                    'amka': str(request.POST.get('amka')),
-                    'date_of_birth': date_of_birth,
-                    'notes': str(request.POST.get('notes'))
-                })
-                return self.form_valid(form)
-            else:
-                return self.form_invalid(form)
+            form = PatientForm(request.POST)
+            self.context['form'] = form
+            form.save()
+
+            return redirect('/main/')
+
+
+def edit_patient(request, patient_id):
+    patient = Patient.objects.filter(pk=patient_id).first()
+    print(patient)
+    form = PatientForm(instance=patient)
+    if request.method == 'POST':
+        form = PatientForm(request.POST, instance=patient)
+
+        if form.is_valid():
+            form.save()
+            return redirect('main')
+        else:
+            form = PatientForm(instance=patient)
+
+    return render(request, 'patient_management/edit-patient.html', {'form': form})
