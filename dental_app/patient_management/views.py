@@ -10,7 +10,6 @@ from .models import Patient
 
 def main(request):
     all_patients = Patient.objects.all()
-
     return render(request, 'patient_management/main.html', {'all_patients': all_patients})
 
 
@@ -24,7 +23,6 @@ def connect_to_database(uri, db_name):
     """
     try:
         client = MongoClient(uri)[db_name]
-
         return client
     except Exception as err:
         print(str(err))
@@ -41,15 +39,17 @@ class AddPatientFormView(FormView):
             form = PatientForm(request.POST)
             self.context['form'] = form
             form.save()
-
             return redirect('/main/')
 
 
 def edit_patient(request, patient_id):
     patient = Patient.objects.filter(pk=patient_id).first()
-    print(patient)
     form = PatientForm(instance=patient)
     if request.method == 'POST':
+        if 'delete' in request.POST:
+            patient.delete()
+            return redirect('main')
+
         form = PatientForm(request.POST, instance=patient)
 
         if form.is_valid():
