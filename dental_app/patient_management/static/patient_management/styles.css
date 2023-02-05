@@ -83,3 +83,21 @@ reset-button:active {
   background-color: #830443;
   border-color: #830443;
 }
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
