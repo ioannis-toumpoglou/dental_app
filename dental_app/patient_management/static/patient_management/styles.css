@@ -1,8 +1,9 @@
 body {
   font-family: sans-serif;
+  background: #cccce8;
 }
 
-form {
+.add-patient-form {
   margin: 3rem auto;
   width: 80%;
   max-width: 45rem;
@@ -15,8 +16,8 @@ form {
 
 button {
   cursor: pointer;
-  background-color: #5c002e;
-  border: 1px solid #5c002e;
+  background-color: #00008B;
+  border: 1px solid #00008B;
   color: white;
   padding: 0.5rem 1.5rem;
   border-radius: 6px;
@@ -24,8 +25,8 @@ button {
 
 button:hover,
 button:active {
-  background-color: #830443;
-  border-color: #830443;
+  background-color: #4040a8;
+  border-color: #4040a8;
 }
 
 #main-table {
@@ -35,20 +36,72 @@ button:active {
 .grid-container {
   display: grid;
   grid-template-columns: 110px 250px 110px 250px;
+  margin-left: 45px;
 }
 
 textarea {
-    width: 220%;
+    width: 200%;
     height: 95%;
     resize: none;
 }
 
-input {
-    width: 75%;
+#patient-table {
+    border-collapse: collapse;
 }
 
-table, th, td {
-  border: 1px solid;
+#patient-table td, #patient-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#patient-table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+#patient-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#patient-table tr:hover {
+    background-color: #ddd;
+}
+
+#patient-table th {
+  text-align: left;
+  background-color: #00008b;
+  color: white;
+}
+
+#id-header {
+    width: 4rem;
+}
+
+#name-header {
+    width: 15rem;
+}
+
+#address-header {
+    width: 15rem;
+}
+
+#email-header {
+    width: 15rem;
+}
+
+#phone-header {
+    width: 10rem;
+}
+
+#mobile-header {
+    width: 10rem;
+}
+
+#amka-header {
+    width: 10rem;
+}
+
+#date-of-birth-header {
+    width: 10rem;
 }
 
 td {
@@ -57,11 +110,16 @@ td {
 
 #save-button {
     width: 35%;
-    margin-right: 5rem;
+    margin-right: 7rem;
 }
 
 #clear-button {
     width: 35%;
+}
+
+#delete-button {
+    width: 35%;
+    margin-right: 1rem;
 }
 
 #add-form-buttons {
@@ -70,18 +128,19 @@ td {
 
 #reset-button {
   cursor: pointer;
-  background-color: #5c002e;
-  border: 1px solid #5c002e;
+  background-color: #00008b;
+  border: 1px solid #00008b;
   color: white;
   padding: 0.5rem 1.5rem;
   border-radius: 6px;
   width: 35%;
+  margin-right: 1rem;
 }
 
 #reset-button:hover,
 reset-button:active {
-  background-color: #830443;
-  border-color: #830443;
+  background-color: #4040a8;
+  border-color: #4040a8;
 }
 
 a:link {
@@ -100,4 +159,12 @@ a:hover {
 
 a:active {
   text-decoration: underline;
+}
+
+#id_date_of_birth {
+    width: 56%;
+}
+
+#search-bar {
+    width: 20rem;
 }
