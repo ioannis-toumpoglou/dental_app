@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import FormView
 from pymongo import MongoClient
+from django.db.models import Q
 
 from .forms import PatientForm
 from .models import Patient
@@ -9,8 +10,19 @@ from .models import Patient
 # Create your views here.
 
 def main(request):
-    all_patients = Patient.objects.all()
-    return render(request, 'patient_management/main.html', {'all_patients': all_patients})
+    filtered_patients = None
+    if request.GET.get('search'):
+        search = request.GET.get('search')
+        filtered_patients = Patient.objects.filter(
+            Q(last_name__icontains=search) |
+            Q(first_name__icontains=search) |
+            Q(address__icontains=search) |
+            Q(email__icontains=search) |
+            Q(phone__icontains=search) |
+            Q(mobile_phone__icontains=search) |
+            Q(amka__icontains=search)
+        )
+    return render(request, 'patient_management/main.html', {'filtered_patients': filtered_patients})
 
 
 def connect_to_database(uri, db_name):
