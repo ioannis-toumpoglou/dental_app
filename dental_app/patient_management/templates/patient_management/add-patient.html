@@ -1,14 +1,16 @@
+{% extends "base.html" %}
 {% load static %}
 {% load widget_tweaks %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add new patient</title>
+{% block title %}
+    Add Patient
+{% endblock %}
+
+{% block css_files %}
     <link rel="stylesheet" href="{% static 'patient_management/styles.css' %}">
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
 
     <div>
         <nav>
@@ -18,7 +20,7 @@
 
     <form class="add-patient-form" action="/add-patient/" method="POST">
         {% csrf_token %}
-        <h3>Add patient form</h3>
+        <h3>Add patient</h3>
 
             <div class="grid-container">
                 <div class="grid-item"><p><label for="id_last_name">Last Name:</label></p></div>
@@ -48,5 +50,4 @@
         </div>
     </form>
 
-</body>
-</html>
+{% endblock %}
