@@ -6,10 +6,34 @@
   <meta charset="UTF-8">
   <title>{% block title %}{% endblock %}</title>
   <link rel="stylesheet" href="{% static 'app.css' %}">
+  {% load django_bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  {% bootstrap_messages %}
   {% block css_files %}{% endblock %}
   {% block js_files %}{% endblock %}
 </head>
 <body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <img src="{% static 'images/logo.png' %}" id="logo" alt="logo">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <button class="btn btn-outline-primary" type="submit" name="main" onclick="location.href='{% url 'main' %}'">Home</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-primary" type="submit" name="add-new-patient" onclick="location.href='{% url 'add-patient' %}'">Add Patient</button>
+          </li>
+        </ul>
+        <form class="d-flex" method="GET">
+          <input class="form-control me-2" name="search" type="text" id="search-bar" placeholder="Search patient...">
+          <button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
 
   {% block content %}
   {% endblock %}
