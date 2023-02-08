@@ -12,12 +12,6 @@
 
 {% block content %}
 
-    <div>
-        <nav>
-            <button type="submit" name="main-page" onclick="location.href='{% url 'main' %}'">Main page</button>
-        </nav>
-    </div>
-
     <form class="add-patient-form" action="/add-patient/" method="POST">
         {% csrf_token %}
         <h3>Add patient</h3>
