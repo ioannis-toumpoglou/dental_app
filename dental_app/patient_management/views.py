@@ -66,8 +66,8 @@ def edit_patient(request, patient_id):
 
         if form.is_valid():
             form.save()
-            return redirect('main')
+            return render(request, 'patient_management/patient-detail.html', {'form': form})
         else:
             form = PatientForm(instance=patient)
 
-    return render(request, 'patient_management/edit-patient.html', {'form': form})
+    return render(request, 'patient_management/patient-detail.html', {'form': form})

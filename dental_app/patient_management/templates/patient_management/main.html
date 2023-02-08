@@ -12,18 +12,6 @@
 {% block content %}
 
     <div>
-        <nav>
-            <button type="submit" name="add-new-patient" onclick="location.href='{% url 'add-patient' %}'">Add new patient</button>
-            <div>
-                <form action="" method="GET">
-                    <input name="search" type="text" id="search-bar" placeholder="Search patient...">
-                    <button type="submit" onclick="">Search</button>
-                </form>
-            </div>
-        </nav>
-    </div>
-
-    <div>
         <h2>My Patients</h2>
 
         <table id="patient-table">
@@ -40,7 +28,7 @@
             {% for patient in filtered_patients %}
             <tr>
                 <td> {{ patient.id }} </td>
-                <td> <a href="{% url 'edit-patient' patient_id=patient.id %}" class="row-link">{{ patient.last_name }} {{ patient.first_name }}</a></td>
+                <td> <a href="{% url 'patient-detail' patient_id=patient.id %}" class="row-link">{{ patient.last_name }} {{ patient.first_name }}</a></td>
                 <td> {{ patient.address }} </td>
                 <td> {{ patient.email }} </td>
                 <td> {{ patient.phone }} </td>
