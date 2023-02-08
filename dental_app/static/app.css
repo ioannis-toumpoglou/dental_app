@@ -12,8 +12,27 @@ button {
   border-radius: 6px;
 }
 
-button:hover,
-button:active {
+btn:hover,
+btn:active {
   background-color: #4040a8;
   border-color: #4040a8;
+}
+
+#logo {
+    margin-left: 1rem;
+    margin-right: 2rem;
+    background: #00008B;
+}
+
+.container-fluid {
+    background: #00008B;
+}
+
+.d-flex {
+    margin-right: 2rem;
+
+}
+
+.nav-item {
+    margin-right: 1rem;
 }
