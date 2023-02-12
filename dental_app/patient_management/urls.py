@@ -5,5 +5,5 @@ from . import views
 urlpatterns = [
     path('main/', views.main, name='main'),
     path('add-patient/', views.AddPatientFormView.as_view(), name='add-patient'),
-    path('patient-detail/<int:patient_id>', views.edit_patient, name='patient-detail')
+    path('patient-details/<int:patient_id>', views.edit_patient, name='patient-details')
 ]

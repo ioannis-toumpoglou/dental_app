@@ -20,8 +20,9 @@ btn:active {
 
 #logo {
     margin-left: 1rem;
-    margin-right: 2rem;
+    margin-right: 1rem;
     background: #00008B;
+    padding: 1rem;
 }
 
 .container-fluid {
@@ -30,7 +31,6 @@ btn:active {
 
 .d-flex {
     margin-right: 2rem;
-
 }
 
 .nav-item {

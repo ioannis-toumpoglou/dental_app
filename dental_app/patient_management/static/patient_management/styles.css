@@ -20,13 +20,20 @@
   height: 31rem;
 }
 
-#main-table {
-  border: 1px solid;
+#main-table-title {
+  margin: 1rem 0rem 1rem 3rem;
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: 7rem 21rem 9rem 23rem;
+  margin-left: 2rem;
+  margin-top: 1rem;
+}
+
+.grid-container-medical {
+  display: grid;
+  grid-template-columns: 10rem 10rem 10rem 10rem;
   margin-left: 2rem;
   margin-top: 1rem;
 }
@@ -39,6 +46,7 @@ textarea {
 
 #patient-table {
     border-collapse: collapse;
+    margin-left: 3rem;
 }
 
 #patient-table td, #patient-table th {
@@ -100,10 +108,16 @@ td {
     padding-right: 50px;
 }
 
-#save-button {
+.save-button {
     width: 35%;
     margin-right: 9rem;
     border-radius: 6px;
+}
+
+.save-button:hover,
+save-button:active {
+  background-color: #4040a8;
+  border-color: #4040a8;
 }
 
 #clear-button {
@@ -111,17 +125,23 @@ td {
     border-radius: 6px;
 }
 
-#delete-button {
+.delete-button {
     width: 35%;
     margin-right: 1rem;
     border-radius: 6px;
 }
 
-#add-form-buttons {
+.delete-button:hover,
+delete-button:active {
+  background-color: #4040a8;
+  border-color: #4040a8;
+}
+
+.add-form-buttons {
     text-align: center;
 }
 
-#reset-button {
+.reset-button {
   cursor: pointer;
   background-color: #00008b;
   border: 1px solid #00008b;
@@ -132,7 +152,7 @@ td {
   margin-right: 1rem;
 }
 
-#reset-button:hover,
+.reset-button:hover,
 reset-button:active {
   background-color: #4040a8;
   border-color: #4040a8;
@@ -152,10 +172,18 @@ a:active {
   text-decoration: underline;
 }
 
+.navbar {
+    padding: 0px;
+}
+
 #id_date_of_birth {
     width: 56%;
 }
 
 #search-bar {
     width: 20rem;
+}
+
+#navbarSupportedContent {
+    margin-top: 5rem;
 }

@@ -12,7 +12,9 @@
 {% block content %}
 
     <div>
-        <h2>My Patients</h2>
+        <div id="main-table-title">
+            <h3>My Patients</h3>
+        </div>
 
         <table id="patient-table">
             <tr>
@@ -28,7 +30,7 @@
             {% for patient in filtered_patients %}
             <tr>
                 <td> {{ patient.id }} </td>
-                <td> <a href="{% url 'patient-detail' patient_id=patient.id %}" class="row-link">{{ patient.last_name }} {{ patient.first_name }}</a></td>
+                <td> <a href="{% url 'patient-details' patient_id=patient.id %}" class="row-link">{{ patient.last_name }} {{ patient.first_name }}</a></td>
                 <td> {{ patient.address }} </td>
                 <td> {{ patient.email }} </td>
                 <td> {{ patient.phone }} </td>
