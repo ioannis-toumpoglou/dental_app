@@ -10,7 +10,7 @@ from .models import Patient
 # Create your views here.
 
 def main(request):
-    filtered_patients = None
+    filtered_patients = Patient.objects.all()
     if request.GET.get('search'):
         search = request.GET.get('search')
         filtered_patients = Patient.objects.filter(
@@ -66,8 +66,8 @@ def edit_patient(request, patient_id):
 
         if form.is_valid():
             form.save()
-            return render(request, 'patient_management/patient-detail.html', {'form': form})
+            return render(request, 'patient_management/patient-details.html', {'form': form})
         else:
             form = PatientForm(instance=patient)
 
-    return render(request, 'patient_management/patient-detail.html', {'form': form})
+    return render(request, 'patient_management/patient-details.html', {'form': form})
