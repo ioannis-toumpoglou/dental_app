@@ -43,7 +43,7 @@ def connect_to_database(uri, db_name):
 class AddPatientFormView(FormView):
     form_class = PatientForm
     template_name = 'patient_management/add-patient.html'
-    success_url = '/main/'
+    success_url = 'main'
     context = {}
 
     def post(self, request, *args, **kwargs):
@@ -51,16 +51,19 @@ class AddPatientFormView(FormView):
             form = PatientForm(request.POST)
             self.context['form'] = form
             form.save()
-            return redirect('/main/')
+            return redirect('main')
 
 
 def edit_patient(request, patient_id):
     patient = Patient.objects.filter(pk=patient_id).first()
     patient_form = PatientForm(instance=patient)
-    medical_history = MedicalHistory.objects.filter(patient=patient).first()
-    medical_history_form = MedicalHistoryForm(instance=medical_history)
+    medical_history_form = None
 
-    if medical_history is None:
+    try:
+        medical_history = MedicalHistory.objects.filter(patient=patient_id).first()
+        medical_history_form = MedicalHistoryForm(instance=medical_history)
+    except Exception as err:
+        print(str(err))
         medical_history = MedicalHistory.objects.create()
 
     if request.method == 'POST':
@@ -69,6 +72,7 @@ def edit_patient(request, patient_id):
             return redirect('main')
 
         if 'save-medical' in request.POST:
+            medical_history.patient = patient
             medical_history_form = MedicalHistoryForm(request.POST, instance=medical_history)
             medical_history_form.save()
             return render(request, 'patient_management/patient-details.html', {'form': patient_form,
