@@ -20,6 +20,17 @@
   height: 31rem;
 }
 
+.edit-patient-medical-form {
+  margin: 0.5rem auto;
+  width: 80%;
+  max-width: 60rem;
+  border-radius: 8px;
+  background-color: white;
+  padding: 2rem 12rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  height: 31rem;
+}
+
 #main-table-title {
   margin: 1rem 0rem 1rem 3rem;
 }
@@ -36,6 +47,19 @@
   grid-template-columns: 10rem 10rem 10rem 10rem;
   margin-left: 2rem;
   margin-top: 1rem;
+}
+
+#medical-history-table tbody {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+
+#medical-history-table label {
+    width: 12rem;
+}
+
+#medical-history-table tr {
+    margin-right: 7rem;
 }
 
 textarea {

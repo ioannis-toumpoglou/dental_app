@@ -3,8 +3,8 @@ from django.views.generic.edit import FormView
 from pymongo import MongoClient
 from django.db.models import Q
 
-from .forms import PatientForm
-from .models import Patient
+from .forms import PatientForm, MedicalHistoryForm
+from .models import Patient, MedicalHistory
 
 
 # Create your views here.
@@ -56,18 +56,30 @@ class AddPatientFormView(FormView):
 
 def edit_patient(request, patient_id):
     patient = Patient.objects.filter(pk=patient_id).first()
-    form = PatientForm(instance=patient)
+    patient_form = PatientForm(instance=patient)
+    medical_history = MedicalHistory.objects.filter(patient=patient).first()
+    medical_history_form = MedicalHistoryForm(instance=medical_history)
+
+    if medical_history is None:
+        medical_history = MedicalHistory.objects.create()
+
     if request.method == 'POST':
         if 'delete' in request.POST:
             patient.delete()
             return redirect('main')
 
-        form = PatientForm(request.POST, instance=patient)
+        if 'save-medical' in request.POST:
+            medical_history_form = MedicalHistoryForm(request.POST, instance=medical_history)
+            medical_history_form.save()
+            return render(request, 'patient_management/patient-details.html', {'form': patient_form,
+                                                                               'medical_form': medical_history_form})
 
-        if form.is_valid():
-            form.save()
-            return render(request, 'patient_management/patient-details.html', {'form': form})
-        else:
-            form = PatientForm(instance=patient)
+        patient_form = PatientForm(request.POST, instance=patient)
 
-    return render(request, 'patient_management/patient-details.html', {'form': form})
+        if patient_form.is_valid():
+            patient_form.save()
+            return render(request, 'patient_management/patient-details.html', {'form': patient_form,
+                                                                               'medical_form': medical_history_form})
+
+    return render(request, 'patient_management/patient-details.html', {'form': patient_form,
+                                                                       'medical_form': medical_history_form})

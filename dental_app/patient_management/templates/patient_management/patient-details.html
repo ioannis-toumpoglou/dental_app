@@ -51,42 +51,27 @@
           </form>
       </div>
       <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-          <form class="edit-patient-form" action="" method="POST">
+          <form class="edit-patient-medical-form" action="" method="POST">
             {% csrf_token %}
-            <div class="grid-container-medical">
-              <div class="grid-item"><label>AIDS/HIV</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Anemia</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Arthritis</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Artificial Joint</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Asthma</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Blood Disease</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Breathing Problem</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Cancer</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Chemotherapy</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Cortisone Medicine</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Diabetes</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Excessive Bleeding</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Hepatitis A</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Hepatitis B or C</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Hemophilia</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>High Blood Pressure</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>High Cholesterol</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Low Blood Pressure</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Osteoporosis</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Pain in Jaw Joints</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Parathyroid Disease</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Radiation Treatments</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Rheumatoid Arthritis</label></div><div><input type="checkbox"></div>
-              <div class="grid-item"><label>Thyroid Disease</label></div><div><input type="checkbox"></div>
-            </div>
+            <table id="medical-history-table">
+                <tbody>
+                  {{ medical_form.as_table }}
+                </tbody>
+            </table>
+            <br>
+            <br>
             <br>
             <div class="add-form-buttons">
-                <button type="submit" name="save" class="save-button">Save</button>
-                <input type="reset" name="clear" class="reset-button" value="Reset">
+                <button type="submit" name="save-medical" class="save-button">Save</button>
+                <input type="reset" name="clear-medical" class="reset-button" value="Reset">
             </div>
           </form>
       </div>
-      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+          <form class="edit-patient-form" action="" method="POST">
+            {% csrf_token %}
+          </form>
+      </div>
     </div>
 
 {% endblock %}
