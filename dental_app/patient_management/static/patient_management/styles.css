@@ -20,7 +20,18 @@
   height: 31rem;
 }
 
-.edit-patient-medical-form {
+#edit-patient-medical-form {
+  margin: 0.5rem auto;
+  width: 80%;
+  max-width: 60rem;
+  border-radius: 8px;
+  background-color: white;
+  padding: 2rem 12rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  height: 31rem;
+}
+
+#edit-patient-dental-form {
   margin: 0.5rem auto;
   width: 80%;
   max-width: 60rem;
@@ -59,6 +70,19 @@
 }
 
 #medical-history-table tr {
+    margin-right: 7rem;
+}
+
+#dental-history-table tbody {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+
+#dental-history-table label {
+    width: 12rem;
+}
+
+#dental-history-table tr {
     margin-right: 7rem;
 }
 

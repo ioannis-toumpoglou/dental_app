@@ -3,8 +3,8 @@ from django.views.generic.edit import FormView
 from pymongo import MongoClient
 from django.db.models import Q
 
-from .forms import PatientForm, MedicalHistoryForm
-from .models import Patient, MedicalHistory
+from .forms import PatientForm, MedicalHistoryForm, DentalHistoryForm
+from .models import Patient, MedicalHistory, DentalHistory
 
 
 # Create your views here.
@@ -57,14 +57,15 @@ class AddPatientFormView(FormView):
 def edit_patient(request, patient_id):
     patient = Patient.objects.filter(pk=patient_id).first()
     patient_form = PatientForm(instance=patient)
-    medical_history_form = None
 
-    try:
-        medical_history = MedicalHistory.objects.filter(patient=patient_id).first()
-        medical_history_form = MedicalHistoryForm(instance=medical_history)
-    except Exception as err:
-        print(str(err))
-        medical_history = MedicalHistory.objects.create()
+    medical_history = MedicalHistory.objects.filter(patient=patient_id).first()
+    if medical_history is None:
+        medical_history = MedicalHistory.objects.create(patient_id=patient_id)
+    medical_history_form = MedicalHistoryForm(instance=medical_history)
+    dental_history = DentalHistory.objects.filter(patient=patient_id).first()
+    if dental_history is None:
+        dental_history = DentalHistory.objects.create(patient_id=patient_id)
+    dental_history_form = DentalHistoryForm(instance=dental_history)
 
     if request.method == 'POST':
         if 'delete' in request.POST:
@@ -76,14 +77,25 @@ def edit_patient(request, patient_id):
             medical_history_form = MedicalHistoryForm(request.POST, instance=medical_history)
             medical_history_form.save()
             return render(request, 'patient_management/patient-details.html', {'form': patient_form,
-                                                                               'medical_form': medical_history_form})
+                                                                               'medical_form': medical_history_form,
+                                                                               'dental_form': dental_history_form})
+
+        if 'save-dental' in request.POST:
+            dental_history.patient = patient
+            dental_history_form = DentalHistoryForm(request.POST, instance=dental_history)
+            dental_history_form.save()
+            return render(request, 'patient_management/patient-details.html', {'form': patient_form,
+                                                                               'medical_form': medical_history_form,
+                                                                               'dental_form': dental_history_form})
 
         patient_form = PatientForm(request.POST, instance=patient)
 
         if patient_form.is_valid():
             patient_form.save()
             return render(request, 'patient_management/patient-details.html', {'form': patient_form,
-                                                                               'medical_form': medical_history_form})
+                                                                               'medical_form': medical_history_form,
+                                                                               'dental_form': dental_history_form})
 
     return render(request, 'patient_management/patient-details.html', {'form': patient_form,
-                                                                       'medical_form': medical_history_form})
+                                                                       'medical_form': medical_history_form,
+                                                                       'dental_form': dental_history_form})
