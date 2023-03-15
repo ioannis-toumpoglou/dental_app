@@ -1,3 +1,8 @@
+#add-patient-header h3 {
+    font-size: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
 .add-patient-form {
   margin: 0.5rem auto;
   width: 80%;
@@ -26,7 +31,7 @@
   max-width: 60rem;
   border-radius: 8px;
   background-color: white;
-  padding: 2rem 12rem;
+  padding: 2rem 10rem 0rem 10rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   height: 31rem;
 }
@@ -37,7 +42,7 @@
   max-width: 60rem;
   border-radius: 8px;
   background-color: white;
-  padding: 2rem 12rem;
+  padding: 2rem 5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   height: 31rem;
 }
@@ -53,13 +58,6 @@
   margin-top: 1rem;
 }
 
-.grid-container-medical {
-  display: grid;
-  grid-template-columns: 10rem 10rem 10rem 10rem;
-  margin-left: 2rem;
-  margin-top: 1rem;
-}
-
 #medical-history-table tbody {
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -70,7 +68,12 @@
 }
 
 #medical-history-table tr {
-    margin-right: 7rem;
+    padding-right: 5rem;
+}
+
+#medical-history-table td {
+    padding-right: 6rem;
+    padding-left: 1rem;
 }
 
 #dental-history-table tbody {
@@ -83,7 +86,12 @@
 }
 
 #dental-history-table tr {
-    margin-right: 7rem;
+    margin-right: 4rem;
+    margin-bottom: 0.3rem;
+}
+
+#dental-history-table label {
+    width: 20rem;
 }
 
 textarea {
@@ -157,8 +165,8 @@ td {
 }
 
 .save-button {
-    width: 35%;
-    margin-right: 9rem;
+    width: 15rem;
+    margin-right: 8rem;
     border-radius: 6px;
 }
 
@@ -169,12 +177,12 @@ save-button:active {
 }
 
 #clear-button {
-    width: 35%;
+    width: 15rem;
     border-radius: 6px;
 }
 
 .delete-button {
-    width: 35%;
+    width: 15rem;
     margin-right: 1rem;
     border-radius: 6px;
 }
@@ -196,7 +204,7 @@ delete-button:active {
   color: white;
   padding: 0.5rem 1.5rem;
   border-radius: 6px;
-  width: 35%;
+  width: 15rem;
   margin-right: 1rem;
 }
 

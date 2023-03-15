@@ -14,8 +14,9 @@
 
     <form class="add-patient-form" action="/add-patient/" method="POST">
         {% csrf_token %}
-        <h3>Add patient</h3>
-
+        <div id="add-patient-header">
+            <h3>Add patient</h3>
+        </div>
             <div class="grid-container">
                 <div class="grid-item"><p><label for="id_last_name">Last Name:</label></p></div>
                 <div class="grid-item"><p>{{ form.last_name }}</p></div>
