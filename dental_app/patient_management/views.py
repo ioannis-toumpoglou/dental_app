@@ -80,10 +80,28 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form})
 
+        if 'clear-medical' in request.POST:
+            medical_history = MedicalHistory.objects.get(patient_id=patient_id)
+            medical_history.delete()
+            medical_history = MedicalHistory.objects.create(patient_id=patient_id)
+            medical_history_form = MedicalHistoryForm(instance=medical_history)
+            return render(request, 'patient_management/patient-details.html', {'form': patient_form,
+                                                                               'medical_form': medical_history_form,
+                                                                               'dental_form': dental_history_form})
+
         if 'save-dental' in request.POST:
             dental_history.patient = patient
             dental_history_form = DentalHistoryForm(request.POST, instance=dental_history)
             dental_history_form.save()
+            return render(request, 'patient_management/patient-details.html', {'form': patient_form,
+                                                                               'medical_form': medical_history_form,
+                                                                               'dental_form': dental_history_form})
+
+        if 'clear-dental' in request.POST:
+            dental_history = DentalHistory.objects.get(patient_id=patient_id)
+            dental_history.delete()
+            dental_history = DentalHistory.objects.create(patient_id=patient_id)
+            dental_history_form = DentalHistoryForm(instance=dental_history)
             return render(request, 'patient_management/patient-details.html', {'form': patient_form,
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form})
