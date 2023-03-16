@@ -22,7 +22,7 @@
   background-color: white;
   padding: 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  height: 31rem;
+  height: 30.5rem;
 }
 
 #edit-patient-medical-form {
@@ -33,7 +33,7 @@
   background-color: white;
   padding: 2rem 10rem 0rem 10rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  height: 31rem;
+  height: 30.5rem;
 }
 
 #edit-patient-dental-form {
@@ -44,7 +44,18 @@
   background-color: white;
   padding: 2rem 5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  height: 31rem;
+  height: 30.5rem;
+}
+
+#appointments-form {
+  margin: 0.5rem auto;
+  width: 80%;
+  max-width: 60rem;
+  border-radius: 8px;
+  background-color: white;
+  padding: 2rem 5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  height: 30.5rem;
 }
 
 #main-table-title {
@@ -193,7 +204,7 @@ delete-button:active {
   border-color: #4040a8;
 }
 
-.add-form-buttons {
+.add-form-button {
     text-align: center;
 }
 
