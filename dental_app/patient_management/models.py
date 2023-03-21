@@ -70,3 +70,9 @@ class DentalHistory(models.Model):
     wear_or_worn_bite_appliance = models.BooleanField(default=False)
     ever_whitened_bleached_teeth = models.BooleanField(default=False)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+
+
+class Appointment(models.Model):
+    appointment_date = models.DateField(null=True)
+    notes = models.CharField(max_length=500, null=True, blank=True)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
