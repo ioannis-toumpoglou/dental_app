@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Patient, MedicalHistory, DentalHistory
+from .models import Patient, MedicalHistory, DentalHistory, Appointment
 
 
 class PatientForm(forms.ModelForm):
@@ -21,3 +21,10 @@ class DentalHistoryForm(forms.ModelForm):
     class Meta:
         model = DentalHistory
         exclude = ['patient']
+
+class AppointmentForm(forms.ModelForm):
+    class Meta:
+        model = Appointment
+        exclude = ['patient']
+        widgets = {
+            'notes': forms.Textarea(attrs={'style': 'width: 100%;', 'rows': '5'}),}
