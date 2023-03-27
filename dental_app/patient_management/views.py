@@ -177,7 +177,7 @@ def edit_patient(request, patient_id):
 
 
 def get_appointments_form_list(patient_id):
-    appointments_list = Appointment.objects.filter(patient_id=patient_id)
+    appointments_list = Appointment.objects.filter(patient_id=patient_id).order_by('-appointment_date')
     appointments_form_list = list()
 
     for appointment in appointments_list:
