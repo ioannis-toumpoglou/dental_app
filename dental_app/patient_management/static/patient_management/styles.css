@@ -306,3 +306,7 @@ a:active {
 #navbarSupportedContent {
     margin-top: 5rem;
 }
+
+.grid-item label {
+    font-weight: bold;
+}
