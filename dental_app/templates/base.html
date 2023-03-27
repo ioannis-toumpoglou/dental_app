@@ -27,10 +27,12 @@
             <button class="btn btn-outline-primary" type="submit" name="add-new-patient" onclick="location.href='{% url 'add-patient' %}'">Add Patient</button>
           </li>
         </ul>
+        {% if not '/add-patient/' in request.path and not '/patient-details/' in request.path %}
         <form class="d-flex" method="GET">
           <input class="form-control me-2" name="search" type="text" id="search-bar" placeholder="Search patient...">
           <button class="btn btn-outline-primary" type="submit">Search</button>
         </form>
+        {% endif %}
       </div>
     </div>
   </nav>
