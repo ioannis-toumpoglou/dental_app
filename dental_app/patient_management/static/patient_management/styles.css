@@ -63,15 +63,19 @@
   height: 30.5rem;
 }
 
-#appointments-form {
+#appointment-form {
   margin: 0.5rem auto;
   width: 80%;
   max-width: 60rem;
   border-radius: 8px;
   background-color: white;
-  padding: 2rem 5rem;
+  padding: 1.5rem 5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  height: 30.5rem;
+  height: 23rem;
+}
+
+#appointment-list label {
+    font-weight: bold;
 }
 
 #main-table-title {
@@ -247,6 +251,12 @@ reset-button:active {
     margin-top: 4rem;
 }
 
+#edit-appointment-button {
+    position: inherit;
+    margin: 0;
+    margin-top: 4rem;
+}
+
 #modal-save-button {
     background-color: #00008b;
     border: 1px solid #00008b;
@@ -256,6 +266,11 @@ reset-button:active {
 modal-save-button:active {
   background-color: #4040a8;
   border-color: #4040a8;
+}
+
+#save-appointment-button {
+    width: 15rem;
+    border-radius: 6px;
 }
 
 a:link {
