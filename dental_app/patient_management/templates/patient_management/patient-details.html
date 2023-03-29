@@ -19,6 +19,8 @@
         <button class="nav-link" id="nav-medical-tab" data-bs-toggle="tab" data-bs-target="#nav-medical" type="button" role="tab" aria-controls="nav-medical" aria-selected="false">Medical History</button>
         <button class="nav-link" id="nav-dental-tab" data-bs-toggle="tab" data-bs-target="#nav-dental" type="button" role="tab" aria-controls="nav-dental" aria-selected="false">Dental History</button>
         <button class="nav-link" id="nav-appointments-tab" data-bs-toggle="tab" data-bs-target="#nav-appointments" type="button" role="tab" aria-controls="nav-appointments" aria-selected="false">Appointments</button>
+        <button class="nav-link" id="nav-odontogram-tab" data-bs-toggle="tab" data-bs-target="#nav-odontogram" type="button" role="tab" aria-controls="nav-odontogram" aria-selected="false">Odontogram</button>
+        <button class="nav-link" id="nav-periogram-tab" data-bs-toggle="tab" data-bs-target="#nav-periogram" type="button" role="tab" aria-controls="nav-periogram" aria-selected="false">Periogram</button>
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
@@ -157,6 +159,18 @@
             </div>
           </form>
         {% endfor %}
+      </div>
+      <div class="tab-pane fade" id="nav-odontogram" role="tabpanel" aria-labelledby="nav-odontogram-tab">
+          <form id="odontogram-form" action="" method="POST">
+            {% csrf_token %}
+            Odontogram
+          </form>
+      </div>
+      <div class="tab-pane fade" id="nav-periogram" role="tabpanel" aria-labelledby="nav-periogram-tab">
+          <form id="periogram-form" action="" method="POST">
+            {% csrf_token %}
+            Periogram
+          </form>
       </div>
     </div>
 
