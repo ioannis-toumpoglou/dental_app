@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    My Dental Assistant
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'patient_management/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div id="appointment-calendar">
+        {{ calendar }}
+    </div>
+
+{% endblock %}
