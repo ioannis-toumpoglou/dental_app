@@ -332,3 +332,25 @@ a:active {
 .grid-item label {
     font-weight: bold;
 }
+
+#appointment-calendar th {
+    text-align: center;
+}
+
+#appointment-calendar tr {
+    border-color: #00008b;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#appointment-calendar td {
+    border-width: 1px;
+}
+
+.month {
+    margin: auto;
+}
+
+.btn {
+    width: 115px;
+}
