@@ -8,7 +8,7 @@ class PatientForm(forms.ModelForm):
         model = Patient
         fields = '__all__'
         widgets = {
-            'notes': forms.Textarea(attrs={'rows':5}),}
+            'notes': forms.Textarea(attrs={'rows': 5})}
 
 
 class MedicalHistoryForm(forms.ModelForm):
@@ -22,9 +22,10 @@ class DentalHistoryForm(forms.ModelForm):
         model = DentalHistory
         exclude = ['patient']
 
+
 class AppointmentForm(forms.ModelForm):
     class Meta:
         model = Appointment
         exclude = ['patient']
         widgets = {
-            'notes': forms.Textarea(attrs={'style': 'width: 100%;', 'rows': '5'}),}
+            'notes': forms.Textarea(attrs={'style': 'width: 100%;', 'rows': '5'})}
