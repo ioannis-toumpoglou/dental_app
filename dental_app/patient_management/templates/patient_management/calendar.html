@@ -11,6 +11,9 @@
 
 {% block content %}
 
+    <a class="btn-month btn-info left" href="{% url 'calendar' %}?{{ prev_month }}"> Previous Month </a>
+	<a class="btn-month btn-info right" href="{% url 'calendar' %}?{{ next_month }}"> Next Month </a>
+
     <div id="appointment-calendar">
         {{ calendar }}
     </div>
