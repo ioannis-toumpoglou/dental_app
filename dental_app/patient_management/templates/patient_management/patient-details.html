@@ -66,6 +66,9 @@
                     <div>
                         <div><label>Date:</label></div>
                         <div><p>{% render_field appointment_form.appointment_date type="date" placeholder="dd/mm/yyyy" %}</p></div>
+                        <div><p><label>Header:</label></p></div>
+                        <div>{{ appointment_form.appointment_header }}</div>
+                        <br>
                         <div><p><label>Notes:</label></p></div>
                         <div class="appointment-textarea">{{ appointment_form.notes }}</div>
                     </div>
