@@ -402,3 +402,7 @@ a:active {
     overflow-x: hidden;
     font-size: 12px;
 }
+
+#patient-detail-tabs {
+    margin-top: 0.5rem;
+}
