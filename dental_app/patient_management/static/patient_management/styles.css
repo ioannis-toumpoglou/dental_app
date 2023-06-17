@@ -89,7 +89,7 @@
   height: 30.5rem;
 }
 
-#periogram-form {
+#periodontogram-form {
   margin: 0.5rem auto;
   width: 80%;
   max-width: 60rem;
@@ -405,4 +405,14 @@ a:active {
 
 #patient-detail-tabs {
     margin-top: 0.5rem;
+}
+
+#odontogram {
+    height: 24rem;
+    margin-top: 1rem;
+}
+
+#periodontogram {
+    height: 21rem;
+    margin-top: 3rem;
 }
