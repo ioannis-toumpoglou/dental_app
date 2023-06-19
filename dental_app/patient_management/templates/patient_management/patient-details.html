@@ -64,8 +64,9 @@
                   </div>
                   <div class="modal-body">
                     <div>
-                        <div><label>Date:</label></div>
-                        <div><p>{% render_field appointment_form.appointment_date type="date" placeholder="dd/mm/yyyy" %}</p></div>
+                        <div><label>Date:</label>&nbsp;&nbsp;{% render_field appointment_form.appointment_date type="date" placeholder="dd/mm/yyyy" %}</div>
+                        <div><label>Time:</label>&nbsp;&nbsp;{% render_field appointment_form.appointment_time type="time" %}</div>
+                        <p></p>
                         <div><p><label>Header:</label></p></div>
                         <div>{{ appointment_form.appointment_header }}</div>
                         <br>
@@ -151,8 +152,9 @@
             {% csrf_token %}
             <div id="appointment-list">
                 <input type='hidden' value='{{ appointment_form.auto_id }}' name='id'>
-                <div><label>Date:</label></div>
-                <div><p>{{ appointment_form.appointment_date.value }}</p></div>
+                <div><label>Date:</label>&nbsp;&nbsp;{{ appointment_form.appointment_date.value }}</div>
+                <div><label>Time:</label>&nbsp;&nbsp;{{ appointment_form.appointment_time.value|time:"H:i" }}</div>
+                <p></p>
                 <div><p><label>Notes:</label></p></div>
                 <div class="appointment-textarea">{{ appointment_form.notes }}</div>
             </div>

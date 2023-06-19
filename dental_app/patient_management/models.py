@@ -79,6 +79,7 @@ class DentalHistory(models.Model):
 
 class Appointment(models.Model):
     appointment_date = models.DateField(null=True)
+    appointment_time = models.TimeField(null=True)
     appointment_header = models.CharField(max_length=500, null=False, blank=True)
     notes = models.CharField(max_length=500, null=True, blank=True)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
@@ -99,7 +100,11 @@ class AppointmentCalendar(HTMLCalendar):
         events_per_day = events.filter(appointment_date__day=day)
         d = ''
         for event in events_per_day:
-            d += f'<li> {event.get_html_url} {event.appointment_header} </li>'
+            if event.appointment_time is not None:
+                event.appointment_time = event.appointment_time.strftime("%H:%M")
+            else:
+                event.appointment_time = ''
+            d += f'<li> {event.appointment_time} {event.get_html_url} {event.appointment_header} </li>'
 
         if day != 0:
             return f"<td><span class='date'>{day}</span><ol id='calendar-appointment-list'> {d} </ol></td>"
