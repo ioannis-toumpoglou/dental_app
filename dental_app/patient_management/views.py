@@ -150,12 +150,26 @@ def edit_patient(request, patient_id):
             appointment_id = request.POST.get('id')
             edited_appointment = Appointment.objects.get(id=appointment_id)
             edited_appointment.appointment_time = request.POST.get('appointment_time')
-            edited_appointment.appointment_time = request.POST.get('appointment_time')
             edited_appointment.notes = request.POST.get('notes')
             edited_appointment.save()
             appointment_form = AppointmentForm()
 
+            appointments_form_list = get_appointments_form_list(patient_id=patient_id) \
+                if len(get_appointments_form_list(patient_id=patient_id)) > 0 else None
+
+            return render(request, 'patient_management/patient-details.html', {'patient': patient,
+                                                                               'form': patient_form,
+                                                                               'medical_form': medical_history_form,
+                                                                               'dental_form': dental_history_form,
+                                                                               'appointment_form': appointment_form,
+                                                                               'appointments_form_list': appointments_form_list})
+
+        if 'delete-appointment' in request.POST:
+            appointment_id = request.POST.get('id')
+            appointment = Appointment.objects.get(id=appointment_id)
+            appointment.delete()
             appointments_form_list = get_appointments_form_list(patient_id=patient_id)
+            appointment_form = AppointmentForm()
 
             return render(request, 'patient_management/patient-details.html', {'patient': patient,
                                                                                'form': patient_form,

@@ -108,7 +108,7 @@
             <br>
             <div class="add-form-button">
                 <button type="submit" name="save" class="save-button">Save</button>
-                <button type="submit" name="delete" class="delete-button">Delete</button>
+                <button type="submit" name="delete" class="delete-button"  onclick="return confirm('Are you sure you want to delete this patient?');">Delete</button>
             </div>
           </form>
       </div>
@@ -125,7 +125,7 @@
             <br>
             <div class="add-form-button">
                 <button type="submit" name="save-medical" class="save-button">Save</button>
-                <button type="submit" name="clear-medical" class="reset-button">Reset</button>
+                <button type="submit" name="clear-medical" class="reset-button" onclick="return confirm('Are you sure you want to clear the medical history tab?');">Reset</button>
             </div>
           </form>
       </div>
@@ -142,7 +142,7 @@
             <br>
             <div class="add-form-button">
                 <button type="submit" name="save-dental" class="save-button">Save</button>
-                <button type="submit" name="clear-dental" class="reset-button">Reset</button>
+                <button type="submit" name="clear-dental" class="reset-button" onclick="return confirm('Are you sure you want to clear the dental history tab?');">Reset</button>
             </div>
           </form>
       </div>
@@ -161,6 +161,7 @@
             <br>
             <div class="add-form-button">
                 <button type="submit" name="edit-appointment" id="save-appointment-button">Save</button>
+                <button type="submit" name="delete-appointment" id="delete-appointment-button" onclick="return confirm('Are you sure you want to delete this appointment?');">Delete</button>
             </div>
           </form>
         {% endfor %}

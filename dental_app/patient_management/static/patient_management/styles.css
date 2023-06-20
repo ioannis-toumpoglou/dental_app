@@ -291,6 +291,25 @@ modal-save-button:active {
     border-radius: 6px;
 }
 
+#save-appointment-button:hover,
+save-appointment-button:active {
+  background-color: #4040a8;
+  border-color: #4040a8;
+}
+
+#delete-appointment-button {
+    width: 15rem;
+    margin-left: 5rem;
+    margin-right: 1rem;
+    border-radius: 6px;
+}
+
+#delete-appointment-button:hover,
+delete-appointment-button:active {
+  background-color: #4040a8;
+  border-color: #4040a8;
+}
+
 a:link {
   text-decoration: none;
   color: black;
