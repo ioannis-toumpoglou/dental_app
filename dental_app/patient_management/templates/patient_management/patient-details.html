@@ -21,6 +21,7 @@
         <button class="nav-link" id="nav-appointments-tab" data-bs-toggle="tab" data-bs-target="#nav-appointments" type="button" role="tab" aria-controls="nav-appointments" aria-selected="false">Appointments</button>
         <button class="nav-link" id="nav-odontogram-tab" data-bs-toggle="tab" data-bs-target="#nav-odontogram" type="button" role="tab" aria-controls="nav-odontogram" aria-selected="false">Odontogram</button>
         <button class="nav-link" id="nav-periodontogram-tab" data-bs-toggle="tab" data-bs-target="#nav-periodontogram" type="button" role="tab" aria-controls="nav-periodontogram" aria-selected="false">Periodontogram</button>
+        <button class="nav-link" id="nav-datafiles-tab" data-bs-toggle="tab" data-bs-target="#nav-datafiles" type="button" role="tab" aria-controls="nav-datafiles" aria-selected="false">Datafiles</button>
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
@@ -176,6 +177,25 @@
           <form id="periodontogram-form" action="" method="POST">
             {% csrf_token %}
             <img src="{% static 'images/periodontogram.png' %}" id="periodontogram" alt="periodontogram">
+          </form>
+      </div>
+      <div class="tab-pane fade" id="nav-datafiles" role="tabpanel" aria-labelledby="nav-datafiles-tab">
+          <form id="datafiles-form" action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table id="datafile-table">
+                <tr>
+                    <th id="file-name-header">File Name</th>
+                    <th id="file-date-header">Created</th>
+                    <th id="file-size-header">Size</th>
+                </tr>
+                {% for file in datafiles %}
+                <tr>
+                    <td> <a href="{% static 'patient_data/' %}{{ file.path }}" target="_blank">{{ file.filename }}</a> </td>
+                    <td> {{ file.created }} </td>
+                    <td> {{ file.size }} MB</td>
+                </tr>
+                {% endfor %}
+            </table>
           </form>
       </div>
     </div>

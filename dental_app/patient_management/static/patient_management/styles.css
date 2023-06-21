@@ -100,6 +100,17 @@
   height: 30.5rem;
 }
 
+#datafiles-form {
+  margin: 0.5rem auto;
+  width: 80%;
+  max-width: 60rem;
+  border-radius: 8px;
+  background-color: white;
+  padding: 2rem 5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  height: 30.5rem;
+}
+
 #main-table-title {
   margin: 1rem 0rem 1rem 3rem;
 }
@@ -211,6 +222,47 @@ textarea {
 
 #date-of-birth-header {
     width: 10rem;
+}
+
+#datafile-table {
+    border-collapse: collapse;
+    margin-left: 3rem;
+    margin-top: 2rem;
+}
+
+#datafile-table td, #patient-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#datafile-table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+#datafile-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#datafile-table tr:hover {
+    background-color: #ddd;
+}
+
+#datafile-table th {
+  text-align: left;
+  background-color: #00008b;
+  color: white;
+}
+
+#file-name-header {
+    width: 20rem;
+}
+
+#file-date-header {
+    width: 18rem;
+}
+
+#filename-header {
+    width: 15rem;
 }
 
 .save-button {

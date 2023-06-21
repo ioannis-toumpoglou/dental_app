@@ -1,5 +1,5 @@
 import calendar
-from calendar import HTMLCalendar
+import os
 from datetime import datetime, date, timedelta
 from django.shortcuts import render, redirect
 from django.utils.safestring import mark_safe
@@ -7,6 +7,11 @@ from django.views import generic
 from django.views.generic.edit import FormView
 from pymongo import MongoClient
 from django.db.models import Q
+from pathlib import Path
+from os import listdir
+from os.path import isfile, join
+import shutil
+from django.conf import settings
 
 from .forms import PatientForm, MedicalHistoryForm, DentalHistoryForm, AppointmentForm
 from .models import Patient, MedicalHistory, DentalHistory, Appointment, AppointmentCalendar
@@ -53,9 +58,18 @@ class AddPatientFormView(FormView):
 
     def post(self, request, *args, **kwargs):
         if 'save' in request.POST:
+            # Create new patient database record
             form = PatientForm(request.POST)
             self.context['form'] = form
             form.save()
+            # Create patient local data
+            data_path = Path(settings.PATIENT_DATA_FOLDER)
+            patient_last_name = form.cleaned_data.get('last_name')
+            patient_first_name = form.cleaned_data.get('first_name')
+            patient_name = f'{patient_last_name}_{patient_first_name}'
+            patient = Patient.objects.filter(last_name=patient_last_name, first_name=patient_first_name).first()
+            path_name = data_path / f'{patient_name}_{patient.pk}'
+            path_name.mkdir(parents=True, exist_ok=True)
             return redirect('main')
 
 
@@ -81,8 +95,28 @@ def edit_patient(request, patient_id):
     appointment_form = AppointmentForm(request.POST)
     context['appointment_form'] = appointment_form
 
+    data_path = Path(settings.PATIENT_DATA_FOLDER)
+    patient_last_name = patient.last_name
+    patient_first_name = patient.first_name
+    patient_name = f'{patient_last_name}_{patient_first_name}'
+    path_name = data_path / f'{patient_name}_{patient.pk}'
+
+    datafiles = [f for f in listdir(path_name) if isfile(join(path_name, f))]
+    datafiles_metadata = []
+
+    for file in datafiles:
+        metadata = {'filename': file,
+                    'path': f'{patient_name}_{patient.pk}\\{file}',
+                    'created': datetime.fromtimestamp(os.stat(os.path.join(path_name, file)).st_ctime),
+                    'size': round((os.stat(os.path.join(path_name, file)).st_size / 1000000), 3)
+                    }
+        datafiles_metadata.append(metadata)
+
     if request.method == 'POST':
         if 'delete' in request.POST:
+            # Delete patient local data
+            shutil.rmtree(path_name)
+            # Delete patient database record
             patient.delete()
             return redirect('main')
 
@@ -194,7 +228,8 @@ def edit_patient(request, patient_id):
                                                                        'medical_form': medical_history_form,
                                                                        'dental_form': dental_history_form,
                                                                        'appointment_form': appointment_form,
-                                                                       'appointments_form_list': appointments_form_list})
+                                                                       'appointments_form_list': appointments_form_list,
+                                                                       'datafiles': datafiles_metadata})
 
 
 def get_appointments_form_list(patient_id):
