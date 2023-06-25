@@ -183,11 +183,13 @@
           <form id="datafiles-form" action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <table id="datafile-table">
-                <tr>
-                    <th id="file-name-header">File Name</th>
-                    <th id="file-date-header">Created</th>
-                    <th id="file-size-header">Size</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th id="file-name-header">File Name</th>
+                        <th id="file-date-header">Created</th>
+                        <th id="file-size-header">Size</th>
+                    </tr>
+                </thead>
                 {% for file in datafiles %}
                 <tr>
                     <td> <a href="{% static 'patient_data/' %}{{ file.path }}" target="_blank">{{ file.filename }}</a> </td>
@@ -196,6 +198,12 @@
                 </tr>
                 {% endfor %}
             </table>
+            <div id="upload-form">
+                <label id="upload-form-label">Select files:</label>
+                <br>
+                <input type="file" name="files" id="upload-file-search" multiple>
+                <input type="submit" name="file-upload" value="Upload">
+            </div>
           </form>
       </div>
     </div>

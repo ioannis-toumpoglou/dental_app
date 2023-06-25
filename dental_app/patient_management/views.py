@@ -108,7 +108,7 @@ def edit_patient(request, patient_id):
         metadata = {'filename': file,
                     'path': f'{patient_name}_{patient.pk}\\{file}',
                     'created': datetime.fromtimestamp(os.stat(os.path.join(path_name, file)).st_ctime),
-                    'size': round((os.stat(os.path.join(path_name, file)).st_size / 1000000), 3)
+                    'size': round((os.stat(os.path.join(path_name, file)).st_size / 1000000), 2)
                     }
         datafiles_metadata.append(metadata)
 
@@ -129,7 +129,8 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
-                                                                               'appointments_form_list': appointments_form_list})
+                                                                               'appointments_form_list': appointments_form_list,
+                                                                               'datafiles': datafiles_metadata})
 
         if 'clear-medical' in request.POST:
             medical_history = MedicalHistory.objects.get(patient_id=patient_id)
@@ -141,7 +142,8 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
-                                                                               'appointments_form_list': appointments_form_list})
+                                                                               'appointments_form_list': appointments_form_list,
+                                                                               'datafiles': datafiles_metadata})
 
         if 'save-dental' in request.POST:
             dental_history.patient = patient
@@ -152,7 +154,8 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
-                                                                               'appointments_form_list': appointments_form_list})
+                                                                               'appointments_form_list': appointments_form_list,
+                                                                               'datafiles': datafiles_metadata})
 
         if 'clear-dental' in request.POST:
             dental_history = DentalHistory.objects.get(patient_id=patient_id)
@@ -164,7 +167,8 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
-                                                                               'appointments_form_list': appointments_form_list})
+                                                                               'appointments_form_list': appointments_form_list,
+                                                                               'datafiles': datafiles_metadata})
 
         if 'save-appointment' in request.POST:
             appointment = Appointment.objects.create(patient_id=patient_id)
@@ -178,7 +182,8 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
-                                                                               'appointments_form_list': appointments_form_list})
+                                                                               'appointments_form_list': appointments_form_list,
+                                                                               'datafiles': datafiles_metadata})
 
         if 'edit-appointment' in request.POST:
             appointment_id = request.POST.get('id')
@@ -196,7 +201,8 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
-                                                                               'appointments_form_list': appointments_form_list})
+                                                                               'appointments_form_list': appointments_form_list,
+                                                                               'datafiles': datafiles_metadata})
 
         if 'delete-appointment' in request.POST:
             appointment_id = request.POST.get('id')
@@ -210,7 +216,28 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
-                                                                               'appointments_form_list': appointments_form_list})
+                                                                               'appointments_form_list': appointments_form_list,
+                                                                               'datafiles': datafiles_metadata})
+
+        if 'file-upload' in request.POST:
+            files = request.FILES.getlist('files')
+            for file in files:
+                handle_uploaded_file(patient_name=f'{patient_name}_{patient.pk}',
+                                     destination_folder=f'{settings.PATIENT_DATA_FOLDER}',
+                                     file=file)
+                metadata = {'filename': file,
+                            'path': f'{patient_name}_{patient.pk}\\{file}',
+                            'created': datetime.fromtimestamp(os.stat(os.path.join(path_name, file.name)).st_ctime),
+                            'size': round((os.stat(os.path.join(path_name, file.name)).st_size / 1000000), 3)
+                            }
+                datafiles_metadata.append(metadata)
+            return render(request, 'patient_management/patient-details.html', {'patient': patient,
+                                                                               'form': patient_form,
+                                                                               'medical_form': medical_history_form,
+                                                                               'dental_form': dental_history_form,
+                                                                               'appointment_form': appointment_form,
+                                                                               'appointments_form_list': appointments_form_list,
+                                                                               'datafiles': datafiles_metadata})
 
         patient_form = PatientForm(request.POST, instance=patient)
 
@@ -221,7 +248,8 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
-                                                                               'appointments_form_list': appointments_form_list})
+                                                                               'appointments_form_list': appointments_form_list,
+                                                                               'datafiles': datafiles_metadata})
 
     return render(request, 'patient_management/patient-details.html', {'patient': patient,
                                                                        'form': patient_form,
@@ -241,6 +269,12 @@ def get_appointments_form_list(patient_id):
         appointments_form_list.append(appointment_form)
 
     return appointments_form_list
+
+
+def handle_uploaded_file(patient_name, destination_folder, file):
+    with open(f'{destination_folder}\\{patient_name}\\{file}', "wb+") as destination:
+        for chunk in file.chunks():
+            destination.write(chunk)
 
 
 class CalendarView(generic.ListView):

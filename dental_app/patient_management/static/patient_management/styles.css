@@ -227,7 +227,11 @@ textarea {
 #datafile-table {
     border-collapse: collapse;
     margin-left: 3rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    display: block;
+    overflow: auto;
+    height: 20rem;
+    width: 90%;
 }
 
 #datafile-table td, #patient-table th {
@@ -251,6 +255,8 @@ textarea {
   text-align: left;
   background-color: #00008b;
   color: white;
+  position: sticky;
+  top: 0;
 }
 
 #file-name-header {
@@ -486,4 +492,27 @@ a:active {
 #periodontogram {
     height: 21rem;
     margin-top: 3rem;
+}
+
+#upload-form {
+    display: block;
+    margin-left: 12rem;
+    margin-bottom: 2rem;
+    position:absolute;
+    bottom: 0;
+    width: 27%;
+    height: 6rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    padding: 1rem;
+}
+
+#upload-form-label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+#upload-file-search {
+    overflow-x: hidden;
+    width: 19rem;
 }
