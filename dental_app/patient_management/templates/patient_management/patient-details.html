@@ -48,11 +48,9 @@
                 <div class="grid-item"><p><label>Date of Birth:</label></p></div>
                 <div class="grid-item" id="date-of-birth-general"><p>{{ patient.date_of_birth }}</p></div>
             </div>
-            <br>
             <div class="add-form-button">
-                <button type="button" id="new-appointment-button" class="save-button" data-bs-toggle="modal" data-bs-target="#newAppointmentModal">
-                  New Appointment
-                </button>
+                <button type="button" id="new-appointment-button" class="save-button" data-bs-toggle="modal" data-bs-target="#newAppointmentModal">New Appointment</button>
+                <button type="button" id="new-treatment-plan-button" class="save-button" data-bs-toggle="modal" data-bs-target="#newTreatmentPlanModal">New Treatment Plan</button>
             </div>
         </form>
       </div>
@@ -68,6 +66,7 @@
                   <div class="modal-body">
                     <div>
                         <div><label>Date:</label>&nbsp;&nbsp;{% render_field appointment_form.appointment_date type="date" placeholder="dd/mm/yyyy" %}</div>
+                        <p></p>
                         <div><label>Time:</label>&nbsp;&nbsp;{% render_field appointment_form.appointment_time type="time" %}</div>
                         <p></p>
                         <div><p><label>Header:</label></p></div>
@@ -78,7 +77,35 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="clear-appointment">Close</button>
-                        <button type="submit" id="modal-save-button" class="btn btn-primary" name="save-appointment">Save</button>
+                        <button type="submit" id="appointment-modal-save-button" class="btn btn-primary" name="save-appointment">Save</button>
+                    </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="newTreatmentPlanModal" tabindex="-1" aria-labelledby="newTreatmentPlanModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="appointments-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="newTreatmentPlanModalLabel">Add New Treatment Plan</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div>
+                        <div><label>Start Date:</label>&nbsp;&nbsp;{% render_field treatment_plan_form.treatment_plan_start_date type="date" placeholder="dd/mm/yyyy" %}</div>
+                        <p></p>
+                        <div><p><label>Description:</label></p></div>
+                        <div id="treatment-plan-description">{{ treatment_plan_form.treatment_plan_description }}</div>
+                        <p></p>
+                        <div><p><label>Notes:</label></p></div>
+                        <div class="treatment-plan-textarea">{{ treatment_plan_form.notes }}</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="clear-treatment-plan">Close</button>
+                        <button type="submit" id="treatment-plan-modal-save-button" class="btn btn-primary" name="save-treatment-plan">Save</button>
                     </div>
                   </div>
               </form>

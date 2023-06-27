@@ -324,7 +324,17 @@ reset-button:active {
 #new-appointment-button {
     position: inherit;
     margin: 0;
-    margin-top: 4rem;
+    margin-top: 12rem;
+}
+
+#new-treatment-plan-button {
+    position: inherit;
+    margin: 0;
+    margin-top: 12rem;
+}
+
+#id_treatment_plan_description {
+    width: 29em;
 }
 
 #edit-appointment-button {
@@ -333,13 +343,13 @@ reset-button:active {
     margin-top: 4rem;
 }
 
-#modal-save-button {
+#appointment-modal-save-button {
     background-color: #00008b;
     border: 1px solid #00008b;
 }
 
-#modal-save-button:hover,
-modal-save-button:active {
+#appointment-modal-save-button:hover,
+appointment-modal-save-button:active {
   background-color: #4040a8;
   border-color: #4040a8;
 }

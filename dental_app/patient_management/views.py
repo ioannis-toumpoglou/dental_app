@@ -13,7 +13,7 @@ from os.path import isfile, join
 import shutil
 from django.conf import settings
 
-from .forms import PatientForm, MedicalHistoryForm, DentalHistoryForm, AppointmentForm
+from .forms import PatientForm, MedicalHistoryForm, DentalHistoryForm, AppointmentForm, TreatmentPlanForm
 from .models import Patient, MedicalHistory, DentalHistory, Appointment, AppointmentCalendar
 
 
@@ -95,6 +95,9 @@ def edit_patient(request, patient_id):
     appointment_form = AppointmentForm(request.POST)
     context['appointment_form'] = appointment_form
 
+    treatment_plan_form = TreatmentPlanForm(request.POST)
+    context['treatment_plan_form'] = treatment_plan_form
+
     data_path = Path(settings.PATIENT_DATA_FOLDER)
     patient_last_name = patient.last_name
     patient_first_name = patient.first_name
@@ -103,6 +106,8 @@ def edit_patient(request, patient_id):
 
     datafiles = [f for f in listdir(path_name) if isfile(join(path_name, f))]
     datafiles_metadata = []
+
+    total_cost = 1000
 
     for file in datafiles:
         metadata = {'filename': file,
@@ -129,6 +134,7 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
+                                                                               'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
                                                                                'datafiles': datafiles_metadata})
 
@@ -142,6 +148,7 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
+                                                                               'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
                                                                                'datafiles': datafiles_metadata})
 
@@ -154,6 +161,7 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
+                                                                               'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
                                                                                'datafiles': datafiles_metadata})
 
@@ -167,6 +175,7 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
+                                                                               'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
                                                                                'datafiles': datafiles_metadata})
 
@@ -182,6 +191,7 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
+                                                                               'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
                                                                                'datafiles': datafiles_metadata})
 
@@ -201,6 +211,7 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
+                                                                               'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
                                                                                'datafiles': datafiles_metadata})
 
@@ -216,6 +227,7 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
+                                                                               'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
                                                                                'datafiles': datafiles_metadata})
 
@@ -236,6 +248,7 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
+                                                                               'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
                                                                                'datafiles': datafiles_metadata})
 
@@ -248,6 +261,7 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
+                                                                               'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
                                                                                'datafiles': datafiles_metadata})
 
@@ -256,8 +270,10 @@ def edit_patient(request, patient_id):
                                                                        'medical_form': medical_history_form,
                                                                        'dental_form': dental_history_form,
                                                                        'appointment_form': appointment_form,
+                                                                       'treatment_plan_form': treatment_plan_form,
                                                                        'appointments_form_list': appointments_form_list,
-                                                                       'datafiles': datafiles_metadata})
+                                                                       'datafiles': datafiles_metadata,
+                                                                       'total_cost': total_cost})
 
 
 def get_appointments_form_list(patient_id):

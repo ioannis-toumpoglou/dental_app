@@ -1,11 +1,9 @@
 from django.db import models
 from calendar import HTMLCalendar
-
 from django.urls import reverse
 
 
 # Create your models here.
-
 
 class Patient(models.Model):
     first_name = models.CharField(max_length=100)
@@ -74,6 +72,14 @@ class DentalHistory(models.Model):
     clench_teeth_during_day_night = models.BooleanField(default=False)
     wear_or_worn_bite_appliance = models.BooleanField(default=False)
     ever_whitened_bleached_teeth = models.BooleanField(default=False)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+
+
+class TreatmentPlan(models.Model):
+    treatment_plan_description = models.CharField(max_length=500, null=False)
+    treatment_plan_start_date = models.DateField(null=True)
+    treatment_plan_end_date = models.DateField(null=True)
+    notes = models.CharField(max_length=500, null=True, blank=True)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 
 
