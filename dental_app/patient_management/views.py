@@ -14,7 +14,7 @@ import shutil
 from django.conf import settings
 
 from .forms import PatientForm, MedicalHistoryForm, DentalHistoryForm, AppointmentForm, TreatmentPlanForm
-from .models import Patient, MedicalHistory, DentalHistory, Appointment, AppointmentCalendar
+from .models import Patient, MedicalHistory, DentalHistory, Appointment, AppointmentCalendar, TreatmentPlan
 
 
 # Create your views here.
@@ -91,6 +91,8 @@ def edit_patient(request, patient_id):
 
     appointments_form_list = get_appointments_form_list(patient_id=patient_id)
 
+    treatment_plan_form_list = get_treatment_plan_form_list(patient_id=patient_id)
+
     context = {}
     appointment_form = AppointmentForm(request.POST)
     context['appointment_form'] = appointment_form
@@ -136,6 +138,7 @@ def edit_patient(request, patient_id):
                                                                                'appointment_form': appointment_form,
                                                                                'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
+                                                                               'treatment_plan_form_list': treatment_plan_form_list,
                                                                                'datafiles': datafiles_metadata})
 
         if 'clear-medical' in request.POST:
@@ -150,6 +153,7 @@ def edit_patient(request, patient_id):
                                                                                'appointment_form': appointment_form,
                                                                                'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
+                                                                               'treatment_plan_form_list': treatment_plan_form_list,
                                                                                'datafiles': datafiles_metadata})
 
         if 'save-dental' in request.POST:
@@ -163,6 +167,7 @@ def edit_patient(request, patient_id):
                                                                                'appointment_form': appointment_form,
                                                                                'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
+                                                                               'treatment_plan_form_list': treatment_plan_form_list,
                                                                                'datafiles': datafiles_metadata})
 
         if 'clear-dental' in request.POST:
@@ -177,6 +182,7 @@ def edit_patient(request, patient_id):
                                                                                'appointment_form': appointment_form,
                                                                                'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
+                                                                               'treatment_plan_form_list': treatment_plan_form_list,
                                                                                'datafiles': datafiles_metadata})
 
         if 'save-appointment' in request.POST:
@@ -193,6 +199,7 @@ def edit_patient(request, patient_id):
                                                                                'appointment_form': appointment_form,
                                                                                'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
+                                                                               'treatment_plan_form_list': treatment_plan_form_list,
                                                                                'datafiles': datafiles_metadata})
 
         if 'edit-appointment' in request.POST:
@@ -213,6 +220,7 @@ def edit_patient(request, patient_id):
                                                                                'appointment_form': appointment_form,
                                                                                'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
+                                                                               'treatment_plan_form_list': treatment_plan_form_list,
                                                                                'datafiles': datafiles_metadata})
 
         if 'delete-appointment' in request.POST:
@@ -229,6 +237,63 @@ def edit_patient(request, patient_id):
                                                                                'appointment_form': appointment_form,
                                                                                'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
+                                                                               'treatment_plan_form_list': treatment_plan_form_list,
+                                                                               'datafiles': datafiles_metadata})
+
+        if 'save-treatment-plan' in request.POST:
+            treatment_plan = TreatmentPlan.objects.create(patient_id=patient_id)
+            treatment_plan.patient = patient
+            treatment_plan_form = TreatmentPlanForm(request.POST, instance=treatment_plan)
+            treatment_plan_form.save()
+            treatment_plan_form_list = get_treatment_plan_form_list(patient_id=patient_id)
+            treatment_plan_form = TreatmentPlanForm()
+            return render(request, 'patient_management/patient-details.html', {'patient': patient,
+                                                                               'form': patient_form,
+                                                                               'medical_form': medical_history_form,
+                                                                               'dental_form': dental_history_form,
+                                                                               'appointment_form': appointment_form,
+                                                                               'treatment_plan_form': treatment_plan_form,
+                                                                               'appointments_form_list': appointments_form_list,
+                                                                               'treatment_plan_form_list': treatment_plan_form_list,
+                                                                               'datafiles': datafiles_metadata})
+
+        if 'edit-treatment-plan' in request.POST:
+            treatment_plan_id = request.POST.get('id')
+            edited_treatment_plan = TreatmentPlan.objects.get(id=treatment_plan_id)
+            edited_treatment_plan.treatment_plan_start_date = request.POST.get('treatment_plan_start_date')
+            edited_treatment_plan.treatment_plan_end_date = request.POST.get('treatment_plan_end_date')
+            edited_treatment_plan.treatment_plan_notes = request.POST.get('treatment_plan_notes')
+            edited_treatment_plan.save()
+            appointment_form = AppointmentForm()
+
+            treatment_plan_form_list = get_treatment_plan_form_list(patient_id=patient_id) \
+                if len(get_treatment_plan_form_list(patient_id=patient_id)) > 0 else None
+
+            return render(request, 'patient_management/patient-details.html', {'patient': patient,
+                                                                               'form': patient_form,
+                                                                               'medical_form': medical_history_form,
+                                                                               'dental_form': dental_history_form,
+                                                                               'appointment_form': appointment_form,
+                                                                               'treatment_plan_form': treatment_plan_form,
+                                                                               'appointments_form_list': appointments_form_list,
+                                                                               'treatment_plan_form_list': treatment_plan_form_list,
+                                                                               'datafiles': datafiles_metadata})
+
+        if 'delete-treatment-plan' in request.POST:
+            treatment_plan_id = request.POST.get('id')
+            treatment_plan = TreatmentPlan.objects.get(id=treatment_plan_id)
+            treatment_plan.delete()
+            treatment_plan_form_list = get_treatment_plan_form_list(patient_id=patient_id)
+            treatment_plan_form = TreatmentPlanForm()
+
+            return render(request, 'patient_management/patient-details.html', {'patient': patient,
+                                                                               'form': patient_form,
+                                                                               'medical_form': medical_history_form,
+                                                                               'dental_form': dental_history_form,
+                                                                               'appointment_form': appointment_form,
+                                                                               'treatment_plan_form': treatment_plan_form,
+                                                                               'appointments_form_list': appointments_form_list,
+                                                                               'treatment_plan_form_list': treatment_plan_form_list,
                                                                                'datafiles': datafiles_metadata})
 
         if 'file-upload' in request.POST:
@@ -250,6 +315,7 @@ def edit_patient(request, patient_id):
                                                                                'appointment_form': appointment_form,
                                                                                'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
+                                                                               'treatment_plan_form_list': treatment_plan_form_list,
                                                                                'datafiles': datafiles_metadata})
 
         patient_form = PatientForm(request.POST, instance=patient)
@@ -263,6 +329,7 @@ def edit_patient(request, patient_id):
                                                                                'appointment_form': appointment_form,
                                                                                'treatment_plan_form': treatment_plan_form,
                                                                                'appointments_form_list': appointments_form_list,
+                                                                               'treatment_plan_form_list': treatment_plan_form_list,
                                                                                'datafiles': datafiles_metadata})
 
     return render(request, 'patient_management/patient-details.html', {'patient': patient,
@@ -272,6 +339,7 @@ def edit_patient(request, patient_id):
                                                                        'appointment_form': appointment_form,
                                                                        'treatment_plan_form': treatment_plan_form,
                                                                        'appointments_form_list': appointments_form_list,
+                                                                       'treatment_plan_form_list': treatment_plan_form_list,
                                                                        'datafiles': datafiles_metadata,
                                                                        'total_cost': total_cost})
 
@@ -285,6 +353,17 @@ def get_appointments_form_list(patient_id):
         appointments_form_list.append(appointment_form)
 
     return appointments_form_list
+
+
+def get_treatment_plan_form_list(patient_id):
+    treatment_plan_list = TreatmentPlan.objects.filter(patient_id=patient_id).order_by('-treatment_plan_start_date')
+    treatment_plan_form_list = list()
+
+    for treatment_plan in treatment_plan_list:
+        treatment_plan_form = TreatmentPlanForm(auto_id=treatment_plan.id, instance=treatment_plan)
+        treatment_plan_form_list.append(treatment_plan_form)
+
+    return treatment_plan_form_list
 
 
 def handle_uploaded_file(patient_name, destination_folder, file):

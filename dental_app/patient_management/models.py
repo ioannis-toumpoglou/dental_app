@@ -78,8 +78,8 @@ class DentalHistory(models.Model):
 class TreatmentPlan(models.Model):
     treatment_plan_description = models.CharField(max_length=500, null=False)
     treatment_plan_start_date = models.DateField(null=True)
-    treatment_plan_end_date = models.DateField(null=True)
-    notes = models.CharField(max_length=500, null=True, blank=True)
+    treatment_plan_end_date = models.DateField(null=True, blank=True)
+    treatment_plan_notes = models.CharField(max_length=500, null=True, blank=True)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 
 

@@ -337,6 +337,30 @@ reset-button:active {
     width: 29em;
 }
 
+#save-treatment-plan-button {
+    width: 15rem;
+    border-radius: 6px;
+}
+
+#save-treatment-plan-button:hover,
+save-treatment-plan-button:active {
+  background-color: #4040a8;
+  border-color: #4040a8;
+}
+
+#delete-treatment-plan-button {
+    width: 15rem;
+    margin-left: 5rem;
+    margin-right: 1rem;
+    border-radius: 6px;
+}
+
+#delete-treatment-plan-button:hover,
+delete-treatment-plan-button:active {
+  background-color: #4040a8;
+  border-color: #4040a8;
+}
+
 #edit-appointment-button {
     position: inherit;
     margin: 0;
