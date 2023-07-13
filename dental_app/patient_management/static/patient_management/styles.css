@@ -259,6 +259,54 @@ textarea {
   top: 0;
 }
 
+#financial-table {
+    border-collapse: collapse;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    display: block;
+    overflow: auto;
+    height: 20rem;
+    width: 90%;
+}
+
+#financial-table td, #patient-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#financial-table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+#financial-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#financial-table tr:hover {
+    background-color: #ddd;
+}
+
+#financial-table th {
+  text-align: left;
+  background-color: #00008b;
+  color: white;
+  position: sticky;
+  top: 0;
+  width: 25rem;
+}
+
+#transaction_amount {
+    width: 6rem;
+}
+
+#id_transaction_date {
+    margin-left: 4rem;
+}
+
+#id_transaction_amount {
+    margin-left: 2.5rem;
+}
+
 #file-name-header {
     width: 20rem;
 }
@@ -333,8 +381,8 @@ reset-button:active {
     margin-top: 12rem;
 }
 
-#id_treatment_plan_description {
-    width: 29em;
+#treatment_plan_description {
+    width: 25rem;
 }
 
 #save-treatment-plan-button {
@@ -359,6 +407,28 @@ save-treatment-plan-button:active {
 delete-treatment-plan-button:active {
   background-color: #4040a8;
   border-color: #4040a8;
+}
+
+#treatment_plan_start_date {
+    width: 9rem;
+}
+
+#treatment_plan_end_date {
+    width: 9rem;
+}
+
+#total_cost {
+    width: 9rem;
+}
+
+#financial-button {
+    float: right;
+    margin-right: 0rem;
+}
+
+#treatment_plan_balance {
+    margin-top: 1rem;
+    font-weight: bold;
 }
 
 #edit-appointment-button {
@@ -560,6 +630,10 @@ a:active {
   padding: 2rem 5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   height: 30.5rem;
+}
+
+#treatment-plan-list {
+    margin-bottom: 1rem;
 }
 
 #financial-form {
