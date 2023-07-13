@@ -76,11 +76,19 @@ class DentalHistory(models.Model):
 
 
 class TreatmentPlan(models.Model):
-    treatment_plan_description = models.CharField(max_length=500, null=False)
-    treatment_plan_start_date = models.DateField(null=True)
-    treatment_plan_end_date = models.DateField(null=True, blank=True)
-    treatment_plan_notes = models.CharField(max_length=500, null=True, blank=True)
+    treatment_plan_description = models.CharField(max_length=500, blank=False)
+    treatment_plan_start_date = models.DateField(blank=True, null=True)
+    treatment_plan_end_date = models.DateField(blank=True, null=True)
+    treatment_plan_notes = models.CharField(max_length=500, blank=True, null=True)
+    total_cost = models.FloatField(default=0.0, blank=True, null=True)
+    treatment_plan_balance = models.FloatField(default=0.0, blank=True, null=True)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+
+
+class Financial(models.Model):
+    transaction_amount = models.FloatField(null=True)
+    transaction_date = models.DateField(null=True)
+    treatment = models.ForeignKey(TreatmentPlan, on_delete=models.CASCADE)
 
 
 class Appointment(models.Model):
