@@ -36,10 +36,10 @@ class TreatmentPlanForm(forms.ModelForm):
         model = TreatmentPlan
         exclude = ['patient']
         widgets = {
-            'treatment_plan_notes': forms.Textarea(attrs={'style': 'width: 100%;', 'rows': '9'})}
+            'treatment_plan_notes': forms.Textarea(attrs={'style': 'width: 100%;', 'rows': '7'})}
 
 
 class FinancialForm(forms.ModelForm):
     class Meta:
         model = Financial
-        exclude = ['patient']
+        exclude = ['treatment']
