@@ -74,6 +74,15 @@ class AddPatientFormView(FormView):
             return redirect('main')
 
 
+def delete_financial(request, financial_form_id):
+    transaction = Financial.objects.get(id=financial_form_id)
+    treatment_plan_id = transaction.treatment.id
+    treatment_plan = TreatmentPlan.objects.get(id=treatment_plan_id)
+    patient_id = treatment_plan.patient.id
+    transaction.delete()
+    return redirect(f'/patient-details/{patient_id}')
+
+
 def edit_patient(request, patient_id):
     patient = Patient.objects.filter(pk=patient_id).first()
     patient_form = PatientForm(instance=patient)

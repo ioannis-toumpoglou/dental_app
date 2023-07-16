@@ -271,7 +271,7 @@ textarea {
 
 #financial-table td, #patient-table th {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 3px;
 }
 
 #financial-table tr:nth-child(odd) {
@@ -645,4 +645,10 @@ a:active {
   padding: 2rem 5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   height: 30.5rem;
+}
+
+#delete-financial-button {
+    all: unset;
+    cursor: pointer;
+    align: center;
 }
