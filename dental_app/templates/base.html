@@ -30,6 +30,9 @@
           <li class="nav-item">
             <button class="btn btn-outline-primary" type="submit" name="calendar" onclick="location.href='{% url 'calendar' %}'">Calendar</button>
           </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-primary" type="submit" name="backup" onclick="location.href='{% url 'backup' %}'">Backup</button>
+          </li>
         </ul>
         {% if not '/add-patient/' in request.path and not '/patient-details/' in request.path and not '/calendar/' in request.path %}
         <form class="d-flex" method="GET">

@@ -1,6 +1,8 @@
 import calendar
 import os
 from datetime import datetime, date, timedelta
+
+from django.http import FileResponse
 from django.shortcuts import render, redirect
 from django.utils.safestring import mark_safe
 from django.views import generic
@@ -13,6 +15,8 @@ from os.path import isfile, join
 import shutil
 from django.conf import settings
 from django.template.defaulttags import register
+from django.contrib import messages
+from datetime import datetime as dt
 
 from .forms import PatientForm, MedicalHistoryForm, DentalHistoryForm, AppointmentForm, TreatmentPlanForm, FinancialForm
 from .models import Patient, MedicalHistory, DentalHistory, Appointment, AppointmentCalendar, TreatmentPlan, Financial
@@ -537,3 +541,29 @@ def initiate_forms(patient_id):
     treatment_plan_form_list = get_treatment_plan_form_list(patient_id=patient_id)
 
     return appointments_form_list, treatment_plan_form_list, financial_form_lists
+
+
+def backup_data(request):
+    # Check if the temp folder exists
+    temp_folder = os.path.join(settings.BASE_DIR, 'temp')
+    if not os.path.isdir(temp_folder):
+        os.mkdir(temp_folder)
+    # Remove previously created files, only the most recent one is stored on the server
+    if os.listdir(temp_folder):
+        for files in os.listdir(temp_folder):
+            path = os.path.join(temp_folder, files)
+            try:
+                shutil.rmtree(path)
+            except OSError:
+                os.remove(path)
+    # Create a copy of the sqlite database file adding datetime in the name
+    now = dt.now().strftime("%Y%m%d_%H%M%S")
+    source_file = os.path.join(settings.BASE_DIR, 'db.sqlite3')
+    destination_file = os.path.join(settings.BASE_DIR, temp_folder, f'db_{now}.sqlite3')
+    copy_file(source_path=source_file,
+              destination_path=destination_file)
+    return FileResponse(open(destination_file, 'rb'), as_attachment=True)
+
+
+def copy_file(source_path, destination_path):
+    shutil.copy2(source_path, destination_path)
