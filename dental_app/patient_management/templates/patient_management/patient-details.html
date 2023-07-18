@@ -8,22 +8,25 @@
 
 {% block css_files %}
     <link rel="stylesheet" href="{% static 'patient_management/styles.css' %}">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 
     <nav id="patient-detail-tabs">
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <button class="nav-link active" id="nav-general-info-tab" data-bs-toggle="tab" data-bs-target="#nav-general-info" type="button" role="tab" aria-controls="nav-general-info" aria-selected="true">General Info</button>
-        <button class="nav-link" id="nav-edit-info-tab" data-bs-toggle="tab" data-bs-target="#nav-edit-info" type="button" role="tab" aria-controls="nav-edit-info" aria-selected="true">Edit Info</button>
-        <button class="nav-link" id="nav-medical-tab" data-bs-toggle="tab" data-bs-target="#nav-medical" type="button" role="tab" aria-controls="nav-medical" aria-selected="false">Medical History</button>
-        <button class="nav-link" id="nav-dental-tab" data-bs-toggle="tab" data-bs-target="#nav-dental" type="button" role="tab" aria-controls="nav-dental" aria-selected="false">Dental History</button>
-        <button class="nav-link" id="nav-appointments-tab" data-bs-toggle="tab" data-bs-target="#nav-appointments" type="button" role="tab" aria-controls="nav-appointments" aria-selected="false">Appointments</button>
-        <button class="nav-link" id="nav-odontogram-tab" data-bs-toggle="tab" data-bs-target="#nav-odontogram" type="button" role="tab" aria-controls="nav-odontogram" aria-selected="false">Odontogram</button>
-        <button class="nav-link" id="nav-periodontogram-tab" data-bs-toggle="tab" data-bs-target="#nav-periodontogram" type="button" role="tab" aria-controls="nav-periodontogram" aria-selected="false">Periodontogram</button>
-        <button class="nav-link" id="nav-treatment-plan-tab" data-bs-toggle="tab" data-bs-target="#nav-treatment-plan" type="button" role="tab" aria-controls="nav-treatment-plan" aria-selected="false">Treatment Plan</button>
-        <button class="nav-link" id="nav-financial-tab" data-bs-toggle="tab" data-bs-target="#nav-financial" type="button" role="tab" aria-controls="nav-financial" aria-selected="false">Financial</button>
-        <button class="nav-link" id="nav-datafiles-tab" data-bs-toggle="tab" data-bs-target="#nav-datafiles" type="button" role="tab" aria-controls="nav-datafiles" aria-selected="false">Datafiles</button>
+        <a href="#nav-general-info" class="nav-link active" id="nav-general-info-tab" data-bs-toggle="tab" data-bs-target="#nav-general-info" role="tab" aria-controls="nav-general-info" aria-selected="true">General Info</a>
+        <a href="#nav-edit-info" class="nav-link" id="nav-edit-info-tab" data-bs-toggle="tab" data-bs-target="#nav-edit-info" role="tab" aria-controls="nav-edit-info" aria-selected="true">Edit Info</a>
+        <a href="#nav-medical" class="nav-link" id="nav-medical-tab" data-bs-toggle="tab" data-bs-target="#nav-medical" role="tab" aria-controls="nav-medical" aria-selected="false">Medical History</a>
+        <a href="#nav-dental" class="nav-link" id="nav-dental-tab" data-bs-toggle="tab" data-bs-target="#nav-dental" role="tab" aria-controls="nav-dental" aria-selected="false">Dental History</a>
+        <a href="#nav-appointments" class="nav-link" id="nav-appointments-tab" data-bs-toggle="tab" data-bs-target="#nav-appointments" role="tab" aria-controls="nav-appointments" aria-selected="false">Appointments</a>
+        <a href="#nav-odontogram" class="nav-link" id="nav-odontogram-tab" data-bs-toggle="tab" data-bs-target="#nav-odontogram" role="tab" aria-controls="nav-odontogram" aria-selected="false">Odontogram</a>
+        <a href="#nav-periodontogram" class="nav-link" id="nav-periodontogram-tab" data-bs-toggle="tab" data-bs-target="#nav-periodontogram" role="tab" aria-controls="nav-periodontogram" aria-selected="false">Periodontogram</a>
+        <a href="#nav-treatment-plan" class="nav-link" id="nav-treatment-plan-tab" data-bs-toggle="tab" data-bs-target="#nav-treatment-plan" role="tab" aria-controls="nav-treatment-plan" aria-selected="false">Treatment Plan</a>
+        <a href="#nav-financial" class="nav-link" id="nav-financial-tab" data-bs-toggle="tab" data-bs-target="#nav-financial" role="tab" aria-controls="nav-financial" aria-selected="false">Financial</a>
+        <a href="#nav-datafiles" class="nav-link" id="nav-datafiles-tab" data-bs-toggle="tab" data-bs-target="#nav-datafiles" role="tab" aria-controls="nav-datafiles" aria-selected="false">Datafiles</a>
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
