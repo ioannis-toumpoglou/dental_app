@@ -81,12 +81,12 @@
 #odontogram-form {
   margin: 0.5rem auto;
   width: 80%;
-  max-width: 60rem;
+  max-width: 75rem;
   border-radius: 8px;
   background-color: white;
   padding: 2rem 5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  height: 30.5rem;
+  height: 31.5rem;
 }
 
 #periodontogram-form {
@@ -651,4 +651,301 @@ a:active {
     all: unset;
     cursor: pointer;
     align: center;
+}
+
+#odontogram-table {
+    border-collapse: collapse;
+}
+
+#odontogram-table td, #odontogram-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#odontogram-table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+#odontogram-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#odontogram-table td:hover {
+    background-color: #ddd;
+}
+
+#odontogram-table th {
+    text-align: center;
+    background-color: #00008b;
+    color: white;
+}
+
+.tooth-number {
+    width: 4rem;
+}
+
+.tooth-image {
+    height: 8rem;
+    text-align: center;
+}
+
+.tooth-image-top-view {
+    width: 4rem;
+    text-align: center;
+}
+
+#odontogram-11 {
+    width: 3rem;
+}
+
+#odontogram-12 {
+    width: 3rem;
+}
+
+#odontogram-13 {
+    width: 3rem;
+}
+
+#odontogram-14 {
+    width: 3rem;
+}
+
+#odontogram-15 {
+    width: 3rem;
+}
+
+#odontogram-16 {
+    width: 3rem;
+}
+
+#odontogram-17 {
+    width: 3rem;
+}
+
+#odontogram-18 {
+    width: 3rem;
+}
+
+#odontogram-21 {
+    width: 3rem;
+}
+
+#odontogram-22 {
+    width: 3rem;
+}
+
+#odontogram-23 {
+    width: 3rem;
+}
+
+#odontogram-24 {
+    width: 3rem;
+}
+
+#odontogram-25 {
+    width: 3rem;
+}
+
+#odontogram-26 {
+    width: 3rem;
+}
+
+#odontogram-27 {
+    width: 3rem;
+}
+
+#odontogram-28 {
+    width: 3rem;
+}
+
+#odontogram-31 {
+    width: 3rem;
+}
+
+#odontogram-32 {
+    width: 3rem;
+}
+
+#odontogram-33 {
+    width: 3rem;
+}
+
+#odontogram-34 {
+    width: 3rem;
+}
+
+#odontogram-35 {
+    width: 3rem;
+}
+
+#odontogram-36 {
+    width: 3rem;
+}
+
+#odontogram-37 {
+    width: 3rem;
+}
+
+#odontogram-38 {
+    width: 3rem;
+}
+
+#odontogram-41 {
+    width: 3rem;
+}
+
+#odontogram-42 {
+    width: 3rem;
+}
+
+#odontogram-43 {
+    width: 3rem;
+}
+
+#odontogram-44 {
+    width: 3rem;
+}
+
+#odontogram-45 {
+    width: 3rem;
+}
+
+#odontogram-46 {
+    width: 3rem;
+}
+
+#odontogram-47 {
+    width: 3rem;
+}
+
+#odontogram-48 {
+    width: 3rem;
+}
+
+#odontogram-11-top-view {
+    width: 2rem;
+}
+
+#odontogram-12-top-view {
+    width: 2rem;
+}
+
+#odontogram-13-top-view {
+    width: 2rem;
+}
+
+#odontogram-14-top-view {
+    width: 2rem;
+}
+
+#odontogram-15-top-view {
+    width: 2rem;
+}
+
+#odontogram-16-top-view {
+    width: 2rem;
+}
+
+#odontogram-17-top-view {
+    width: 2rem;
+}
+
+#odontogram-18-top-view {
+    width: 2rem;
+}
+
+#odontogram-21-top-view {
+    width: 2rem;
+}
+
+#odontogram-22-top-view {
+    width: 2rem;
+}
+
+#odontogram-23-top-view {
+    width: 2rem;
+}
+
+#odontogram-24-top-view {
+    width: 2rem;
+}
+
+#odontogram-25-top-view {
+    width: 2rem;
+}
+
+#odontogram-26-top-view {
+    width: 2rem;
+}
+
+#odontogram-27-top-view {
+    width: 2rem;
+}
+
+#odontogram-28-top-view {
+    width: 2rem;
+}
+
+#odontogram-31-top-view {
+    width: 2rem;
+}
+
+#odontogram-32-top-view {
+    width: 2rem;
+}
+
+#odontogram-33-top-view {
+    width: 2rem;
+}
+
+#odontogram-34-top-view {
+    width: 2rem;
+}
+
+#odontogram-35-top-view {
+    width: 2rem;
+}
+
+#odontogram-36-top-view {
+    width: 2rem;
+}
+
+#odontogram-37-top-view {
+    width: 2rem;
+}
+
+#odontogram-38-top-view {
+    width: 2rem;
+}
+
+#odontogram-41-top-view {
+    width: 2rem;
+}
+
+#odontogram-42-top-view {
+    width: 2rem;
+}
+
+#odontogram-43-top-view {
+    width: 2rem;
+}
+
+#odontogram-44-top-view {
+    width: 2rem;
+}
+
+#odontogram-45-top-view {
+    width: 2rem;
+}
+
+#odontogram-46-top-view {
+    width: 2rem;
+}
+
+#odontogram-47-top-view {
+    width: 2rem;
+}
+
+#odontogram-48-top-view {
+    width: 2rem;
 }

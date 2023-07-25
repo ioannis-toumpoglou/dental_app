@@ -202,7 +202,116 @@
       <div class="tab-pane fade" id="nav-odontogram" role="tabpanel" aria-labelledby="nav-odontogram-tab">
           <form id="odontogram-form" action="" method="POST">
             {% csrf_token %}
-            <img src="{% static 'images/odontogram.png' %}" id="odontogram" alt="odontogram">
+            <table id="odontogram-table">
+                <tr>
+                    <th class="tooth-number">18</th>
+                    <th class="tooth-number">17</th>
+                    <th class="tooth-number">16</th>
+                    <th class="tooth-number">15</th>
+                    <th class="tooth-number">14</th>
+                    <th class="tooth-number">13</th>
+                    <th class="tooth-number">12</th>
+                    <th class="tooth-number">11</th>
+                    <th class="tooth-number">21</th>
+                    <th class="tooth-number">22</th>
+                    <th class="tooth-number">23</th>
+                    <th class="tooth-number">24</th>
+                    <th class="tooth-number">25</th>
+                    <th class="tooth-number">26</th>
+                    <th class="tooth-number">27</th>
+                    <th class="tooth-number">28</th>
+                </tr>
+                <tr>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_18.jpg' %}" id="odontogram-18" alt="odontogram-18"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_17.jpg' %}" id="odontogram-17" alt="odontogram-17"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_16.jpg' %}" id="odontogram-16" alt="odontogram-16"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_15.jpg' %}" id="odontogram-15" alt="odontogram-15"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_14.jpg' %}" id="odontogram-14" alt="odontogram-14"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_13.jpg' %}" id="odontogram-13" alt="odontogram-13"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_12.jpg' %}" id="odontogram-12" alt="odontogram-12"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_11.jpg' %}" id="odontogram-11" alt="odontogram-11"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_21.jpg' %}" id="odontogram-21" alt="odontogram-21"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_22.jpg' %}" id="odontogram-22" alt="odontogram-22"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_23.jpg' %}" id="odontogram-23" alt="odontogram-23"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_24.jpg' %}" id="odontogram-24" alt="odontogram-24"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_25.jpg' %}" id="odontogram-25" alt="odontogram-25"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_26.jpg' %}" id="odontogram-26" alt="odontogram-26"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_27.jpg' %}" id="odontogram-27" alt="odontogram-27"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_28.jpg' %}" id="odontogram-28" alt="odontogram-28"></td>
+                </tr>
+                <tr>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_18_top_view.jpg' %}" id="odontogram-18-top-view" alt="odontogram-18-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_17_top_view.jpg' %}" id="odontogram-17-top-view" alt="odontogram-17-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_16_top_view.jpg' %}" id="odontogram-16-top-view" alt="odontogram-16-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_15_top_view.jpg' %}" id="odontogram-15-top-view" alt="odontogram-15-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_14_top_view.jpg' %}" id="odontogram-14-top-view" alt="odontogram-14-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_13_top_view.jpg' %}" id="odontogram-13-top-view" alt="odontogram-13-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_12_top_view.jpg' %}" id="odontogram-12-top-view" alt="odontogram-12-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_11_top_view.jpg' %}" id="odontogram-11-top-view" alt="odontogram-11-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_21_top_view.jpg' %}" id="odontogram-21-top-view" alt="odontogram-21-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_22_top_view.jpg' %}" id="odontogram-22-top-view" alt="odontogram-22-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_23_top_view.jpg' %}" id="odontogram-23-top-view" alt="odontogram-23-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_24_top_view.jpg' %}" id="odontogram-24-top-view" alt="odontogram-24-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_25_top_view.jpg' %}" id="odontogram-25-top-view" alt="odontogram-25-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_26_top_view.jpg' %}" id="odontogram-26-top-view" alt="odontogram-26-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_27_top_view.jpg' %}" id="odontogram-27-top-view" alt="odontogram-27-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_28_top_view.jpg' %}" id="odontogram-28-top-view" alt="odontogram-28-top-view"></td>
+                </tr>
+                <tr>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_48_top_view.jpg' %}" id="odontogram-48-top-view" alt="odontogram-48-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_47_top_view.jpg' %}" id="odontogram-47-top-view" alt="odontogram-47-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_46_top_view.jpg' %}" id="odontogram-46-top-view" alt="odontogram-46-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_45_top_view.jpg' %}" id="odontogram-45-top-view" alt="odontogram-45-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_44_top_view.jpg' %}" id="odontogram-44-top-view" alt="odontogram-44-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_43_top_view.jpg' %}" id="odontogram-43-top-view" alt="odontogram-43-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_42_top_view.jpg' %}" id="odontogram-42-top-view" alt="odontogram-42-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_41_top_view.jpg' %}" id="odontogram-41-top-view" alt="odontogram-41-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_31_top_view.jpg' %}" id="odontogram-31-top-view" alt="odontogram-31-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_32_top_view.jpg' %}" id="odontogram-32-top-view" alt="odontogram-32-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_33_top_view.jpg' %}" id="odontogram-33-top-view" alt="odontogram-33-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_34_top_view.jpg' %}" id="odontogram-34-top-view" alt="odontogram-34-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_35_top_view.jpg' %}" id="odontogram-35-top-view" alt="odontogram-35-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_36_top_view.jpg' %}" id="odontogram-36-top-view" alt="odontogram-36-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_37_top_view.jpg' %}" id="odontogram-37-top-view" alt="odontogram-37-top-view"></td>
+                    <td class="tooth-image-top-view"><img src="{% static 'images/dental/odontogram_38_top_view.jpg' %}" id="odontogram-38-top-view" alt="odontogram-38-top-view"></td>
+                </tr>
+                <tr>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_48.jpg' %}" id="odontogram-48" alt="odontogram-48"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_47.jpg' %}" id="odontogram-47" alt="odontogram-47"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_46.jpg' %}" id="odontogram-46" alt="odontogram-46"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_45.jpg' %}" id="odontogram-45" alt="odontogram-45"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_44.jpg' %}" id="odontogram-44" alt="odontogram-44"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_43.jpg' %}" id="odontogram-43" alt="odontogram-43"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_42.jpg' %}" id="odontogram-42" alt="odontogram-42"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_41.jpg' %}" id="odontogram-41" alt="odontogram-41"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_31.jpg' %}" id="odontogram-31" alt="odontogram-31"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_32.jpg' %}" id="odontogram-32" alt="odontogram-32"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_33.jpg' %}" id="odontogram-33" alt="odontogram-33"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_34.jpg' %}" id="odontogram-34" alt="odontogram-34"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_35.jpg' %}" id="odontogram-35" alt="odontogram-35"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_36.jpg' %}" id="odontogram-36" alt="odontogram-36"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_37.jpg' %}" id="odontogram-37" alt="odontogram-37"></td>
+                    <td class="tooth-image"><img src="{% static 'images/dental/odontogram_38.jpg' %}" id="odontogram-38" alt="odontogram-38"></td>
+                </tr>
+                <tr>
+                    <th class="tooth-number">48</th>
+                    <th class="tooth-number">47</th>
+                    <th class="tooth-number">46</th>
+                    <th class="tooth-number">45</th>
+                    <th class="tooth-number">44</th>
+                    <th class="tooth-number">43</th>
+                    <th class="tooth-number">42</th>
+                    <th class="tooth-number">41</th>
+                    <th class="tooth-number">31</th>
+                    <th class="tooth-number">32</th>
+                    <th class="tooth-number">33</th>
+                    <th class="tooth-number">34</th>
+                    <th class="tooth-number">35</th>
+                    <th class="tooth-number">36</th>
+                    <th class="tooth-number">37</th>
+                    <th class="tooth-number">38</th>
+                </tr>
+            </table>
           </form>
       </div>
       <div class="tab-pane fade" id="nav-periodontogram" role="tabpanel" aria-labelledby="nav-periodontogram-tab">
