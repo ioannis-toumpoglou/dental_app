@@ -694,6 +694,11 @@ a:active {
     text-align: center;
 }
 
+.odontogram-images {
+    display: inline-grid;
+    height: 10rem;
+}
+
 #odontogram-11 {
     width: 3rem;
 }
@@ -948,4 +953,195 @@ a:active {
 
 #odontogram-48-top-view {
     width: 2rem;
+}
+
+.tooth-image-top-view {
+    cursor: pointer;
+}
+
+.odontogram-top-view-image {
+    width: 10rem;
+    z-index: 1;
+    position:relative;
+    left: 5px;
+}
+
+#odontogram-outer-top-view-image-1-black {
+    width: 10rem;
+    z-index: 2;
+    position: relative;
+    left: 5px;
+    top: -169px;
+    opacity: 0;
+}
+
+#odontogram-outer-top-view-image-1-brown {
+    width: 10rem;
+    z-index: 3;
+    position: relative;
+    left: 5px;
+    top: -339px;
+    opacity: 0;
+}
+
+#odontogram-outer-top-view-image-1-yellow {
+    width: 10rem;
+    z-index: 4;
+    position: relative;
+    left: 5px;
+    top: -509px;
+    opacity: 0;
+}
+
+#odontogram-outer-top-view-image-2-black {
+    width: 10rem;
+    z-index: 2;
+    position: relative;
+    left: 5px;
+    top: -678px;
+    opacity: 0;
+}
+
+#odontogram-outer-top-view-image-2-brown {
+    width: 10rem;
+    z-index: 3;
+    position: relative;
+    left: 5px;
+    top: -848px;
+    opacity: 0;
+}
+
+#odontogram-outer-top-view-image-2-yellow {
+    width: 10rem;
+    z-index: 4;
+    position: relative;
+    left: 5px;
+    top: -1018px;
+    opacity: 0;
+}
+
+#odontogram-outer-top-view-image-3-black {
+    width: 10rem;
+    z-index: 2;
+    position: relative;
+    left: 5px;
+    top: -1188px;
+    opacity: 0;
+}
+
+#odontogram-outer-top-view-image-3-brown {
+    width: 10rem;
+    z-index: 3;
+    position: relative;
+    left: 5px;
+    top: -1357px;
+    opacity: 0;
+}
+
+#odontogram-outer-top-view-image-3-yellow {
+    width: 10rem;
+    z-index: 4;
+    position: relative;
+    left: 5px;
+    top: -1527px;
+    opacity: 0;
+}
+
+#odontogram-outer-top-view-image-4-black {
+    width: 10rem;
+    z-index: 2;
+    position: relative;
+    left: 5px;
+    top: -1697px;
+    opacity: 0;
+}
+
+#odontogram-outer-top-view-image-4-brown {
+    width: 10rem;
+    z-index: 3;
+    position: relative;
+    left: 5px;
+    top: -1867px;
+    opacity: 0;
+}
+
+#odontogram-outer-top-view-image-4-yellow {
+    width: 10rem;
+    z-index: 4;
+    position: relative;
+    left: 5px;
+    top: -2035px;
+    opacity: 0;
+}
+
+#odontogram-outer-top-view-image-5-black {
+    width: 10rem;
+    z-index: 2;
+    position: relative;
+    left: 5px;
+    top: -2205px;
+    opacity: 0;
+}
+
+#odontogram-outer-top-view-image-5-brown {
+    width: 10rem;
+    z-index: 3;
+    position: relative;
+    left: 5px;
+    top: -2375px;
+    opacity: 0;
+}
+
+#odontogram-outer-top-view-image-5-yellow {
+    width: 10rem;
+    z-index: 4;
+    position: relative;
+    left: 5px;
+    top: -2545px;
+    opacity: 0;
+}
+
+.odontogram-selectors {
+    float: right;
+}
+
+.odontogram-top-view-section-selector {
+    margin-right: 5rem;
+}
+
+.odontogram-top-view-color-selector {
+    margin-right: 5rem;
+}
+
+#color-options {
+    margin-left: 1rem;
+}
+
+.odontogram-top-view-color-option-1 {
+  color: black;
+}
+
+.odontogram-top-view-color-option-2 {
+  color: brown;
+}
+
+.odontogram-top-view-color-option-3 {
+  color: yellow;
+}
+
+.selectbox>span {
+  padding: 10px;
+  border: 2px solid #fff;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.selectbox {
+  border: 1px solid #dddddd;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.selectbox.active {
+  border: 1px solid #333;
 }
