@@ -85,6 +85,66 @@ class TreatmentPlan(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 
 
+class Tooth(models.Model):
+    has_implant = models.BooleanField(default=None, null=True)
+    has_root_canal = models.BooleanField(default=None, null=True)
+
+
+class Odontogram(models.Model):
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+
+    tooth11 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth11')
+    tooth12 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth12')
+    tooth13 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth13')
+    tooth14 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth14')
+    tooth15 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth15')
+    tooth16 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth16')
+    tooth17 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth17')
+    tooth18 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth18')
+
+    tooth21 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth21')
+    tooth22 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth22')
+    tooth23 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth23')
+    tooth24 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth24')
+    tooth25 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth25')
+    tooth26 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth26')
+    tooth27 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth27')
+    tooth28 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth28')
+
+    tooth31 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth31')
+    tooth32 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth32')
+    tooth33 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth33')
+    tooth34 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth34')
+    tooth35 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth35')
+    tooth36 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth36')
+    tooth37 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth37')
+    tooth38 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth38')
+
+    tooth41 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth41')
+    tooth42 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth42')
+    tooth43 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth43')
+    tooth44 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth44')
+    tooth45 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth45')
+    tooth46 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth46')
+    tooth47 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth47')
+    tooth48 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth48')
+
+
+class ToothTopView(models.Model):
+    COLOR_CHOICES = (
+        ('none', ''),
+        ('black', 'BLACK'),
+        ('brown', 'BROWN'),
+        ('yellow', 'YELLOW'),
+    )
+    section_1_color = models.CharField(max_length=6, choices=COLOR_CHOICES, null=True, default=None)
+    section_2_color = models.CharField(max_length=6, choices=COLOR_CHOICES, null=True, default=None)
+    section_3_color = models.CharField(max_length=6, choices=COLOR_CHOICES, null=True, default=None)
+    section_4_color = models.CharField(max_length=6, choices=COLOR_CHOICES, null=True, default=None)
+    section_5_color = models.CharField(max_length=6, choices=COLOR_CHOICES, null=True, default=None)
+    tooth = models.ForeignKey(Tooth, on_delete=models.CASCADE, default=None)
+
+
 class Financial(models.Model):
     transaction_amount = models.FloatField(null=True)
     transaction_date = models.DateField(null=True)

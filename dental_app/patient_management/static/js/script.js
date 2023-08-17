@@ -38,6 +38,10 @@ function selectOdontogramColor() {
         } else if (color == "yellow") {
             document.getElementById(`odontogram-outer-top-view-image-${sectionNumber}-black`).style.opacity = "0";
             document.getElementById(`odontogram-outer-top-view-image-${sectionNumber}-brown`).style.opacity = "0";
+        } else if (color == "") {
+            document.getElementById(`odontogram-outer-top-view-image-${sectionNumber}-black`).style.opacity = "0";
+            document.getElementById(`odontogram-outer-top-view-image-${sectionNumber}-brown`).style.opacity = "0";
+            document.getElementById(`odontogram-outer-top-view-image-${sectionNumber}-yellow`).style.opacity = "0";
         }
         document.getElementById(elementName).style.opacity = "1";
     }

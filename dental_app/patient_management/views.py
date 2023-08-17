@@ -1,7 +1,6 @@
 import calendar
 import os
 from datetime import datetime, date, timedelta
-
 from django.http import FileResponse
 from django.shortcuts import render, redirect
 from django.utils.safestring import mark_safe
@@ -15,11 +14,12 @@ from os.path import isfile, join
 import shutil
 from django.conf import settings
 from django.template.defaulttags import register
-from django.contrib import messages
 from datetime import datetime as dt
 
-from .forms import PatientForm, MedicalHistoryForm, DentalHistoryForm, AppointmentForm, TreatmentPlanForm, FinancialForm
-from .models import Patient, MedicalHistory, DentalHistory, Appointment, AppointmentCalendar, TreatmentPlan, Financial
+from .forms import PatientForm, MedicalHistoryForm, DentalHistoryForm, AppointmentForm, TreatmentPlanForm, FinancialForm, \
+    ToothTopViewForm
+from .models import Patient, MedicalHistory, DentalHistory, Appointment, AppointmentCalendar, TreatmentPlan, Financial, \
+    Odontogram, Tooth, ToothTopView
 
 
 # Create your views here.
@@ -123,6 +123,8 @@ def edit_patient(request, patient_id):
 
     datafiles = [f for f in listdir(path_name) if isfile(join(path_name, f))]
     datafiles_metadata = []
+
+    tooth_top_view = get_odontogram_info(patient_id)
 
     for file in datafiles:
         metadata = {'filename': file,
@@ -372,6 +374,36 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
+        if 'save-odontogram-top-view' in request.POST:
+            odontogram = Odontogram.objects.get_or_create(patient_id=patient_id)[0]
+            tooth = Tooth.objects.get_or_create()[0]
+            tooth_top_view = ToothTopView.objects.get_or_create(tooth_id=tooth.id)[0]
+            tooth_top_view_form = ToothTopViewForm(request.POST, instance=tooth_top_view)
+
+            section_number = int(request.POST.get('top-view-section-number'))
+            color = request.POST.get('top-view-color')
+
+            if color == '':
+                color = None
+
+            if section_number == 1:
+                tooth_top_view.section_1_color = color
+            elif section_number == 2:
+                tooth_top_view.section_2_color = color
+            elif section_number == 3:
+                tooth_top_view.section_3_color = color
+            elif section_number == 4:
+                tooth_top_view.section_4_color = color
+            elif section_number == 5:
+                tooth_top_view.section_5_color = color
+
+            tooth.top_view = tooth_top_view
+            odontogram.save()
+            tooth.save()
+            tooth_top_view.save()
+            if tooth_top_view_form.is_valid():
+                tooth_top_view_form.save()
+
         if 'file-upload' in request.POST:
             files = request.FILES.getlist('files')
             for file in files:
@@ -417,6 +449,7 @@ def edit_patient(request, patient_id):
                                                                        'medical_form': medical_history_form,
                                                                        'dental_form': dental_history_form,
                                                                        'appointment_form': appointment_form,
+                                                                       'tooth_top_view': tooth_top_view,
                                                                        'treatment_plan_form': treatment_plan_form,
                                                                        'financial_form': financial_form,
                                                                        'appointments_form_list': appointments_form_list,
@@ -434,6 +467,15 @@ def get_appointments_form_list(patient_id):
         appointments_form_list.append(appointment_form)
 
     return appointments_form_list
+
+
+def get_odontogram_info(patient_id):
+    odontogram = Odontogram.objects.get_or_create(patient_id=patient_id)[0]
+    print(odontogram)
+    tooth = Tooth.objects.get_or_create()[0]
+    tooth_top_view = ToothTopView.objects.get_or_create(tooth_id=tooth.id)[0]
+
+    return tooth_top_view
 
 
 def get_treatment_plan_form_list(patient_id):

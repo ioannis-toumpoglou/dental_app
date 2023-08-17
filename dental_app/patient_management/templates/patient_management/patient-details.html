@@ -325,26 +325,26 @@
                       <div class="modal-body">
                           <div class="odontogram-images">
                             <img src="{% static 'images/dental/odontogram_outer_top_view_numbered.jpg' %}" class="odontogram-top-view-image">
-                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_1_black.png' %}" id="odontogram-outer-top-view-image-1-black">
-                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_1_brown.png' %}" id="odontogram-outer-top-view-image-1-brown">
-                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_1_yellow.png' %}" id="odontogram-outer-top-view-image-1-yellow">
-                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_2_black.png' %}" id="odontogram-outer-top-view-image-2-black">
-                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_2_brown.png' %}" id="odontogram-outer-top-view-image-2-brown">
-                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_2_yellow.png' %}" id="odontogram-outer-top-view-image-2-yellow">
-                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_3_black.png' %}" id="odontogram-outer-top-view-image-3-black">
-                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_3_brown.png' %}" id="odontogram-outer-top-view-image-3-brown">
-                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_3_yellow.png' %}" id="odontogram-outer-top-view-image-3-yellow">
-                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_4_black.png' %}" id="odontogram-outer-top-view-image-4-black">
-                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_4_brown.png' %}" id="odontogram-outer-top-view-image-4-brown">
-                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_4_yellow.png' %}" id="odontogram-outer-top-view-image-4-yellow">
-                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_5_black.png' %}" id="odontogram-outer-top-view-image-5-black">
-                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_5_brown.png' %}" id="odontogram-outer-top-view-image-5-brown">
-                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_5_yellow.png' %}" id="odontogram-outer-top-view-image-5-yellow">
+                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_1_black.png' %}" id="odontogram-outer-top-view-image-1-black" style="{% if tooth_top_view.section_1_color == 'black' %}opacity: 1;{% endif %}">
+                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_1_brown.png' %}" id="odontogram-outer-top-view-image-1-brown" style="{% if tooth_top_view.section_1_color == 'brown' %}opacity: 1;{% endif %}">
+                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_1_yellow.png' %}" id="odontogram-outer-top-view-image-1-yellow" style="{% if tooth_top_view.section_1_color == 'yellow' %}opacity: 1;{% endif %}">
+                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_2_black.png' %}" id="odontogram-outer-top-view-image-2-black" style="{% if tooth_top_view.section_2_color == 'black' %}opacity: 1;{% endif %}">
+                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_2_brown.png' %}" id="odontogram-outer-top-view-image-2-brown" style="{% if tooth_top_view.section_2_color == 'brown' %}opacity: 1;{% endif %}">
+                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_2_yellow.png' %}" id="odontogram-outer-top-view-image-2-yellow" style="{% if tooth_top_view.section_2_color == 'yellow' %}opacity: 1;{% endif %}">
+                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_3_black.png' %}" id="odontogram-outer-top-view-image-3-black" style="{% if tooth_top_view.section_3_color == 'black' %}opacity: 1;{% endif %}">
+                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_3_brown.png' %}" id="odontogram-outer-top-view-image-3-brown" style="{% if tooth_top_view.section_3_color == 'brown' %}opacity: 1;{% endif %}">
+                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_3_yellow.png' %}" id="odontogram-outer-top-view-image-3-yellow" style="{% if tooth_top_view.section_3_color == 'yellow' %}opacity: 1;{% endif %}">
+                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_4_black.png' %}" id="odontogram-outer-top-view-image-4-black" style="{% if tooth_top_view.section_4_color == 'black' %}opacity: 1;{% endif %}">
+                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_4_brown.png' %}" id="odontogram-outer-top-view-image-4-brown" style="{% if tooth_top_view.section_4_color == 'brown' %}opacity: 1;{% endif %}">
+                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_4_yellow.png' %}" id="odontogram-outer-top-view-image-4-yellow" style="{% if tooth_top_view.section_4_color == 'yellow' %}opacity: 1;{% endif %}">
+                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_5_black.png' %}" id="odontogram-outer-top-view-image-5-black" style="{% if tooth_top_view.section_5_color == 'black' %}opacity: 1;{% endif %}">
+                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_5_brown.png' %}" id="odontogram-outer-top-view-image-5-brown" style="{% if tooth_top_view.section_5_color == 'brown' %}opacity: 1;{% endif %}">
+                            <img src="{% static 'images/dental/odontogram_outer_top_view_numbered_5_yellow.png' %}" id="odontogram-outer-top-view-image-5-yellow" style="{% if tooth_top_view.section_5_color == 'yellow' %}opacity: 1;{% endif %}">
                           </div>
                           <div class="odontogram-selectors">
                               <div class="odontogram-top-view-section-selector">
                                   Choose section:
-                                   <select id="odontogram-outer-top-view-selection" onchange="clearOdontogramColor()">
+                                   <select id="odontogram-outer-top-view-selection" name="top-view-section-number" onchange="clearOdontogramColor()">
                                        <option value="" class="odontogram-top-view-section-option-0"></option>
                                        <option value="1" class="odontogram-top-view-section-option-1">1</option>
                                        <option value="2" class="odontogram-top-view-section-option-2">2</option>
@@ -357,7 +357,7 @@
                               <div class="odontogram-top-view-color-selector">
                                   Choose color:
                                   &nbsp;&nbsp;
-                                   <select id="odontogram-outer-color-options" onchange="selectOdontogramColor()">
+                                   <select id="odontogram-outer-color-options" name="top-view-color" onchange="selectOdontogramColor()">
                                        <option value="" class="odontogram-top-view-color-option-0"></option>
                                        <option value="black" class="odontogram-top-view-color-option-1">■</option>
                                        <option value="brown" class="odontogram-top-view-color-option-2">■</option>
@@ -368,7 +368,7 @@
                           </div>
                       </div>
                       <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="odontogram-top-view-cancel" onclick="clearOuterTopViewModalData()">Cancel</button>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="odontogram-top-view-cancel">Cancel</button>
                           <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-odontogram-top-view">Save</button>
                       </div>
                   </form>
