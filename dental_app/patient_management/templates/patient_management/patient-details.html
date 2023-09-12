@@ -25,7 +25,6 @@
         <a href="#nav-odontogram" class="nav-link" id="nav-odontogram-tab" data-bs-toggle="tab" data-bs-target="#nav-odontogram" role="tab" aria-controls="nav-odontogram" aria-selected="false">Odontogram</a>
         <a href="#nav-periodontogram" class="nav-link" id="nav-periodontogram-tab" data-bs-toggle="tab" data-bs-target="#nav-periodontogram" role="tab" aria-controls="nav-periodontogram" aria-selected="false">Periodontogram</a>
         <a href="#nav-treatment-plan" class="nav-link" id="nav-treatment-plan-tab" data-bs-toggle="tab" data-bs-target="#nav-treatment-plan" role="tab" aria-controls="nav-treatment-plan" aria-selected="false">Treatment Plan</a>
-        <a href="#nav-financial" class="nav-link" id="nav-financial-tab" data-bs-toggle="tab" data-bs-target="#nav-financial" role="tab" aria-controls="nav-financial" aria-selected="false">Financial</a>
         <a href="#nav-datafiles" class="nav-link" id="nav-datafiles-tab" data-bs-toggle="tab" data-bs-target="#nav-datafiles" role="tab" aria-controls="nav-datafiles" aria-selected="false">Datafiles</a>
       </div>
     </nav>
@@ -528,12 +527,6 @@
                </div>
            </div>
           {% endfor %}
-      </div>
-      <div class="tab-pane fade" id="nav-financial" role="tabpanel" aria-labelledby="nav-financial-tab">
-          <form id="financial-form" action="" method="POST">
-            {% csrf_token %}
-
-          </form>
       </div>
       <div class="tab-pane fade" id="nav-datafiles" role="tabpanel" aria-labelledby="nav-datafiles-tab">
           <form id="datafiles-form" action="" method="POST" enctype="multipart/form-data">
