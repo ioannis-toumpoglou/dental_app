@@ -85,64 +85,44 @@ class TreatmentPlan(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 
 
-class Tooth(models.Model):
-    has_implant = models.BooleanField(default=None, null=True)
-    has_root_canal = models.BooleanField(default=None, null=True)
-
-
 class Odontogram(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 
-    tooth11 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth11')
-    tooth12 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth12')
-    tooth13 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth13')
-    tooth14 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth14')
-    tooth15 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth15')
-    tooth16 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth16')
-    tooth17 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth17')
-    tooth18 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth18')
+    tooth_11 = models.CharField(max_length=200, default='none')
+    tooth_12 = models.CharField(max_length=200, default='none')
+    tooth_13 = models.CharField(max_length=200, default='none')
+    tooth_14 = models.CharField(max_length=200, default='none')
+    tooth_15 = models.CharField(max_length=200, default='none')
+    tooth_16 = models.CharField(max_length=200, default='none')
+    tooth_17 = models.CharField(max_length=200, default='none')
+    tooth_18 = models.CharField(max_length=200, default='none')
 
-    tooth21 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth21')
-    tooth22 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth22')
-    tooth23 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth23')
-    tooth24 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth24')
-    tooth25 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth25')
-    tooth26 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth26')
-    tooth27 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth27')
-    tooth28 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth28')
+    tooth_21 = models.CharField(max_length=200, default='none')
+    tooth_22 = models.CharField(max_length=200, default='none')
+    tooth_23 = models.CharField(max_length=200, default='none')
+    tooth_24 = models.CharField(max_length=200, default='none')
+    tooth_25 = models.CharField(max_length=200, default='none')
+    tooth_26 = models.CharField(max_length=200, default='none')
+    tooth_27 = models.CharField(max_length=200, default='none')
+    tooth_28 = models.CharField(max_length=200, default='none')
 
-    tooth31 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth31')
-    tooth32 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth32')
-    tooth33 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth33')
-    tooth34 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth34')
-    tooth35 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth35')
-    tooth36 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth36')
-    tooth37 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth37')
-    tooth38 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth38')
+    tooth_31 = models.CharField(max_length=200, default='none')
+    tooth_32 = models.CharField(max_length=200, default='none')
+    tooth_33 = models.CharField(max_length=200, default='none')
+    tooth_34 = models.CharField(max_length=200, default='none')
+    tooth_35 = models.CharField(max_length=200, default='none')
+    tooth_36 = models.CharField(max_length=200, default='none')
+    tooth_37 = models.CharField(max_length=200, default='none')
+    tooth_38 = models.CharField(max_length=200, default='none')
 
-    tooth41 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth41')
-    tooth42 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth42')
-    tooth43 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth43')
-    tooth44 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth44')
-    tooth45 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth45')
-    tooth46 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth46')
-    tooth47 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth47')
-    tooth48 = models.ForeignKey(Tooth, on_delete=models.CASCADE, null=True, related_name='tooth48')
-
-
-class ToothTopView(models.Model):
-    COLOR_CHOICES = (
-        ('none', ''),
-        ('black', 'BLACK'),
-        ('brown', 'BROWN'),
-        ('yellow', 'YELLOW'),
-    )
-    section_1_color = models.CharField(max_length=6, choices=COLOR_CHOICES, null=True, default=None)
-    section_2_color = models.CharField(max_length=6, choices=COLOR_CHOICES, null=True, default=None)
-    section_3_color = models.CharField(max_length=6, choices=COLOR_CHOICES, null=True, default=None)
-    section_4_color = models.CharField(max_length=6, choices=COLOR_CHOICES, null=True, default=None)
-    section_5_color = models.CharField(max_length=6, choices=COLOR_CHOICES, null=True, default=None)
-    tooth = models.ForeignKey(Tooth, on_delete=models.CASCADE, default=None)
+    tooth_41 = models.CharField(max_length=200, default='none')
+    tooth_42 = models.CharField(max_length=200, default='none')
+    tooth_43 = models.CharField(max_length=200, default='none')
+    tooth_44 = models.CharField(max_length=200, default='none')
+    tooth_45 = models.CharField(max_length=200, default='none')
+    tooth_46 = models.CharField(max_length=200, default='none')
+    tooth_47 = models.CharField(max_length=200, default='none')
+    tooth_48 = models.CharField(max_length=200, default='none')
 
 
 class Financial(models.Model):
