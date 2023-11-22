@@ -16,10 +16,10 @@ from django.conf import settings
 from django.template.defaulttags import register
 from datetime import datetime as dt
 
-from .forms import PatientForm, MedicalHistoryForm, DentalHistoryForm, AppointmentForm, TreatmentPlanForm, FinancialForm, \
-    ToothTopViewForm
-from .models import Patient, MedicalHistory, DentalHistory, Appointment, AppointmentCalendar, TreatmentPlan, Financial, \
-    Odontogram, Tooth, ToothTopView
+from .forms import (PatientForm, MedicalHistoryForm, DentalHistoryForm, AppointmentForm, TreatmentPlanForm,
+                    FinancialForm, Tooth15Form, Tooth16Form, Tooth17Form, Tooth18Form)
+from .models import (Patient, MedicalHistory, DentalHistory, Appointment, AppointmentCalendar, TreatmentPlan, Financial,
+                     Odontogram)
 
 
 # Create your views here.
@@ -124,7 +124,43 @@ def edit_patient(request, patient_id):
     datafiles = [f for f in listdir(path_name) if isfile(join(path_name, f))]
     datafiles_metadata = []
 
-    tooth_top_view = get_odontogram_info(patient_id)
+    odontogram, treatments = get_odontogram(patient_id=patient_id)
+
+    tooth_11_form = Tooth15Form(instance=odontogram)
+    tooth_12_form = Tooth15Form(instance=odontogram)
+    tooth_13_form = Tooth15Form(instance=odontogram)
+    tooth_14_form = Tooth15Form(instance=odontogram)
+    tooth_15_form = Tooth15Form(instance=odontogram)
+    tooth_16_form = Tooth16Form(instance=odontogram)
+    tooth_17_form = Tooth17Form(instance=odontogram)
+    tooth_18_form = Tooth18Form(instance=odontogram)
+
+    tooth_21_form = Tooth15Form(instance=odontogram)
+    tooth_22_form = Tooth15Form(instance=odontogram)
+    tooth_23_form = Tooth15Form(instance=odontogram)
+    tooth_24_form = Tooth15Form(instance=odontogram)
+    tooth_25_form = Tooth15Form(instance=odontogram)
+    tooth_26_form = Tooth16Form(instance=odontogram)
+    tooth_27_form = Tooth17Form(instance=odontogram)
+    tooth_28_form = Tooth18Form(instance=odontogram)
+
+    tooth_31_form = Tooth15Form(instance=odontogram)
+    tooth_32_form = Tooth15Form(instance=odontogram)
+    tooth_33_form = Tooth15Form(instance=odontogram)
+    tooth_34_form = Tooth15Form(instance=odontogram)
+    tooth_35_form = Tooth15Form(instance=odontogram)
+    tooth_36_form = Tooth16Form(instance=odontogram)
+    tooth_37_form = Tooth17Form(instance=odontogram)
+    tooth_38_form = Tooth18Form(instance=odontogram)
+
+    tooth_41_form = Tooth15Form(instance=odontogram)
+    tooth_42_form = Tooth15Form(instance=odontogram)
+    tooth_43_form = Tooth15Form(instance=odontogram)
+    tooth_44_form = Tooth15Form(instance=odontogram)
+    tooth_45_form = Tooth15Form(instance=odontogram)
+    tooth_46_form = Tooth16Form(instance=odontogram)
+    tooth_47_form = Tooth17Form(instance=odontogram)
+    tooth_48_form = Tooth18Form(instance=odontogram)
 
     for file in datafiles:
         metadata = {'filename': file,
@@ -375,34 +411,150 @@ def edit_patient(request, patient_id):
                                                                                'datafiles': datafiles_metadata})
 
         if 'save-odontogram-top-view' in request.POST:
-            odontogram = Odontogram.objects.get_or_create(patient_id=patient_id)[0]
-            tooth = Tooth.objects.get_or_create()[0]
-            tooth_top_view = ToothTopView.objects.get_or_create(tooth_id=tooth.id)[0]
-            tooth_top_view_form = ToothTopViewForm(request.POST, instance=tooth_top_view)
+            if 'tooth_11' in request.POST:
+                tooth_11_form = Tooth15Form(request.POST, instance=odontogram)
+                tooth_11_form.save()
+            elif 'tooth_12' in request.POST:
+                tooth_12_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_12_form.save()
+            elif 'tooth_13' in request.POST:
+                tooth_13_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_13_form.save()
+            elif 'tooth_14' in request.POST:
+                tooth_14_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_14_form.save()
+            elif 'tooth_15' in request.POST:
+                tooth_15_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_15_form.save()
+            elif 'tooth_16' in request.POST:
+                tooth_16_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_16_form.save()
+            elif 'tooth_17' in request.POST:
+                tooth_17_form = Tooth17Form(request.POST, instance=odontogram)
+                tooth_17_form.save()
+            elif 'tooth_18' in request.POST:
+                tooth_18_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_18_form.save()
+            elif 'tooth_21' in request.POST:
+                tooth_21_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_21_form.save()
+            elif 'tooth_22' in request.POST:
+                tooth_22_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_22_form.save()
+            elif 'tooth_23' in request.POST:
+                tooth_23_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_23_form.save()
+            elif 'tooth_24' in request.POST:
+                tooth_24_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_24_form.save()
+            elif 'tooth_25' in request.POST:
+                tooth_25_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_25_form.save()
+            elif 'tooth_26' in request.POST:
+                tooth_26_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_26_form.save()
+            elif 'tooth_27' in request.POST:
+                tooth_27_form = Tooth17Form(request.POST, instance=odontogram)
+                tooth_27_form.save()
+            elif 'tooth_28' in request.POST:
+                tooth_28_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_28_form.save()
+            elif 'tooth_31' in request.POST:
+                tooth_31_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_31_form.save()
+            elif 'tooth_32' in request.POST:
+                tooth_32_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_32_form.save()
+            elif 'tooth_33' in request.POST:
+                tooth_33_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_33_form.save()
+            elif 'tooth_34' in request.POST:
+                tooth_34_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_34_form.save()
+            elif 'tooth_35' in request.POST:
+                tooth_35_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_35_form.save()
+            elif 'tooth_36' in request.POST:
+                tooth_36_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_36_form.save()
+            elif 'tooth_37' in request.POST:
+                tooth_37_form = Tooth17Form(request.POST, instance=odontogram)
+                tooth_37_form.save()
+            elif 'tooth_38' in request.POST:
+                tooth_38_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_38_form.save()
+            elif 'tooth_41' in request.POST:
+                tooth_41_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_41_form.save()
+            elif 'tooth_42' in request.POST:
+                tooth_42_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_42_form.save()
+            elif 'tooth_43' in request.POST:
+                tooth_43_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_43_form.save()
+            elif 'tooth_44' in request.POST:
+                tooth_44_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_44_form.save()
+            elif 'tooth_45' in request.POST:
+                tooth_45_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_45_form.save()
+            elif 'tooth_46' in request.POST:
+                tooth_46_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_46_form.save()
+            elif 'tooth_47' in request.POST:
+                tooth_47_form = Tooth17Form(request.POST, instance=odontogram)
+                tooth_47_form.save()
+            elif 'tooth_48' in request.POST:
+                tooth_48_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_48_form.save()
 
-            section_number = int(request.POST.get('top-view-section-number'))
-            color = request.POST.get('top-view-color')
-
-            if color == '':
-                color = None
-
-            if section_number == 1:
-                tooth_top_view.section_1_color = color
-            elif section_number == 2:
-                tooth_top_view.section_2_color = color
-            elif section_number == 3:
-                tooth_top_view.section_3_color = color
-            elif section_number == 4:
-                tooth_top_view.section_4_color = color
-            elif section_number == 5:
-                tooth_top_view.section_5_color = color
-
-            tooth.top_view = tooth_top_view
             odontogram.save()
-            tooth.save()
-            tooth_top_view.save()
-            if tooth_top_view_form.is_valid():
-                tooth_top_view_form.save()
+
+            return render(request, 'patient_management/patient-details.html', {'patient': patient,
+                                                                               'form': patient_form,
+                                                                               'medical_form': medical_history_form,
+                                                                               'dental_form': dental_history_form,
+                                                                               'appointment_form': appointment_form,
+                                                                               'odontogram': odontogram,
+                                                                               'tooth_11_form': tooth_11_form,
+                                                                               'tooth_12_form': tooth_12_form,
+                                                                               'tooth_13_form': tooth_13_form,
+                                                                               'tooth_14_form': tooth_14_form,
+                                                                               'tooth_15_form': tooth_15_form,
+                                                                               'tooth_16_form': tooth_16_form,
+                                                                               'tooth_17_form': tooth_17_form,
+                                                                               'tooth_18_form': tooth_18_form,
+                                                                               'tooth_21_form': tooth_21_form,
+                                                                               'tooth_22_form': tooth_22_form,
+                                                                               'tooth_23_form': tooth_23_form,
+                                                                               'tooth_24_form': tooth_24_form,
+                                                                               'tooth_25_form': tooth_25_form,
+                                                                               'tooth_26_form': tooth_26_form,
+                                                                               'tooth_27_form': tooth_27_form,
+                                                                               'tooth_28_form': tooth_28_form,
+                                                                               'tooth_31_form': tooth_31_form,
+                                                                               'tooth_32_form': tooth_32_form,
+                                                                               'tooth_33_form': tooth_33_form,
+                                                                               'tooth_34_form': tooth_34_form,
+                                                                               'tooth_35_form': tooth_35_form,
+                                                                               'tooth_36_form': tooth_36_form,
+                                                                               'tooth_37_form': tooth_37_form,
+                                                                               'tooth_38_form': tooth_38_form,
+                                                                               'tooth_41_form': tooth_41_form,
+                                                                               'tooth_42_form': tooth_42_form,
+                                                                               'tooth_43_form': tooth_43_form,
+                                                                               'tooth_44_form': tooth_44_form,
+                                                                               'tooth_45_form': tooth_45_form,
+                                                                               'tooth_46_form': tooth_46_form,
+                                                                               'tooth_47_form': tooth_47_form,
+                                                                               'tooth_48_form': tooth_48_form,
+                                                                               'treatments': treatments,
+                                                                               'treatment_plan_form': treatment_plan_form,
+                                                                               'financial_form': financial_form,
+                                                                               'appointments_form_list': appointments_form_list,
+                                                                               'treatment_plan_form_list': treatment_plan_form_list,
+                                                                               'financial_form_lists': financial_form_lists,
+                                                                               'datafiles': datafiles_metadata})
 
         if 'file-upload' in request.POST:
             files = request.FILES.getlist('files')
@@ -437,6 +589,40 @@ def edit_patient(request, patient_id):
                                                                                'medical_form': medical_history_form,
                                                                                'dental_form': dental_history_form,
                                                                                'appointment_form': appointment_form,
+                                                                               'odontogram': odontogram,
+                                                                               'tooth_11_form': tooth_11_form,
+                                                                               'tooth_12_form': tooth_12_form,
+                                                                               'tooth_13_form': tooth_13_form,
+                                                                               'tooth_14_form': tooth_14_form,
+                                                                               'tooth_15_form': tooth_15_form,
+                                                                               'tooth_16_form': tooth_16_form,
+                                                                               'tooth_17_form': tooth_17_form,
+                                                                               'tooth_18_form': tooth_18_form,
+                                                                               'tooth_21_form': tooth_21_form,
+                                                                               'tooth_22_form': tooth_22_form,
+                                                                               'tooth_23_form': tooth_23_form,
+                                                                               'tooth_24_form': tooth_24_form,
+                                                                               'tooth_25_form': tooth_25_form,
+                                                                               'tooth_26_form': tooth_26_form,
+                                                                               'tooth_27_form': tooth_27_form,
+                                                                               'tooth_28_form': tooth_28_form,
+                                                                               'tooth_31_form': tooth_31_form,
+                                                                               'tooth_32_form': tooth_32_form,
+                                                                               'tooth_33_form': tooth_33_form,
+                                                                               'tooth_34_form': tooth_34_form,
+                                                                               'tooth_35_form': tooth_35_form,
+                                                                               'tooth_36_form': tooth_36_form,
+                                                                               'tooth_37_form': tooth_37_form,
+                                                                               'tooth_38_form': tooth_38_form,
+                                                                               'tooth_41_form': tooth_41_form,
+                                                                               'tooth_42_form': tooth_42_form,
+                                                                               'tooth_43_form': tooth_43_form,
+                                                                               'tooth_44_form': tooth_44_form,
+                                                                               'tooth_45_form': tooth_45_form,
+                                                                               'tooth_46_form': tooth_46_form,
+                                                                               'tooth_47_form': tooth_47_form,
+                                                                               'tooth_48_form': tooth_48_form,
+                                                                               'treatments': treatments,
                                                                                'treatment_plan_form': treatment_plan_form,
                                                                                'financial_form': financial_form,
                                                                                'appointments_form_list': appointments_form_list,
@@ -449,7 +635,40 @@ def edit_patient(request, patient_id):
                                                                        'medical_form': medical_history_form,
                                                                        'dental_form': dental_history_form,
                                                                        'appointment_form': appointment_form,
-                                                                       'tooth_top_view': tooth_top_view,
+                                                                       'odontogram': odontogram,
+                                                                       'tooth_11_form': tooth_11_form,
+                                                                       'tooth_12_form': tooth_12_form,
+                                                                       'tooth_13_form': tooth_13_form,
+                                                                       'tooth_14_form': tooth_14_form,
+                                                                       'tooth_15_form': tooth_15_form,
+                                                                       'tooth_16_form': tooth_16_form,
+                                                                       'tooth_17_form': tooth_17_form,
+                                                                       'tooth_18_form': tooth_18_form,
+                                                                       'tooth_21_form': tooth_21_form,
+                                                                       'tooth_22_form': tooth_22_form,
+                                                                       'tooth_23_form': tooth_23_form,
+                                                                       'tooth_24_form': tooth_24_form,
+                                                                       'tooth_25_form': tooth_25_form,
+                                                                       'tooth_26_form': tooth_26_form,
+                                                                       'tooth_27_form': tooth_27_form,
+                                                                       'tooth_28_form': tooth_28_form,
+                                                                       'tooth_31_form': tooth_31_form,
+                                                                       'tooth_32_form': tooth_32_form,
+                                                                       'tooth_33_form': tooth_33_form,
+                                                                       'tooth_34_form': tooth_34_form,
+                                                                       'tooth_35_form': tooth_35_form,
+                                                                       'tooth_36_form': tooth_36_form,
+                                                                       'tooth_37_form': tooth_37_form,
+                                                                       'tooth_38_form': tooth_38_form,
+                                                                       'tooth_41_form': tooth_41_form,
+                                                                       'tooth_42_form': tooth_42_form,
+                                                                       'tooth_43_form': tooth_43_form,
+                                                                       'tooth_44_form': tooth_44_form,
+                                                                       'tooth_45_form': tooth_45_form,
+                                                                       'tooth_46_form': tooth_46_form,
+                                                                       'tooth_47_form': tooth_47_form,
+                                                                       'tooth_48_form': tooth_48_form,
+                                                                       'treatments': treatments,
                                                                        'treatment_plan_form': treatment_plan_form,
                                                                        'financial_form': financial_form,
                                                                        'appointments_form_list': appointments_form_list,
@@ -469,13 +688,14 @@ def get_appointments_form_list(patient_id):
     return appointments_form_list
 
 
-def get_odontogram_info(patient_id):
+def get_odontogram(patient_id):
     odontogram = Odontogram.objects.get_or_create(patient_id=patient_id)[0]
-    print(odontogram)
-    tooth = Tooth.objects.get_or_create()[0]
-    tooth_top_view = ToothTopView.objects.get_or_create(tooth_id=tooth.id)[0]
 
-    return tooth_top_view
+    treatments = [
+        'default', 'black_1', 'black_2', 'black_3', 'black_4', 'black_5', 'brown_1', 'brown_2', 'brown_3', 'brown_4',
+        'brown_5', 'yellow_1', 'yellow_2', 'yellow_3', 'yellow_4', 'yellow_5'
+    ]
+    return odontogram, treatments
 
 
 def get_treatment_plan_form_list(patient_id):
@@ -495,12 +715,8 @@ def calculate_balance(treatment_id):
     transaction_list = Financial.objects.filter(treatment_id=treatment_id)
     amount_paid = 0
 
-    # print(f'\nTreatment ID: {treatment_id}')
     for transaction in transaction_list:
-        # print(f'Transaction amount: {transaction.transaction_amount}')
         amount_paid += transaction.transaction_amount
-    # print(f'Treatment plan cost: {treatment_plan.total_cost}')
-    # print(f'Balance: {treatment_plan.total_cost - amount_paid}')
     treatment_plan.treatment_plan_balance = treatment_plan.total_cost - amount_paid
     treatment_plan.save()
     return treatment_plan.total_cost - amount_paid
