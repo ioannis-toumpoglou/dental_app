@@ -56,6 +56,9 @@ MOUTH_CHOICES = (
     ('yellow_3', 'yellow_3'),
     ('yellow_4', 'yellow_4'),
     ('yellow_5', 'yellow_5'),
+    ('endo', 'endo'),
+    ('extracted', 'extracted'),
+    ('prostho', 'prostho'),
 )
 
 

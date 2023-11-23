@@ -697,7 +697,7 @@ def get_odontogram(patient_id):
 
     treatments = [
         'default', 'black_1', 'black_2', 'black_3', 'black_4', 'black_5', 'brown_1', 'brown_2', 'brown_3', 'brown_4',
-        'brown_5', 'yellow_1', 'yellow_2', 'yellow_3', 'yellow_4', 'yellow_5'
+        'brown_5', 'yellow_1', 'yellow_2', 'yellow_3', 'yellow_4', 'yellow_5', 'endo', 'extracted', 'prostho'
     ]
     return odontogram, treatments
 
