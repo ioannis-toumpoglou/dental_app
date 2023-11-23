@@ -17,7 +17,11 @@ from django.template.defaulttags import register
 from datetime import datetime as dt
 
 from .forms import (PatientForm, MedicalHistoryForm, DentalHistoryForm, AppointmentForm, TreatmentPlanForm,
-                    FinancialForm, Tooth15Form, Tooth16Form, Tooth17Form, Tooth18Form)
+                    FinancialForm, Tooth11Form, Tooth12Form, Tooth13Form, Tooth14Form, Tooth15Form, Tooth16Form,
+                    Tooth17Form, Tooth18Form, Tooth21Form, Tooth22Form, Tooth23Form, Tooth24Form, Tooth25Form,
+                    Tooth26Form, Tooth27Form, Tooth28Form, Tooth31Form, Tooth32Form, Tooth33Form, Tooth34Form,
+                    Tooth35Form, Tooth36Form, Tooth37Form, Tooth38Form, Tooth41Form, Tooth42Form, Tooth43Form,
+                    Tooth44Form, Tooth45Form, Tooth46Form, Tooth47Form, Tooth48Form)
 from .models import (Patient, MedicalHistory, DentalHistory, Appointment, AppointmentCalendar, TreatmentPlan, Financial,
                      Odontogram)
 
@@ -126,41 +130,41 @@ def edit_patient(request, patient_id):
 
     odontogram, treatments = get_odontogram(patient_id=patient_id)
 
-    tooth_11_form = Tooth15Form(instance=odontogram)
-    tooth_12_form = Tooth15Form(instance=odontogram)
-    tooth_13_form = Tooth15Form(instance=odontogram)
-    tooth_14_form = Tooth15Form(instance=odontogram)
+    tooth_11_form = Tooth11Form(instance=odontogram)
+    tooth_12_form = Tooth12Form(instance=odontogram)
+    tooth_13_form = Tooth13Form(instance=odontogram)
+    tooth_14_form = Tooth14Form(instance=odontogram)
     tooth_15_form = Tooth15Form(instance=odontogram)
     tooth_16_form = Tooth16Form(instance=odontogram)
     tooth_17_form = Tooth17Form(instance=odontogram)
     tooth_18_form = Tooth18Form(instance=odontogram)
 
-    tooth_21_form = Tooth15Form(instance=odontogram)
-    tooth_22_form = Tooth15Form(instance=odontogram)
-    tooth_23_form = Tooth15Form(instance=odontogram)
-    tooth_24_form = Tooth15Form(instance=odontogram)
-    tooth_25_form = Tooth15Form(instance=odontogram)
-    tooth_26_form = Tooth16Form(instance=odontogram)
-    tooth_27_form = Tooth17Form(instance=odontogram)
-    tooth_28_form = Tooth18Form(instance=odontogram)
+    tooth_21_form = Tooth21Form(instance=odontogram)
+    tooth_22_form = Tooth22Form(instance=odontogram)
+    tooth_23_form = Tooth23Form(instance=odontogram)
+    tooth_24_form = Tooth24Form(instance=odontogram)
+    tooth_25_form = Tooth25Form(instance=odontogram)
+    tooth_26_form = Tooth26Form(instance=odontogram)
+    tooth_27_form = Tooth27Form(instance=odontogram)
+    tooth_28_form = Tooth28Form(instance=odontogram)
 
-    tooth_31_form = Tooth15Form(instance=odontogram)
-    tooth_32_form = Tooth15Form(instance=odontogram)
-    tooth_33_form = Tooth15Form(instance=odontogram)
-    tooth_34_form = Tooth15Form(instance=odontogram)
-    tooth_35_form = Tooth15Form(instance=odontogram)
-    tooth_36_form = Tooth16Form(instance=odontogram)
-    tooth_37_form = Tooth17Form(instance=odontogram)
-    tooth_38_form = Tooth18Form(instance=odontogram)
+    tooth_31_form = Tooth31Form(instance=odontogram)
+    tooth_32_form = Tooth32Form(instance=odontogram)
+    tooth_33_form = Tooth33Form(instance=odontogram)
+    tooth_34_form = Tooth34Form(instance=odontogram)
+    tooth_35_form = Tooth35Form(instance=odontogram)
+    tooth_36_form = Tooth36Form(instance=odontogram)
+    tooth_37_form = Tooth37Form(instance=odontogram)
+    tooth_38_form = Tooth38Form(instance=odontogram)
 
-    tooth_41_form = Tooth15Form(instance=odontogram)
-    tooth_42_form = Tooth15Form(instance=odontogram)
-    tooth_43_form = Tooth15Form(instance=odontogram)
-    tooth_44_form = Tooth15Form(instance=odontogram)
-    tooth_45_form = Tooth15Form(instance=odontogram)
-    tooth_46_form = Tooth16Form(instance=odontogram)
-    tooth_47_form = Tooth17Form(instance=odontogram)
-    tooth_48_form = Tooth18Form(instance=odontogram)
+    tooth_41_form = Tooth41Form(instance=odontogram)
+    tooth_42_form = Tooth42Form(instance=odontogram)
+    tooth_43_form = Tooth43Form(instance=odontogram)
+    tooth_44_form = Tooth44Form(instance=odontogram)
+    tooth_45_form = Tooth45Form(instance=odontogram)
+    tooth_46_form = Tooth46Form(instance=odontogram)
+    tooth_47_form = Tooth47Form(instance=odontogram)
+    tooth_48_form = Tooth48Form(instance=odontogram)
 
     for file in datafiles:
         metadata = {'filename': file,
@@ -412,19 +416,19 @@ def edit_patient(request, patient_id):
 
         if 'save-odontogram-top-view' in request.POST:
             if 'tooth_11' in request.POST:
-                tooth_11_form = Tooth15Form(request.POST, instance=odontogram)
+                tooth_11_form = Tooth11Form(request.POST, instance=odontogram)
                 tooth_11_form.save()
             elif 'tooth_12' in request.POST:
-                tooth_12_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_12_form = Tooth12Form(request.POST, instance=odontogram)
                 tooth_12_form.save()
             elif 'tooth_13' in request.POST:
-                tooth_13_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_13_form = Tooth13Form(request.POST, instance=odontogram)
                 tooth_13_form.save()
             elif 'tooth_14' in request.POST:
-                tooth_14_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_14_form = Tooth14Form(request.POST, instance=odontogram)
                 tooth_14_form.save()
             elif 'tooth_15' in request.POST:
-                tooth_15_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_15_form = Tooth15Form(request.POST, instance=odontogram)
                 tooth_15_form.save()
             elif 'tooth_16' in request.POST:
                 tooth_16_form = Tooth16Form(request.POST, instance=odontogram)
@@ -436,76 +440,76 @@ def edit_patient(request, patient_id):
                 tooth_18_form = Tooth18Form(request.POST, instance=odontogram)
                 tooth_18_form.save()
             elif 'tooth_21' in request.POST:
-                tooth_21_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_21_form = Tooth21Form(request.POST, instance=odontogram)
                 tooth_21_form.save()
             elif 'tooth_22' in request.POST:
-                tooth_22_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_22_form = Tooth22Form(request.POST, instance=odontogram)
                 tooth_22_form.save()
             elif 'tooth_23' in request.POST:
-                tooth_23_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_23_form = Tooth23Form(request.POST, instance=odontogram)
                 tooth_23_form.save()
             elif 'tooth_24' in request.POST:
-                tooth_24_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_24_form = Tooth24Form(request.POST, instance=odontogram)
                 tooth_24_form.save()
             elif 'tooth_25' in request.POST:
-                tooth_25_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_25_form = Tooth25Form(request.POST, instance=odontogram)
                 tooth_25_form.save()
             elif 'tooth_26' in request.POST:
-                tooth_26_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_26_form = Tooth26Form(request.POST, instance=odontogram)
                 tooth_26_form.save()
             elif 'tooth_27' in request.POST:
-                tooth_27_form = Tooth17Form(request.POST, instance=odontogram)
+                tooth_27_form = Tooth27Form(request.POST, instance=odontogram)
                 tooth_27_form.save()
             elif 'tooth_28' in request.POST:
-                tooth_28_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_28_form = Tooth28Form(request.POST, instance=odontogram)
                 tooth_28_form.save()
             elif 'tooth_31' in request.POST:
-                tooth_31_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_31_form = Tooth31Form(request.POST, instance=odontogram)
                 tooth_31_form.save()
             elif 'tooth_32' in request.POST:
-                tooth_32_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_32_form = Tooth32Form(request.POST, instance=odontogram)
                 tooth_32_form.save()
             elif 'tooth_33' in request.POST:
-                tooth_33_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_33_form = Tooth33Form(request.POST, instance=odontogram)
                 tooth_33_form.save()
             elif 'tooth_34' in request.POST:
-                tooth_34_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_34_form = Tooth34Form(request.POST, instance=odontogram)
                 tooth_34_form.save()
             elif 'tooth_35' in request.POST:
-                tooth_35_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_35_form = Tooth35Form(request.POST, instance=odontogram)
                 tooth_35_form.save()
             elif 'tooth_36' in request.POST:
-                tooth_36_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_36_form = Tooth36Form(request.POST, instance=odontogram)
                 tooth_36_form.save()
             elif 'tooth_37' in request.POST:
-                tooth_37_form = Tooth17Form(request.POST, instance=odontogram)
+                tooth_37_form = Tooth37Form(request.POST, instance=odontogram)
                 tooth_37_form.save()
             elif 'tooth_38' in request.POST:
-                tooth_38_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_38_form = Tooth38Form(request.POST, instance=odontogram)
                 tooth_38_form.save()
             elif 'tooth_41' in request.POST:
-                tooth_41_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_41_form = Tooth41Form(request.POST, instance=odontogram)
                 tooth_41_form.save()
             elif 'tooth_42' in request.POST:
-                tooth_42_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_42_form = Tooth42Form(request.POST, instance=odontogram)
                 tooth_42_form.save()
             elif 'tooth_43' in request.POST:
-                tooth_43_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_43_form = Tooth43Form(request.POST, instance=odontogram)
                 tooth_43_form.save()
             elif 'tooth_44' in request.POST:
-                tooth_44_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_44_form = Tooth44Form(request.POST, instance=odontogram)
                 tooth_44_form.save()
             elif 'tooth_45' in request.POST:
-                tooth_45_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_45_form = Tooth45Form(request.POST, instance=odontogram)
                 tooth_45_form.save()
             elif 'tooth_46' in request.POST:
-                tooth_46_form = Tooth16Form(request.POST, instance=odontogram)
+                tooth_46_form = Tooth46Form(request.POST, instance=odontogram)
                 tooth_46_form.save()
             elif 'tooth_47' in request.POST:
-                tooth_47_form = Tooth17Form(request.POST, instance=odontogram)
+                tooth_47_form = Tooth47Form(request.POST, instance=odontogram)
                 tooth_47_form.save()
             elif 'tooth_48' in request.POST:
-                tooth_48_form = Tooth18Form(request.POST, instance=odontogram)
+                tooth_48_form = Tooth48Form(request.POST, instance=odontogram)
                 tooth_48_form.save()
 
             odontogram.save()
