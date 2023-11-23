@@ -448,6 +448,28 @@ appointment-modal-save-button:active {
   border-color: #4040a8;
 }
 
+#treatment-plan-modal-save-button {
+    background-color: #00008b;
+    border: 1px solid #00008b;
+}
+
+#treatment-plan-modal-save-button:hover,
+treatment-plan-modal-save-button:active {
+  background-color: #4040a8;
+  border-color: #4040a8;
+}
+
+.odontogram-top-view-save-button {
+    background-color: #00008b;
+    border: 1px solid #00008b;
+}
+
+.odontogram-top-view-save-button:hover,
+odontogram-top-view-save-button:active {
+  background-color: #4040a8;
+  border-color: #4040a8;
+}
+
 #save-appointment-button {
     width: 15rem;
     border-radius: 6px;
@@ -660,6 +682,7 @@ a:active {
 #odontogram-table td, #odontogram-table th {
     border: 1px solid #ddd;
     padding: 8px;
+    height: 3.5rem;
 }
 
 #odontogram-table tr:nth-child(odd) {
@@ -692,6 +715,7 @@ a:active {
 .tooth-image-top-view {
     width: 4rem;
     text-align: center;
+    cursor: pointer;
 }
 
 .odontogram-images {
@@ -827,143 +851,43 @@ a:active {
     width: 3rem;
 }
 
-#odontogram-11-top-view {
+.odontogram-top-view {
     width: 2rem;
+    position: absolute;
+    display: block;
+    margin-left: 0.6rem;
+    margin-top: -1rem;
 }
 
-#odontogram-12-top-view {
-    width: 2rem;
+.tooth-form {
+    height: 23.5rem;
 }
 
-#odontogram-13-top-view {
-    width: 2rem;
+.tooth-table tbody {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  margin-top: -10rem;
 }
 
-#odontogram-14-top-view {
-    width: 2rem;
+.tooth-table ul {
+  display: grid;
+  grid-template-columns: repeat(3, 5rem);
 }
 
-#odontogram-15-top-view {
-    width: 2rem;
+.tooth-table label {
+    width: 12rem;
 }
 
-#odontogram-16-top-view {
-    width: 2rem;
-}
-
-#odontogram-17-top-view {
-    width: 2rem;
-}
-
-#odontogram-18-top-view {
-    width: 2rem;
-}
-
-#odontogram-21-top-view {
-    width: 2rem;
-}
-
-#odontogram-22-top-view {
-    width: 2rem;
-}
-
-#odontogram-23-top-view {
-    width: 2rem;
-}
-
-#odontogram-24-top-view {
-    width: 2rem;
-}
-
-#odontogram-25-top-view {
-    width: 2rem;
-}
-
-#odontogram-26-top-view {
-    width: 2rem;
-}
-
-#odontogram-27-top-view {
-    width: 2rem;
-}
-
-#odontogram-28-top-view {
-    width: 2rem;
-}
-
-#odontogram-31-top-view {
-    width: 2rem;
-}
-
-#odontogram-32-top-view {
-    width: 2rem;
-}
-
-#odontogram-33-top-view {
-    width: 2rem;
-}
-
-#odontogram-34-top-view {
-    width: 2rem;
-}
-
-#odontogram-35-top-view {
-    width: 2rem;
-}
-
-#odontogram-36-top-view {
-    width: 2rem;
-}
-
-#odontogram-37-top-view {
-    width: 2rem;
-}
-
-#odontogram-38-top-view {
-    width: 2rem;
-}
-
-#odontogram-41-top-view {
-    width: 2rem;
-}
-
-#odontogram-42-top-view {
-    width: 2rem;
-}
-
-#odontogram-43-top-view {
-    width: 2rem;
-}
-
-#odontogram-44-top-view {
-    width: 2rem;
-}
-
-#odontogram-45-top-view {
-    width: 2rem;
-}
-
-#odontogram-46-top-view {
-    width: 2rem;
-}
-
-#odontogram-47-top-view {
-    width: 2rem;
-}
-
-#odontogram-48-top-view {
-    width: 2rem;
-}
-
-.tooth-image-top-view {
-    cursor: pointer;
+.tooth-table tr {
+    margin-right: 4rem;
+    margin-bottom: 0.3rem;
 }
 
 .odontogram-top-view-image {
     width: 10rem;
     z-index: 1;
-    position:relative;
-    left: 5px;
+    position:absolute;
+    left: 30px;
 }
 
 #odontogram-outer-top-view-image-1-black {
@@ -971,7 +895,7 @@ a:active {
     z-index: 2;
     position: relative;
     left: 5px;
-    top: -169px;
+    top: -160px;
     opacity: 0;
 }
 
@@ -980,7 +904,7 @@ a:active {
     z-index: 3;
     position: relative;
     left: 5px;
-    top: -339px;
+    top: -320px;
     opacity: 0;
 }
 
@@ -989,7 +913,7 @@ a:active {
     z-index: 4;
     position: relative;
     left: 5px;
-    top: -509px;
+    top: -480px;
     opacity: 0;
 }
 
@@ -998,7 +922,7 @@ a:active {
     z-index: 2;
     position: relative;
     left: 5px;
-    top: -678px;
+    top: -640px;
     opacity: 0;
 }
 
@@ -1007,7 +931,7 @@ a:active {
     z-index: 3;
     position: relative;
     left: 5px;
-    top: -848px;
+    top: -800px;
     opacity: 0;
 }
 
@@ -1016,7 +940,7 @@ a:active {
     z-index: 4;
     position: relative;
     left: 5px;
-    top: -1018px;
+    top: -960px;
     opacity: 0;
 }
 
@@ -1025,7 +949,7 @@ a:active {
     z-index: 2;
     position: relative;
     left: 5px;
-    top: -1188px;
+    top: -1120px;
     opacity: 0;
 }
 
@@ -1034,7 +958,7 @@ a:active {
     z-index: 3;
     position: relative;
     left: 5px;
-    top: -1357px;
+    top: -1280px;
     opacity: 0;
 }
 
@@ -1043,7 +967,7 @@ a:active {
     z-index: 4;
     position: relative;
     left: 5px;
-    top: -1527px;
+    top: -1440px;
     opacity: 0;
 }
 
@@ -1052,7 +976,7 @@ a:active {
     z-index: 2;
     position: relative;
     left: 5px;
-    top: -1697px;
+    top: -1600px;
     opacity: 0;
 }
 
@@ -1061,7 +985,7 @@ a:active {
     z-index: 3;
     position: relative;
     left: 5px;
-    top: -1867px;
+    top: -1760px;
     opacity: 0;
 }
 
@@ -1070,7 +994,7 @@ a:active {
     z-index: 4;
     position: relative;
     left: 5px;
-    top: -2035px;
+    top: -1920px;
     opacity: 0;
 }
 
@@ -1079,7 +1003,7 @@ a:active {
     z-index: 2;
     position: relative;
     left: 5px;
-    top: -2205px;
+    top: -2080px;
     opacity: 0;
 }
 
@@ -1088,7 +1012,7 @@ a:active {
     z-index: 3;
     position: relative;
     left: 5px;
-    top: -2375px;
+    top: -2240px;
     opacity: 0;
 }
 
@@ -1097,7 +1021,7 @@ a:active {
     z-index: 4;
     position: relative;
     left: 5px;
-    top: -2545px;
+    top: -2400px;
     opacity: 0;
 }
 
