@@ -911,6 +911,10 @@ a:active {
     margin-bottom: 0.3rem;
 }
 
+#odontogram-top-side-row {
+    height: 6rem;
+}
+
 .odontogram-top-view-image {
     width: 10rem;
     z-index: 1;

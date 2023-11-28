@@ -220,7 +220,7 @@
                     <th class="tooth-number">27</th>
                     <th class="tooth-number">28</th>
                 </tr>
-                <tr>
+                <tr id="odontogram-top-side-row">
                     <td class="tooth-image">
                         <img src="{% static 'images/dental/side_view/tooth_18.jpg' %}" class="tooth-side-main" alt="tooth-18" style="z-index: 0;">
                         {% if 'endo_side' in odontogram.tooth_18 %}
@@ -317,14 +317,102 @@
                         <img src="{% static 'images/dental/side_view/screw_up_normal.png' %}" alt="tooth-11-implant" class="tooth-side-main" style="z-index: 1;">
                         {% endif %}
                     </td>
-                    <td class="tooth-image"><img src="{% static 'images/dental/side_view/tooth_21.jpg' %}" id="tooth-21" alt="tooth-21"></td>
-                    <td class="tooth-image"><img src="{% static 'images/dental/side_view/tooth_22.jpg' %}" id="tooth-22" alt="tooth-22"></td>
-                    <td class="tooth-image"><img src="{% static 'images/dental/side_view/tooth_23.jpg' %}" id="tooth-23" alt="tooth-23"></td>
-                    <td class="tooth-image"><img src="{% static 'images/dental/side_view/tooth_24.jpg' %}" id="tooth-24" alt="tooth-24"></td>
-                    <td class="tooth-image"><img src="{% static 'images/dental/side_view/tooth_25.jpg' %}" id="tooth-25" alt="tooth-25"></td>
-                    <td class="tooth-image"><img src="{% static 'images/dental/side_view/tooth_26.jpg' %}" id="tooth-26" alt="tooth-26"></td>
-                    <td class="tooth-image"><img src="{% static 'images/dental/side_view/tooth_27.jpg' %}" id="tooth-27" alt="tooth-27"></td>
-                    <td class="tooth-image"><img src="{% static 'images/dental/side_view/tooth_28.jpg' %}" id="tooth-28" alt="tooth-28"></td>
+                    <td class="tooth-image">
+                        <img src="{% static 'images/dental/side_view/tooth_21.jpg' %}" class="tooth-side-main" alt="tooth-21" style="z-index: 0;">
+                        {% if 'endo_side' in odontogram.tooth_21 %}
+                        <img src="{% static 'images/dental/side_view/endo.png' %}" alt="tooth-21-endo" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                        {% if 'extracted_side' in odontogram.tooth_21 %}
+                        <img src="{% static 'images/dental/side_view/extracted.png' %}" alt="tooth-21-extracted" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                        {% if 'implant_side' in odontogram.tooth_21 %}
+                        <img src="{% static 'images/dental/side_view/screw_up_normal.png' %}" alt="tooth-21-implant" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                    </td>
+                    <td class="tooth-image">
+                        <img src="{% static 'images/dental/side_view/tooth_22.jpg' %}" class="tooth-side-main" alt="tooth-22" style="z-index: 0;">
+                        {% if 'endo_side' in odontogram.tooth_22 %}
+                        <img src="{% static 'images/dental/side_view/endo.png' %}" alt="tooth-22-endo" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                        {% if 'extracted_side' in odontogram.tooth_22 %}
+                        <img src="{% static 'images/dental/side_view/extracted.png' %}" alt="tooth-22-extracted" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                        {% if 'implant_side' in odontogram.tooth_22 %}
+                        <img src="{% static 'images/dental/side_view/screw_up_normal.png' %}" alt="tooth-22-implant" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                    </td>
+                    <td class="tooth-image">
+                        <img src="{% static 'images/dental/side_view/tooth_23.jpg' %}" class="tooth-side-main" alt="tooth-23" style="z-index: 0;">
+                        {% if 'endo_side' in odontogram.tooth_23 %}
+                        <img src="{% static 'images/dental/side_view/endo.png' %}" alt="tooth-23-endo" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                        {% if 'extracted_side' in odontogram.tooth_23 %}
+                        <img src="{% static 'images/dental/side_view/extracted.png' %}" alt="tooth-23-extracted" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                        {% if 'implant_side' in odontogram.tooth_23 %}
+                        <img src="{% static 'images/dental/side_view/screw_up_normal.png' %}" alt="tooth-23-implant" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                    </td>
+                    <td class="tooth-image">
+                        <img src="{% static 'images/dental/side_view/tooth_24.jpg' %}" class="tooth-side-main" alt="tooth-24" style="z-index: 0;">
+                        {% if 'endo_side' in odontogram.tooth_24 %}
+                        <img src="{% static 'images/dental/side_view/endo.png' %}" alt="tooth-24-endo" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                        {% if 'extracted_side' in odontogram.tooth_24 %}
+                        <img src="{% static 'images/dental/side_view/extracted.png' %}" alt="tooth-24-extracted" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                        {% if 'implant_side' in odontogram.tooth_24 %}
+                        <img src="{% static 'images/dental/side_view/screw_up_normal.png' %}" alt="tooth-24-implant" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                    </td>
+                    <td class="tooth-image">
+                        <img src="{% static 'images/dental/side_view/tooth_25.jpg' %}" class="tooth-side-main" alt="tooth-25" style="z-index: 0;">
+                        {% if 'endo_side' in odontogram.tooth_25 %}
+                        <img src="{% static 'images/dental/side_view/endo.png' %}" alt="tooth-25-endo" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                        {% if 'extracted_side' in odontogram.tooth_25 %}
+                        <img src="{% static 'images/dental/side_view/extracted.png' %}" alt="tooth-25-extracted" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                        {% if 'implant_side' in odontogram.tooth_25 %}
+                        <img src="{% static 'images/dental/side_view/screw_up_normal.png' %}" alt="tooth-25-implant" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                    </td>
+                    <td class="tooth-image">
+                        <img src="{% static 'images/dental/side_view/tooth_26.jpg' %}" class="tooth-side-main" alt="tooth-26" style="z-index: 0;">
+                        {% if 'endo_side' in odontogram.tooth_26 %}
+                        <img src="{% static 'images/dental/side_view/endo.png' %}" alt="tooth-26-endo" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                        {% if 'extracted_side' in odontogram.tooth_26 %}
+                        <img src="{% static 'images/dental/side_view/extracted.png' %}" alt="tooth-26-extracted" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                        {% if 'implant_side' in odontogram.tooth_26 %}
+                        <img src="{% static 'images/dental/side_view/screw_up_large.png' %}" alt="tooth-26-implant" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                    </td>
+                    <td class="tooth-image">
+                        <img src="{% static 'images/dental/side_view/tooth_27.jpg' %}" class="tooth-side-main" alt="tooth-27" style="z-index: 0;">
+                        {% if 'endo_side' in odontogram.tooth_27 %}
+                        <img src="{% static 'images/dental/side_view/endo.png' %}" alt="tooth-27-endo" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                        {% if 'extracted_side' in odontogram.tooth_27 %}
+                        <img src="{% static 'images/dental/side_view/extracted.png' %}" alt="tooth-27-extracted" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                        {% if 'implant_side' in odontogram.tooth_27 %}
+                        <img src="{% static 'images/dental/side_view/screw_up_large.png' %}" alt="tooth-27-implant" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                    </td>
+                    <td class="tooth-image">
+                        <img src="{% static 'images/dental/side_view/tooth_28.jpg' %}" class="tooth-side-main" alt="tooth-28" style="z-index: 0;">
+                        {% if 'endo_side' in odontogram.tooth_28 %}
+                        <img src="{% static 'images/dental/side_view/endo.png' %}" alt="tooth-28-endo" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                        {% if 'extracted_side' in odontogram.tooth_28 %}
+                        <img src="{% static 'images/dental/side_view/extracted.png' %}" alt="tooth-28-extracted" class="tooth-side-main" style="z-index: 1;">
+                        {% endif %}
+                        {% if 'implant_side' in odontogram.tooth_28 %}
+                        <img src="{% static 'images/dental/side_view/screw_up_large.png' %}" alt="tooth-28-implant" class="tooth-side-main"style="z-index: 1;">
+                        {% endif %}
+                    </td>
                 </tr>
                 <tr>
                     <td class="tooth-image-top-view">
@@ -394,7 +482,7 @@
                     <td class="tooth-image-top-view">
                         <img src="{% static 'images/dental/top_view/default.png' %}" style="z-index: 0;" class="odontogram-top-view" alt="odontogram-21-top-view" data-bs-toggle="modal" data-bs-target="#odontogramTopViewModalPosterior21">
                         {% for t in treatments %}
-                            {% if t in odontogram.tooth_21 %}
+                            {% if t in odontogram.tooth_21 and 'side' not in t  %}
                               <img class="odontogram-top-view" src="{% static 'images/dental/top_view/'|add:t|add:'.png' %}" style="z-index: 1;" alt="tooth_21" data-bs-toggle="modal" data-bs-target="#odontogramTopViewModalPosterior21">
                             {% endif %}
                         {% endfor %}
@@ -402,7 +490,7 @@
                     <td class="tooth-image-top-view">
                         <img src="{% static 'images/dental/top_view/default.png' %}" style="z-index: 0;" class="odontogram-top-view" alt="odontogram-22-top-view" data-bs-toggle="modal" data-bs-target="#odontogramTopViewModalPosterior22">
                         {% for t in treatments %}
-                            {% if t in odontogram.tooth_22 %}
+                            {% if t in odontogram.tooth_22 and 'side' not in t  %}
                               <img class="odontogram-top-view" src="{% static 'images/dental/top_view/'|add:t|add:'.png' %}" style="z-index: 1;" alt="tooth_22" data-bs-toggle="modal" data-bs-target="#odontogramTopViewModalPosterior22">
                             {% endif %}
                         {% endfor %}
@@ -410,7 +498,7 @@
                     <td class="tooth-image-top-view">
                         <img src="{% static 'images/dental/top_view/default.png' %}" style="z-index: 0;" class="odontogram-top-view" alt="odontogram-23-top-view" data-bs-toggle="modal" data-bs-target="#odontogramTopViewModalPosterior23">
                         {% for t in treatments %}
-                            {% if t in odontogram.tooth_23 %}
+                            {% if t in odontogram.tooth_23 and 'side' not in t  %}
                               <img class="odontogram-top-view" src="{% static 'images/dental/top_view/'|add:t|add:'.png' %}" style="z-index: 1;" alt="tooth_23" data-bs-toggle="modal" data-bs-target="#odontogramTopViewModalPosterior23">
                             {% endif %}
                         {% endfor %}
@@ -418,7 +506,7 @@
                     <td class="tooth-image-top-view">
                         <img src="{% static 'images/dental/top_view/default.png' %}" style="z-index: 0;" class="odontogram-top-view" alt="odontogram-24-top-view" data-bs-toggle="modal" data-bs-target="#odontogramTopViewModalPosterior24">
                         {% for t in treatments %}
-                            {% if t in odontogram.tooth_24 %}
+                            {% if t in odontogram.tooth_24 and 'side' not in t  %}
                               <img class="odontogram-top-view" src="{% static 'images/dental/top_view/'|add:t|add:'.png' %}" style="z-index: 1;" alt="tooth_24" data-bs-toggle="modal" data-bs-target="#odontogramTopViewModalPosterior24">
                             {% endif %}
                         {% endfor %}
@@ -426,7 +514,7 @@
                     <td class="tooth-image-top-view">
                         <img src="{% static 'images/dental/top_view/default.png' %}" style="z-index: 0;" class="odontogram-top-view" alt="odontogram-25-top-view" data-bs-toggle="modal" data-bs-target="#odontogramTopViewModalPosterior25">
                         {% for t in treatments %}
-                            {% if t in odontogram.tooth_25 %}
+                            {% if t in odontogram.tooth_25 and 'side' not in t  %}
                               <img class="odontogram-top-view" src="{% static 'images/dental/top_view/'|add:t|add:'.png' %}" style="z-index: 1;" alt="tooth_25" data-bs-toggle="modal" data-bs-target="#odontogramTopViewModalPosterior25">
                             {% endif %}
                         {% endfor %}
@@ -434,7 +522,7 @@
                     <td class="tooth-image-top-view">
                         <img src="{% static 'images/dental/top_view/default.png' %}" style="z-index: 0;" class="odontogram-top-view" alt="odontogram-26-top-view" data-bs-toggle="modal" data-bs-target="#odontogramTopViewModalPosterior26">
                         {% for t in treatments %}
-                            {% if t in odontogram.tooth_26 %}
+                            {% if t in odontogram.tooth_26 and 'side' not in t  %}
                               <img class="odontogram-top-view" src="{% static 'images/dental/top_view/'|add:t|add:'.png' %}" style="z-index: 1;" alt="tooth_26" data-bs-toggle="modal" data-bs-target="#odontogramTopViewModalPosterior26">
                             {% endif %}
                         {% endfor %}
@@ -442,7 +530,7 @@
                     <td class="tooth-image-top-view">
                         <img src="{% static 'images/dental/top_view/default.png' %}" style="z-index: 0;" class="odontogram-top-view" alt="odontogram-27-top-view" data-bs-toggle="modal" data-bs-target="#odontogramTopViewModalPosterior27">
                         {% for t in treatments %}
-                            {% if t in odontogram.tooth_27 %}
+                            {% if t in odontogram.tooth_27 and 'side' not in t  %}
                               <img class="odontogram-top-view" src="{% static 'images/dental/top_view/'|add:t|add:'.png' %}" style="z-index: 1;" alt="tooth_27" data-bs-toggle="modal" data-bs-target="#odontogramTopViewModalPosterior27">
                             {% endif %}
                         {% endfor %}
@@ -450,7 +538,7 @@
                     <td class="tooth-image-top-view">
                         <img src="{% static 'images/dental/top_view/default.png' %}" style="z-index: 0;" class="odontogram-top-view" alt="odontogram-28-top-view" data-bs-toggle="modal" data-bs-target="#odontogramTopViewModalPosterior28">
                         {% for t in treatments %}
-                            {% if t in odontogram.tooth_28 %}
+                            {% if t in odontogram.tooth_28 and 'side' not in t  %}
                               <img class="odontogram-top-view" src="{% static 'images/dental/top_view/'|add:t|add:'.png' %}" style="z-index: 1;" alt="tooth_28" data-bs-toggle="modal" data-bs-target="#odontogramTopViewModalPosterior28">
                             {% endif %}
                         {% endfor %}
@@ -1312,6 +1400,33 @@
                                             <li><label for="id_tooth_21_13"><input type="checkbox" name="tooth_21" value="yellow_3" id="id_tooth_21_13" {% if 'yellow_3' in odontogram.tooth_21 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_3.png' %}" alt="yellow_3" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_21_14"><input type="checkbox" name="tooth_21" value="yellow_4" id="id_tooth_21_14" {% if 'yellow_4' in odontogram.tooth_21 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_4.png' %}" alt="yellow_4" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_21_15"><input type="checkbox" name="tooth_21" value="yellow_5" id="id_tooth_21_15" {% if 'yellow_5' in odontogram.tooth_21 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_5.png' %}" alt="yellow_5" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_21_16"><input type="checkbox" name="tooth_21" value="endo_top" id="id_tooth_21_16" {% if 'endo_top' in odontogram.tooth_21 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/endo_top.png' %}" alt="endo_top" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_21_17"><input type="checkbox" name="tooth_21" value="extracted_top" id="id_tooth_21_17" {% if 'extracted_top' in odontogram.tooth_21 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/extracted_top.png' %}" alt="extracted_top" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_21_18"><input type="checkbox" name="tooth_21" value="for_extraction" id="id_tooth_21_18" {% if 'for_extraction' in odontogram.tooth_21 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/for_extraction.png' %}" alt="for_extraction" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_21_19"><input type="checkbox" name="tooth_21" value="implant_top" id="id_tooth_21_19" {% if 'implant_top' in odontogram.tooth_21 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/implant_top.png' %}" alt="implant_top" width="30" height="30"></label></li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <label for="id_tooth_21_20">
+                                                    <input type="checkbox" name="tooth_21" value="extracted_side" id="id_tooth_21_20" {% if 'extracted_side' in odontogram.tooth_21 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_21.jpg' %}" alt="tooth-21-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/extracted.png' %}" alt="tooth-21-side-extracted" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="id_tooth_21_21">
+                                                    <input type="checkbox" name="tooth_21" value="endo_side" id="id_tooth_21_21" {% if 'endo_side' in odontogram.tooth_21 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_21.jpg' %}" alt="tooth-21-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/endo.png' %}" alt="tooth-21-side-endo" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="id_tooth_21_22">
+                                                    <input type="checkbox" name="tooth_21" value="implant_side" id="id_tooth_21_22" {% if 'implant_side' in odontogram.tooth_21 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_21.jpg' %}" alt="tooth-21-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/screw_up_normal.png' %}" alt="tooth-21-side-screw" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
                                         </ul>
                                     </td>
                                 </tr>
@@ -1366,10 +1481,33 @@
                                             <li><label for="id_tooth_22_13"><input type="checkbox" name="tooth_22" value="yellow_3" id="id_tooth_22_13" {% if 'yellow_3' in odontogram.tooth_22 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_3.png' %}" alt="yellow_3" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_22_14"><input type="checkbox" name="tooth_22" value="yellow_4" id="id_tooth_22_14" {% if 'yellow_4' in odontogram.tooth_22 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_4.png' %}" alt="yellow_4" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_22_15"><input type="checkbox" name="tooth_22" value="yellow_5" id="id_tooth_22_15" {% if 'yellow_5' in odontogram.tooth_22 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_5.png' %}" alt="yellow_5" width="30" height="30"></label></li>
-                                            <li><label for="id_tooth_22_16"><input type="checkbox" name="tooth_22" value="endo_top" id="id_tooth_22_16" {% if 'endo_top' in odontogram.tooth_22 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/endo.png' %}" alt="endo_top" width="30" height="30"></label></li>
-                                            <li><label for="id_tooth_22_17"><input type="checkbox" name="tooth_22" value="extracted_top" id="id_tooth_22_17" {% if 'extracted_top' in odontogram.tooth_22 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/extracted.png' %}" alt="extracted_top" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_22_16"><input type="checkbox" name="tooth_22" value="endo_top" id="id_tooth_22_16" {% if 'endo_top' in odontogram.tooth_22 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/endo_top.png' %}" alt="endo_top" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_22_17"><input type="checkbox" name="tooth_22" value="extracted_top" id="id_tooth_22_17" {% if 'extracted_top' in odontogram.tooth_22 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/extracted_top.png' %}" alt="extracted_top" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_22_18"><input type="checkbox" name="tooth_22" value="for_extraction" id="id_tooth_22_18" {% if 'for_extraction' in odontogram.tooth_22 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/for_extraction.png' %}" alt="for_extraction" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_22_19"><input type="checkbox" name="tooth_22" value="implant_top" id="id_tooth_22_19" {% if 'implant_top' in odontogram.tooth_22 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/implant_top.png' %}" alt="implant_top" width="30" height="30"></label></li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <label for="id_tooth_22_20">
+                                                    <input type="checkbox" name="tooth_22" value="extracted_side" id="id_tooth_22_20" {% if 'extracted_side' in odontogram.tooth_22 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_22.jpg' %}" alt="tooth-22-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/extracted.png' %}" alt="tooth-22-side-extracted" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="id_tooth_22_21">
+                                                    <input type="checkbox" name="tooth_22" value="endo_side" id="id_tooth_22_21" {% if 'endo_side' in odontogram.tooth_22 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_22.jpg' %}" alt="tooth-22-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/endo.png' %}" alt="tooth-22-side-endo" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="id_tooth_22_22">
+                                                    <input type="checkbox" name="tooth_22" value="implant_side" id="id_tooth_22_22" {% if 'implant_side' in odontogram.tooth_22 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_22.jpg' %}" alt="tooth-22-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/screw_up_normal.png' %}" alt="tooth-22-side-screw" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
                                         </ul>
                                     </td>
                                 </tr>
@@ -1424,10 +1562,33 @@
                                             <li><label for="id_tooth_23_13"><input type="checkbox" name="tooth_23" value="yellow_3" id="id_tooth_23_13" {% if 'yellow_3' in odontogram.tooth_23 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_3.png' %}" alt="yellow_3" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_23_14"><input type="checkbox" name="tooth_23" value="yellow_4" id="id_tooth_23_14" {% if 'yellow_4' in odontogram.tooth_23 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_4.png' %}" alt="yellow_4" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_23_15"><input type="checkbox" name="tooth_23" value="yellow_5" id="id_tooth_23_15" {% if 'yellow_5' in odontogram.tooth_23 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_5.png' %}" alt="yellow_5" width="30" height="30"></label></li>
-                                            <li><label for="id_tooth_23_16"><input type="checkbox" name="tooth_23" value="endo_top" id="id_tooth_23_16" {% if 'endo_top' in odontogram.tooth_23 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/endo.png' %}" alt="endo_top" width="30" height="30"></label></li>
-                                            <li><label for="id_tooth_23_17"><input type="checkbox" name="tooth_23" value="extracted_top" id="id_tooth_23_17" {% if 'extracted_top' in odontogram.tooth_23 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/extracted.png' %}" alt="extracted_top" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_23_16"><input type="checkbox" name="tooth_23" value="endo_top" id="id_tooth_23_16" {% if 'endo_top' in odontogram.tooth_23 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/endo_top.png' %}" alt="endo_top" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_23_17"><input type="checkbox" name="tooth_23" value="extracted_top" id="id_tooth_23_17" {% if 'extracted_top' in odontogram.tooth_23 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/extracted_top.png' %}" alt="extracted_top" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_23_18"><input type="checkbox" name="tooth_23" value="for_extraction" id="id_tooth_23_18" {% if 'for_extraction' in odontogram.tooth_23 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/for_extraction.png' %}" alt="for_extraction" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_23_19"><input type="checkbox" name="tooth_23" value="implant_top" id="id_tooth_23_19" {% if 'implant_top' in odontogram.tooth_23 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/implant_top.png' %}" alt="implant_top" width="30" height="30"></label></li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <label for="id_tooth_23_20">
+                                                    <input type="checkbox" name="tooth_23" value="extracted_side" id="id_tooth_23_20" {% if 'extracted_side' in odontogram.tooth_23 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_23.jpg' %}" alt="tooth-23-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/extracted.png' %}" alt="tooth-23-side-extracted" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="id_tooth_23_21">
+                                                    <input type="checkbox" name="tooth_23" value="endo_side" id="id_tooth_23_21" {% if 'endo_side' in odontogram.tooth_23 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_23.jpg' %}" alt="tooth-23-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/endo.png' %}" alt="tooth-23-side-endo" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="id_tooth_23_22">
+                                                    <input type="checkbox" name="tooth_23" value="implant_side" id="id_tooth_23_22" {% if 'implant_side' in odontogram.tooth_23 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_23.jpg' %}" alt="tooth-23-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/screw_up_normal.png' %}" alt="tooth-23-side-screw" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
                                         </ul>
                                     </td>
                                 </tr>
@@ -1482,10 +1643,33 @@
                                             <li><label for="id_tooth_24_13"><input type="checkbox" name="tooth_24" value="yellow_3" id="id_tooth_24_13" {% if 'yellow_3' in odontogram.tooth_24 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_3.png' %}" alt="yellow_3" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_24_14"><input type="checkbox" name="tooth_24" value="yellow_4" id="id_tooth_24_14" {% if 'yellow_4' in odontogram.tooth_24 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_4.png' %}" alt="yellow_4" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_24_15"><input type="checkbox" name="tooth_24" value="yellow_5" id="id_tooth_24_15" {% if 'yellow_5' in odontogram.tooth_24 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_5.png' %}" alt="yellow_5" width="30" height="30"></label></li>
-                                            <li><label for="id_tooth_24_16"><input type="checkbox" name="tooth_24" value="endo_top" id="id_tooth_24_16" {% if 'endo_top' in odontogram.tooth_24 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/endo.png' %}" alt="endo_top" width="30" height="30"></label></li>
-                                            <li><label for="id_tooth_24_17"><input type="checkbox" name="tooth_24" value="extracted_top" id="id_tooth_24_17" {% if 'extracted_top' in odontogram.tooth_24 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/extracted.png' %}" alt="extracted_top" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_24_16"><input type="checkbox" name="tooth_24" value="endo_top" id="id_tooth_24_16" {% if 'endo_top' in odontogram.tooth_24 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/endo_top.png' %}" alt="endo_top" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_24_17"><input type="checkbox" name="tooth_24" value="extracted_top" id="id_tooth_24_17" {% if 'extracted_top' in odontogram.tooth_24 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/extracted_top.png' %}" alt="extracted_top" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_24_18"><input type="checkbox" name="tooth_24" value="for_extraction" id="id_tooth_24_18" {% if 'for_extraction' in odontogram.tooth_24 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/for_extraction.png' %}" alt="for_extraction" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_24_19"><input type="checkbox" name="tooth_24" value="implant_top" id="id_tooth_24_19" {% if 'implant_top' in odontogram.tooth_24 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/implant_top.png' %}" alt="implant_top" width="30" height="30"></label></li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <label for="id_tooth_24_20">
+                                                    <input type="checkbox" name="tooth_24" value="extracted_side" id="id_tooth_24_20" {% if 'extracted_side' in odontogram.tooth_24 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_24.jpg' %}" alt="tooth-24-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/extracted.png' %}" alt="tooth-24-side-extracted" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="id_tooth_24_21">
+                                                    <input type="checkbox" name="tooth_24" value="endo_side" id="id_tooth_24_21" {% if 'endo_side' in odontogram.tooth_24 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_24.jpg' %}" alt="tooth-24-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/endo.png' %}" alt="tooth-24-side-endo" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="id_tooth_24_22">
+                                                    <input type="checkbox" name="tooth_24" value="implant_side" id="id_tooth_24_22" {% if 'implant_side' in odontogram.tooth_24 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_24.jpg' %}" alt="tooth-24-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/screw_up_normal.png' %}" alt="tooth-24-side-screw" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
                                         </ul>
                                     </td>
                                 </tr>
@@ -1540,10 +1724,33 @@
                                             <li><label for="id_tooth_25_13"><input type="checkbox" name="tooth_25" value="yellow_3" id="id_tooth_25_13" {% if 'yellow_3' in odontogram.tooth_25 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_3.png' %}" alt="yellow_3" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_25_14"><input type="checkbox" name="tooth_25" value="yellow_4" id="id_tooth_25_14" {% if 'yellow_4' in odontogram.tooth_25 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_4.png' %}" alt="yellow_4" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_25_15"><input type="checkbox" name="tooth_25" value="yellow_5" id="id_tooth_25_15" {% if 'yellow_5' in odontogram.tooth_25 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_5.png' %}" alt="yellow_5" width="30" height="30"></label></li>
-                                            <li><label for="id_tooth_25_16"><input type="checkbox" name="tooth_25" value="endo_top" id="id_tooth_25_16" {% if 'endo_top' in odontogram.tooth_25 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/endo.png' %}" alt="endo_top" width="30" height="30"></label></li>
-                                            <li><label for="id_tooth_25_17"><input type="checkbox" name="tooth_25" value="extracted_top" id="id_tooth_25_17" {% if 'extracted_top' in odontogram.tooth_25 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/extracted.png' %}" alt="extracted_top" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_25_16"><input type="checkbox" name="tooth_25" value="endo_top" id="id_tooth_25_16" {% if 'endo_top' in odontogram.tooth_25 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/endo_top.png' %}" alt="endo_top" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_25_17"><input type="checkbox" name="tooth_25" value="extracted_top" id="id_tooth_25_17" {% if 'extracted_top' in odontogram.tooth_25 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/extracted_top.png' %}" alt="extracted_top" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_25_18"><input type="checkbox" name="tooth_25" value="for_extraction" id="id_tooth_25_18" {% if 'for_extraction' in odontogram.tooth_25 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/for_extraction.png' %}" alt="for_extraction" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_25_19"><input type="checkbox" name="tooth_25" value="implant_top" id="id_tooth_25_19" {% if 'implant_top' in odontogram.tooth_25 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/implant_top.png' %}" alt="implant_top" width="30" height="30"></label></li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <label for="id_tooth_25_20">
+                                                    <input type="checkbox" name="tooth_25" value="extracted_side" id="id_tooth_25_20" {% if 'extracted_side' in odontogram.tooth_25 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_25.jpg' %}" alt="tooth-25-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/extracted.png' %}" alt="tooth-25-side-extracted" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="id_tooth_25_21">
+                                                    <input type="checkbox" name="tooth_25" value="endo_side" id="id_tooth_25_21" {% if 'endo_side' in odontogram.tooth_25 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_25.jpg' %}" alt="tooth-25-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/endo.png' %}" alt="tooth-25-side-endo" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="id_tooth_25_22">
+                                                    <input type="checkbox" name="tooth_25" value="implant_side" id="id_tooth_25_22" {% if 'implant_side' in odontogram.tooth_25 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_25.jpg' %}" alt="tooth-25-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/screw_up_normal.png' %}" alt="tooth-25-side-screw" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
                                         </ul>
                                     </td>
                                 </tr>
@@ -1598,10 +1805,33 @@
                                             <li><label for="id_tooth_26_13"><input type="checkbox" name="tooth_26" value="yellow_3" id="id_tooth_26_13" {% if 'yellow_3' in odontogram.tooth_26 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_3.png' %}" alt="yellow_3" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_26_14"><input type="checkbox" name="tooth_26" value="yellow_4" id="id_tooth_26_14" {% if 'yellow_4' in odontogram.tooth_26 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_4.png' %}" alt="yellow_4" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_26_15"><input type="checkbox" name="tooth_26" value="yellow_5" id="id_tooth_26_15" {% if 'yellow_5' in odontogram.tooth_26 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_5.png' %}" alt="yellow_5" width="30" height="30"></label></li>
-                                            <li><label for="id_tooth_26_16"><input type="checkbox" name="tooth_26" value="endo_top" id="id_tooth_26_16" {% if 'endo_top' in odontogram.tooth_26 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/endo.png' %}" alt="endo_top" width="30" height="30"></label></li>
-                                            <li><label for="id_tooth_26_17"><input type="checkbox" name="tooth_26" value="extracted_top" id="id_tooth_26_17" {% if 'extracted_top' in odontogram.tooth_26 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/extracted.png' %}" alt="extracted_top" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_26_16"><input type="checkbox" name="tooth_26" value="endo_top" id="id_tooth_26_16" {% if 'endo_top' in odontogram.tooth_26 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/endo_top.png' %}" alt="endo_top" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_26_17"><input type="checkbox" name="tooth_26" value="extracted_top" id="id_tooth_26_17" {% if 'extracted_top' in odontogram.tooth_26 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/extracted_top.png' %}" alt="extracted_top" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_26_18"><input type="checkbox" name="tooth_26" value="for_extraction" id="id_tooth_26_18" {% if 'for_extraction' in odontogram.tooth_26 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/for_extraction.png' %}" alt="for_extraction" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_26_19"><input type="checkbox" name="tooth_26" value="implant_top" id="id_tooth_26_19" {% if 'implant_top' in odontogram.tooth_26 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/implant_top.png' %}" alt="implant_top" width="30" height="30"></label></li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <label for="id_tooth_26_20">
+                                                    <input type="checkbox" name="tooth_26" value="extracted_side" id="id_tooth_26_20" {% if 'extracted_side' in odontogram.tooth_26 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_26.jpg' %}" alt="tooth-26-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/extracted.png' %}" alt="tooth-26-side-extracted" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="id_tooth_26_21">
+                                                    <input type="checkbox" name="tooth_26" value="endo_side" id="id_tooth_26_21" {% if 'endo_side' in odontogram.tooth_26 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_26.jpg' %}" alt="tooth-26-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/endo.png' %}" alt="tooth-26-side-endo" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="id_tooth_26_22">
+                                                    <input type="checkbox" name="tooth_26" value="implant_side" id="id_tooth_26_22" {% if 'implant_side' in odontogram.tooth_26 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_26.jpg' %}" alt="tooth-26-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/screw_up_large.png' %}" alt="tooth-26-side-screw" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
                                         </ul>
                                     </td>
                                 </tr>
@@ -1656,10 +1886,33 @@
                                             <li><label for="id_tooth_27_13"><input type="checkbox" name="tooth_27" value="yellow_3" id="id_tooth_27_13" {% if 'yellow_3' in odontogram.tooth_27 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_3.png' %}" alt="yellow_3" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_27_14"><input type="checkbox" name="tooth_27" value="yellow_4" id="id_tooth_27_14" {% if 'yellow_4' in odontogram.tooth_27 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_4.png' %}" alt="yellow_4" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_27_15"><input type="checkbox" name="tooth_27" value="yellow_5" id="id_tooth_27_15" {% if 'yellow_5' in odontogram.tooth_27 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_5.png' %}" alt="yellow_5" width="30" height="30"></label></li>
-                                            <li><label for="id_tooth_27_16"><input type="checkbox" name="tooth_27" value="endo_top" id="id_tooth_27_16" {% if 'endo_top' in odontogram.tooth_27 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/endo.png' %}" alt="endo_top" width="30" height="30"></label></li>
-                                            <li><label for="id_tooth_27_17"><input type="checkbox" name="tooth_27" value="extracted_top" id="id_tooth_27_17" {% if 'extracted_top' in odontogram.tooth_27 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/extracted.png' %}" alt="extracted_top" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_27_16"><input type="checkbox" name="tooth_27" value="endo_top" id="id_tooth_27_16" {% if 'endo_top' in odontogram.tooth_27 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/endo_top.png' %}" alt="endo_top" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_27_17"><input type="checkbox" name="tooth_27" value="extracted_top" id="id_tooth_27_17" {% if 'extracted_top' in odontogram.tooth_27 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/extracted_top.png' %}" alt="extracted_top" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_27_18"><input type="checkbox" name="tooth_27" value="for_extraction" id="id_tooth_27_18" {% if 'for_extraction' in odontogram.tooth_27 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/for_extraction.png' %}" alt="for_extraction" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_27_19"><input type="checkbox" name="tooth_27" value="implant_top" id="id_tooth_27_19" {% if 'implant_top' in odontogram.tooth_27 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/implant_top.png' %}" alt="implant_top" width="30" height="30"></label></li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <label for="id_tooth_27_20">
+                                                    <input type="checkbox" name="tooth_27" value="extracted_side" id="id_tooth_27_20" {% if 'extracted_side' in odontogram.tooth_27 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_27.jpg' %}" alt="tooth-27-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/extracted.png' %}" alt="tooth-27-side-extracted" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="id_tooth_27_21">
+                                                    <input type="checkbox" name="tooth_27" value="endo_side" id="id_tooth_27_21" {% if 'endo_side' in odontogram.tooth_27 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_27.jpg' %}" alt="tooth-27-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/endo.png' %}" alt="tooth-27-side-endo" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="id_tooth_27_22">
+                                                    <input type="checkbox" name="tooth_27" value="implant_side" id="id_tooth_27_22" {% if 'implant_side' in odontogram.tooth_27 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_27.jpg' %}" alt="tooth-27-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/screw_up_large.png' %}" alt="tooth-27-side-screw" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
                                         </ul>
                                     </td>
                                 </tr>
@@ -1714,10 +1967,33 @@
                                             <li><label for="id_tooth_28_13"><input type="checkbox" name="tooth_28" value="yellow_3" id="id_tooth_28_13" {% if 'yellow_3' in odontogram.tooth_28 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_3.png' %}" alt="yellow_3" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_28_14"><input type="checkbox" name="tooth_28" value="yellow_4" id="id_tooth_28_14" {% if 'yellow_4' in odontogram.tooth_28 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_4.png' %}" alt="yellow_4" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_28_15"><input type="checkbox" name="tooth_28" value="yellow_5" id="id_tooth_28_15" {% if 'yellow_5' in odontogram.tooth_28 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/yellow_5.png' %}" alt="yellow_5" width="30" height="30"></label></li>
-                                            <li><label for="id_tooth_28_16"><input type="checkbox" name="tooth_28" value="endo_top" id="id_tooth_28_16" {% if 'endo_top' in odontogram.tooth_28 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/endo.png' %}" alt="endo_top" width="30" height="30"></label></li>
-                                            <li><label for="id_tooth_28_17"><input type="checkbox" name="tooth_28" value="extracted_top" id="id_tooth_28_17" {% if 'extracted_top' in odontogram.tooth_28 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/extracted.png' %}" alt="extracted_top" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_28_16"><input type="checkbox" name="tooth_28" value="endo_top" id="id_tooth_28_16" {% if 'endo_top' in odontogram.tooth_28 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/endo_top.png' %}" alt="endo_top" width="30" height="30"></label></li>
+                                            <li><label for="id_tooth_28_17"><input type="checkbox" name="tooth_28" value="extracted_top" id="id_tooth_28_17" {% if 'extracted_top' in odontogram.tooth_28 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/extracted_top.png' %}" alt="extracted_top" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_28_18"><input type="checkbox" name="tooth_28" value="for_extraction" id="id_tooth_28_18" {% if 'for_extraction' in odontogram.tooth_28 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/for_extraction.png' %}" alt="for_extraction" width="30" height="30"></label></li>
                                             <li><label for="id_tooth_28_19"><input type="checkbox" name="tooth_28" value="implant_top" id="id_tooth_28_19" {% if 'implant_top' in odontogram.tooth_28 %}checked{% endif %}>&nbsp;&nbsp;<img src="{% static 'images/dental/top_view/implant_top.png' %}" alt="implant_top" width="30" height="30"></label></li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <label for="id_tooth_28_20">
+                                                    <input type="checkbox" name="tooth_28" value="extracted_side" id="id_tooth_28_20" {% if 'extracted_side' in odontogram.tooth_28 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_28.jpg' %}" alt="tooth-28-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/extracted.png' %}" alt="tooth-28-side-extracted" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="id_tooth_28_21">
+                                                    <input type="checkbox" name="tooth_28" value="endo_side" id="id_tooth_28_21" {% if 'endo_side' in odontogram.tooth_28 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_28.jpg' %}" alt="tooth-28-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/endo.png' %}" alt="tooth-28-side-endo" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="id_tooth_28_22">
+                                                    <input type="checkbox" name="tooth_28" value="implant_side" id="id_tooth_28_22" {% if 'implant_side' in odontogram.tooth_28 %}checked{% endif %}>&nbsp;
+                                                    <img src="{% static 'images/dental/side_view/tooth_28.jpg' %}" alt="tooth-28-side" class="tooth-side" style="z-index: 0;">
+                                                    <img src="{% static 'images/dental/side_view/screw_up_large.png' %}" alt="tooth-28-side-screw" class="tooth-side" style="z-index: 1;">
+                                                </label>
+                                            </li>
                                         </ul>
                                     </td>
                                 </tr>
