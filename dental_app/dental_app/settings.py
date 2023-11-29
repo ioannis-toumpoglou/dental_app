@@ -88,20 +88,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-    # 'default': {
-    #     'ENGINE': 'djongo',
-    #     'NAME': os.environ.get('MONGO_DB_NAME'),
-    #     'ENFORCE_SCHEMA': False,
-    #     'CLIENT': {
-    #         'host': os.environ.get('MONGO_DB_HOST'),
-    #         'port': int(os.environ.get('MONGO_DB_PORT')),
-    #         'username': os.environ.get('MONGO_DB_USERNAME'),
-    #         'password': os.environ.get('MONGO_DB_PASSWORD'),
-    #     },
-    #     'TEST': {
-    #         'MIRROR': 'default',
-    #     },
-    # }
 }
 
 
