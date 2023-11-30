@@ -74,6 +74,52 @@
   height: 23rem;
 }
 
+#edit-appointment-form {
+  margin: 0.5rem auto;
+  width: 80%;
+  max-width: 60rem;
+  border-radius: 8px;
+  background-color: white;
+  padding: 1.5rem 5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  height: 30.5rem;
+}
+
+#appointments-table {
+    border-collapse: collapse;
+    margin-left: 3rem;
+    margin-top: 1rem;
+    display: block;
+    overflow: auto;
+    height: 20rem;
+    width: 90%;
+}
+
+#appointments-table td, #patient-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#appointments-table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+#appointments-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#appointments-table tr:hover {
+    background-color: #ddd;
+}
+
+#appointments-table th {
+  text-align: left;
+  background-color: #00008b;
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
 #appointment-list label {
     font-weight: bold;
 }
@@ -230,7 +276,7 @@ textarea {
     margin-top: 1rem;
     display: block;
     overflow: auto;
-    height: 20rem;
+    height: 19rem;
     width: 90%;
 }
 
@@ -538,7 +584,11 @@ a:active {
 }
 
 #id_appointment_header {
-    width: 29em;
+    width: 100%;
+}
+
+#id_treatment_plan_description {
+    width: 100%;
 }
 
 .calendar {
@@ -622,11 +672,10 @@ a:active {
 
 #upload-form {
     display: block;
+    margin-top: 1rem;
     margin-left: 12rem;
     margin-bottom: 2rem;
-    position:absolute;
-    bottom: 0;
-    width: 27%;
+    width: 51%;
     height: 6rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
@@ -641,6 +690,10 @@ a:active {
 #upload-file-search {
     overflow-x: hidden;
     width: 19rem;
+}
+
+#new-treatment-plan-button {
+    margin-left: 7rem;
 }
 
 #treatment-plan-form {
