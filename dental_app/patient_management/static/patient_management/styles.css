@@ -425,6 +425,7 @@ reset-button:active {
     position: inherit;
     margin: 0;
     margin-top: 12rem;
+    margin-left: 7rem;
 }
 
 #treatment_plan_description {
@@ -649,8 +650,8 @@ a:active {
 }
 
 #calendar-appointment-list {
-    height: 2.1rem;
-    width: 11rem;
+    height: 5rem;
+    width: 12rem;
     overflow-y: auto;
     overflow-x: hidden;
     font-size: 12px;
@@ -690,10 +691,6 @@ a:active {
 #upload-file-search {
     overflow-x: hidden;
     width: 19rem;
-}
-
-#new-treatment-plan-button {
-    margin-left: 7rem;
 }
 
 #treatment-plan-form {
