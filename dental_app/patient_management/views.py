@@ -1,10 +1,7 @@
-import calendar
 import os
-from datetime import datetime, date, timedelta
+from datetime import datetime
 from django.http import FileResponse
 from django.shortcuts import render, redirect
-from django.utils.safestring import mark_safe
-from django.views import generic
 from django.views.generic.edit import FormView
 from pymongo import MongoClient
 from django.db.models import Q
@@ -22,7 +19,7 @@ from .forms import (PatientForm, MedicalHistoryForm, DentalHistoryForm, Appointm
                     Tooth26Form, Tooth27Form, Tooth28Form, Tooth31Form, Tooth32Form, Tooth33Form, Tooth34Form,
                     Tooth35Form, Tooth36Form, Tooth37Form, Tooth38Form, Tooth41Form, Tooth42Form, Tooth43Form,
                     Tooth44Form, Tooth45Form, Tooth46Form, Tooth47Form, Tooth48Form)
-from .models import (Patient, MedicalHistory, DentalHistory, Appointment, AppointmentCalendar, TreatmentPlan, Financial,
+from .models import (Patient, MedicalHistory, DentalHistory, Appointment, TreatmentPlan, Financial,
                      Odontogram)
 
 
@@ -1152,41 +1149,11 @@ def handle_uploaded_file(patient_name, destination_folder, file):
             destination.write(chunk)
 
 
-class CalendarView(generic.ListView):
-    model = Appointment
-    template_name = 'patient_management/calendar.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        d = get_date(self.request.GET.get('month', None))
-        cal = AppointmentCalendar(d.year, d.month)
-        html_cal = cal.formatmonth(withyear=True)
-        context['calendar'] = mark_safe(html_cal)
-        context['prev_month'] = prev_month(d)
-        context['next_month'] = next_month(d)
-        return context
-
-
-def get_date(req_day):
-    if req_day:
-        year, month = (int(x) for x in req_day.split('-'))
-        return date(year, month, day=1)
-    return datetime.today()
-
-
-def prev_month(d):
-    first = d.replace(day=1)
-    the_prev_month = first - timedelta(days=1)
-    month = 'month=' + str(the_prev_month.year) + '-' + str(the_prev_month.month)
-    return month
-
-
-def next_month(d):
-    days_in_month = calendar.monthrange(d.year, d.month)[1]
-    last = d.replace(day=days_in_month)
-    the_next_month = last + timedelta(days=1)
-    month = 'month=' + str(the_next_month.year) + '-' + str(the_next_month.month)
-    return month
+def calendar_data(request):
+    appointment_list = Appointment.objects.all()
+    return render(request,
+                  'patient_management/calendar.html',
+                  {'appointment_list': appointment_list})
 
 
 @register.filter
