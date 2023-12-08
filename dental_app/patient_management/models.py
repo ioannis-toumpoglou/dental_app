@@ -1,6 +1,4 @@
 from django.db import models
-from calendar import HTMLCalendar
-from django.urls import reverse
 
 
 # Create your models here.
@@ -137,46 +135,3 @@ class Appointment(models.Model):
     appointment_header = models.CharField(max_length=500, null=False, blank=True)
     notes = models.CharField(max_length=500, null=True, blank=True)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
-
-    @property
-    def get_html_url(self):
-        url = reverse('patient-details', args=(self.patient.id,))
-        return f'<a href="{url}"> {self.patient} </a>'
-
-
-class AppointmentCalendar(HTMLCalendar):
-    def __init__(self, year=None, month=None):
-        self.year = year
-        self.month = month
-        super(AppointmentCalendar, self).__init__()
-
-    def formatday(self, day, events):
-        events_per_day = events.filter(appointment_date__day=day)
-        d = ''
-        for event in events_per_day:
-            if event.appointment_time is not None:
-                event.appointment_time = event.appointment_time.strftime("%H:%M")
-            else:
-                event.appointment_time = ''
-            d += f'<li> {event.appointment_time} {event.get_html_url} {event.appointment_header} </li>'
-
-        if day != 0:
-            return f"<td><span class='date'>{day}</span><ol id='calendar-appointment-list'> {d} </ol></td>"
-
-        return '<td></td>'
-
-    def formatweek(self, theweek, events):
-        week = ''
-        for d, weekday in theweek:
-            week += self.formatday(d, events)
-        return f'<tr> {week} </tr>'
-
-    def formatmonth(self, withyear=True):
-        events = Appointment.objects.filter(appointment_date__year=self.year, appointment_date__month=self.month)
-
-        cal = f'<table border="0" cellpadding="0" cellspacing="0" class="calendar">\n'
-        cal += f'{self.formatmonthname(self.year, self.month, withyear=withyear)}\n'
-        cal += f'{self.formatweekheader()}\n'
-        for week in self.monthdays2calendar(self.year, self.month):
-            cal += f'{self.formatweek(week, events)}\n'
-        return cal

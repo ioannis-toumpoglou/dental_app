@@ -9,13 +9,54 @@
     <link rel="stylesheet" href="{% static 'patient_management/styles.css' %}">
 {% endblock %}
 
+{% block js_files %}
+    <meta charset='utf-8' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          contentHeight: 460,
+          allDaySlot: 'false',
+          initialView: 'timeGridWeek',
+          headerToolbar: {
+            left: 'prev,next',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+          },
+          weekends: false,
+          slotMinTime: "08:00:00",
+          slotMaxTime: "23:00:00",
+<!--          slotDuration: "00:15:00",-->
+          nowIndicator: true,
+<!--          locale: 'gr',-->
+          locale: 'en-gb',
+          events: [
+                  {% for appointment in appointment_list %}
+                    {
+                        title: '{{ appointment.patient }} {{ appointment.appointment_header }}',
+                        start: '{{ appointment.appointment_date|date:'Y-m-d' }}T{{ appointment.appointment_time|time:'H:i' }}',
+                        allDay : false,
+                        url: 'http://localhost:8000/patient-details/{{ appointment.patient.id }}'
+                    },
+                  {% endfor %}
+                  ],
+          eventClick: function(info) {
+            info.jsEvent.preventDefault(); // don't let the browser navigate
+
+            if (info.event.url) {
+<!--              window.open(info.event.url);-->
+              window.location.href = info.event.url;
+            }
+          }
+        });
+        calendar.render();
+      });
+    </script>
+{% endblock %}
+
 {% block content %}
 
-    <a class="btn-month btn-info left" href="{% url 'calendar' %}?{{ prev_month }}"> Previous Month </a>
-	<a class="btn-month btn-info right" href="{% url 'calendar' %}?{{ next_month }}"> Next Month </a>
-
-    <div id="appointment-calendar">
-        {{ calendar }}
-    </div>
+    <div id='calendar'></div>
 
 {% endblock %}
