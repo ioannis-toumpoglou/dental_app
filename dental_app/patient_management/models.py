@@ -131,7 +131,7 @@ class Financial(models.Model):
 
 class Appointment(models.Model):
     appointment_date = models.DateField(null=True)
-    appointment_time = models.TimeField(null=True)
+    appointment_start_time = models.TimeField(null=True)
     appointment_header = models.CharField(max_length=500, null=False, blank=True)
     notes = models.CharField(max_length=500, null=True, blank=True)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
