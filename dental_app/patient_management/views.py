@@ -437,6 +437,7 @@ def edit_patient(request, patient_id):
         if 'edit-appointment' in request.POST:
             appointment_id = request.POST.get('id')
             edited_appointment = Appointment.objects.get(id=appointment_id)
+            edited_appointment.appointment_date = request.POST.get('appointment_date')
             edited_appointment.appointment_time = request.POST.get('appointment_time')
             edited_appointment.notes = request.POST.get('notes')
             edited_appointment.save()

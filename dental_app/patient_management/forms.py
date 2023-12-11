@@ -28,7 +28,7 @@ class AppointmentForm(forms.ModelForm):
         model = Appointment
         exclude = ['patient']
         widgets = {
-            'notes': forms.Textarea(attrs={'style': 'width: 100%;', 'rows': '5'})}
+            'notes': forms.Textarea(attrs={'style': 'width: 100%;', 'rows': '4'})}
 
 
 class TreatmentPlanForm(forms.ModelForm):
