@@ -27,7 +27,7 @@
           weekends: false,
           slotMinTime: "08:00:00",
           slotMaxTime: "23:00:00",
-<!--          slotDuration: "00:15:00",-->
+          slotDuration: "00:20:00",
           nowIndicator: true,
 <!--          locale: 'gr',-->
           locale: 'en-gb',
@@ -36,6 +36,7 @@
                     {
                         title: '{{ appointment.patient }} {{ appointment.appointment_header }}',
                         start: '{{ appointment.appointment_date|date:'Y-m-d' }}T{{ appointment.appointment_start_time|time:'H:i' }}',
+                        end: '{{ appointment.appointment_date|date:'Y-m-d' }}T{{ appointment.appointment_end_time|time:'H:i' }}',
                         allDay : false,
                         url: 'http://localhost:8000/patient-details/{{ appointment.patient.id }}'
                     },

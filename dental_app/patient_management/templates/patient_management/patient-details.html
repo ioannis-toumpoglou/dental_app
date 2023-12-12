@@ -71,6 +71,8 @@
                         <p></p>
                         <div><label>Start Time:</label>&nbsp;&nbsp;{% render_field appointment_form.appointment_start_time type="time" %}</div>
                         <p></p>
+                        <div><label>End Time:</label>&nbsp;&nbsp;{% render_field appointment_form.appointment_end_time type="time" %}</div>
+                        <p></p>
                         <div><p><label>Header:</label></p></div>
                         <div>{{ appointment_form.appointment_header }}</div>
                         <br>
@@ -186,6 +188,7 @@
                 <input type='hidden' value='{{ appointment_form.auto_id }}' name='id'>
                 <div><label style="margin-right: 3.9rem;">Date:</label>{% render_field appointment_form.appointment_date type="date" placeholder="dd/mm/yyyy" %}</div>
                 <div><label style="margin-right: 0.7rem;">Start Time:</label>&nbsp;&nbsp;{% render_field appointment_form.appointment_start_time type="time" %}</div>
+                <div><label style="margin-right: 1.3rem;">End Time:</label>&nbsp;&nbsp;{% render_field appointment_form.appointment_end_time type="time" %}</div>
                 <div><label style="margin-right: 2.7rem;">Header:</label>{{ appointment_form.appointment_header }}</div>
                 <div><p><label>Notes:</label></p></div>
                 <div class="appointment-textarea">{{ appointment_form.notes }}</div>
