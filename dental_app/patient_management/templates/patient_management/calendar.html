@@ -16,7 +16,8 @@
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          contentHeight: 460,
+          contentHeight: 'auto',
+          handleWindowResize: true,
           allDaySlot: 'false',
           initialView: 'timeGridWeek',
           headerToolbar: {
