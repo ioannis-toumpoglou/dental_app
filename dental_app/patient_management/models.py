@@ -123,6 +123,46 @@ class Odontogram(models.Model):
     tooth_48 = models.CharField(max_length=200, default='none')
 
 
+class Periodontogram(models.Model):
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+
+    perio_tooth_11 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_12 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_13 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_14 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_15 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_16 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_17 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_18 = models.CharField(max_length=500, default=None, null=True)
+
+    perio_tooth_21 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_22 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_23 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_24 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_25 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_26 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_27 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_28 = models.CharField(max_length=500, default=None, null=True)
+
+    perio_tooth_31 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_32 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_33 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_34 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_35 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_36 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_37 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_38 = models.CharField(max_length=500, default=None, null=True)
+
+    perio_tooth_41 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_42 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_43 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_44 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_45 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_46 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_47 = models.CharField(max_length=500, default=None, null=True)
+    perio_tooth_48 = models.CharField(max_length=500, default=None, null=True)
+
+
 class Financial(models.Model):
     transaction_amount = models.FloatField(null=True)
     transaction_date = models.DateField(null=True)
