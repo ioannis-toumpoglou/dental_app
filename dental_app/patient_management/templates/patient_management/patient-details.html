@@ -15,6 +15,9 @@
 
 {% block content %}
 
+    {% if user.is_authenticated %}
+    {% csrf_token %}
+
     <nav id="patient-detail-tabs">
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <a href="#nav-general-info" class="nav-link active" id="nav-general-info-tab" data-bs-toggle="tab" data-bs-target="#nav-general-info" role="tab" aria-controls="nav-general-info" aria-selected="true">General Info</a>
@@ -3487,8 +3490,1522 @@
       <div class="tab-pane fade" id="nav-periodontogram" role="tabpanel" aria-labelledby="nav-periodontogram-tab">
           <form id="periodontogram-form" action="" method="POST">
             {% csrf_token %}
-            <img src="{% static 'images/periodontogram.png' %}" id="periodontogram" alt="periodontogram">
+            <table id="periodontogram-table">
+                <tr>
+                    <th class="tooth-number">18</th>
+                    <th class="tooth-number">17</th>
+                    <th class="tooth-number">16</th>
+                    <th class="tooth-number">15</th>
+                    <th class="tooth-number">14</th>
+                    <th class="tooth-number">13</th>
+                    <th class="tooth-number">12</th>
+                    <th class="tooth-number">11</th>
+                    <th class="tooth-number">21</th>
+                    <th class="tooth-number">22</th>
+                    <th class="tooth-number">23</th>
+                    <th class="tooth-number">24</th>
+                    <th class="tooth-number">25</th>
+                    <th class="tooth-number">26</th>
+                    <th class="tooth-number">27</th>
+                    <th class="tooth-number">28</th>
+                </tr>
+                <tr class="periodontogram-top-side-row">
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_18 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_18 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_18.png' %}" class="perio-tooth-side-main" alt="tooth-18" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior18">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_17 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_17 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_17.png' %}" class="perio-tooth-side-main" alt="tooth-17" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior17">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_16 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_16 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_16.png' %}" class="perio-tooth-side-main" alt="tooth-16" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior16">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_15 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_15 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_15.png' %}" class="perio-tooth-side-main" alt="tooth-15" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior15">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_14 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_14 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_14.png' %}" class="perio-tooth-side-main" alt="tooth-14" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior14">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_13 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_13 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_13.png' %}" class="perio-tooth-side-main" alt="tooth-13" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior13">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_12 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_12 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_12.png' %}" class="perio-tooth-side-main" alt="tooth-12" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior12">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_11 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_11 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_11.png' %}" class="perio-tooth-side-main" alt="tooth-11" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior11">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_21 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_21 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_21.png' %}" class="perio-tooth-side-main" alt="tooth-21" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior21">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_22 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_22 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_22.png' %}" class="perio-tooth-side-main" alt="tooth-22" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior22">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_23 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_23 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_23.png' %}" class="perio-tooth-side-main" alt="tooth-23" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior23">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_24 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_24 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_24.png' %}" class="perio-tooth-side-main" alt="tooth-24" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior24">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_25 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_25 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_25.png' %}" class="perio-tooth-side-main" alt="tooth-25" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior25">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_26 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_26 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_26.png' %}" class="perio-tooth-side-main" alt="tooth-26" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior26">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_27 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_27 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_27.png' %}" class="perio-tooth-side-main" alt="tooth-27" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior27">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_28 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_28 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_28.png' %}" class="perio-tooth-side-main" alt="tooth-28" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior28">
+                    </td>
+                </tr>
+                <tr class="periodontogram-top-side-row">
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_48 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_48 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_48.png' %}" class="perio-tooth-side-main" alt="tooth-48" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior48">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_47 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_47 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_47.png' %}" class="perio-tooth-side-main" alt="tooth-47" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior47">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_46 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_46 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_46.png' %}" class="perio-tooth-side-main" alt="tooth-46" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior46">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_45 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_45 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_45.png' %}" class="perio-tooth-side-main" alt="tooth-45" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior45">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_44 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_44 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_44.png' %}" class="perio-tooth-side-main" alt="tooth-44" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior44">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_43 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_43 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_43.png' %}" class="perio-tooth-side-main" alt="tooth-43" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior43">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_42 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_42 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_42.png' %}" class="perio-tooth-side-main" alt="tooth-42" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior42">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_41 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_41 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_41.png' %}" class="perio-tooth-side-main" alt="tooth-41" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior41">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_31 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_31 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_31.png' %}" class="perio-tooth-side-main" alt="tooth-31" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior31">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_32 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_32 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_32.png' %}" class="perio-tooth-side-main" alt="tooth-32" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior32">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_33 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_33 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_33.png' %}" class="perio-tooth-side-main" alt="tooth-33" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior33">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_34 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_34 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_34.png' %}" class="perio-tooth-side-main" alt="tooth-34" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior34">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_35 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_35 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_35.png' %}" class="perio-tooth-side-main" alt="tooth-35" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior35">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_36 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_36 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_36.png' %}" class="perio-tooth-side-main" alt="tooth-36" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior36">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_37 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_37 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_37.png' %}" class="perio-tooth-side-main" alt="tooth-37" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior37">
+                    </td>
+                    <td class="tooth-image" {% if 'minor' in periodontogram.perio_tooth_38 %}style="background-color:lightblue;"{% elif 'major' in periodontogram.perio_tooth_38 %}style="background-color:lightcoral;"{% endif %}>
+                        <img src="{% static 'images/dental/perio/tooth_38.png' %}" class="perio-tooth-side-main" alt="tooth-38" data-bs-toggle="modal" data-bs-target="#periodontogramTopViewModalPosterior38">
+                    </td>
+                </tr>
+                <tr>
+                    <th class="tooth-number">48</th>
+                    <th class="tooth-number">47</th>
+                    <th class="tooth-number">46</th>
+                    <th class="tooth-number">45</th>
+                    <th class="tooth-number">44</th>
+                    <th class="tooth-number">43</th>
+                    <th class="tooth-number">42</th>
+                    <th class="tooth-number">41</th>
+                    <th class="tooth-number">31</th>
+                    <th class="tooth-number">32</th>
+                    <th class="tooth-number">33</th>
+                    <th class="tooth-number">34</th>
+                    <th class="tooth-number">35</th>
+                    <th class="tooth-number">36</th>
+                    <th class="tooth-number">37</th>
+                    <th class="tooth-number">38</th>
+                </tr>
+            </table>
           </form>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior11" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior11Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior11Label">Tooth 11 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_11.png' %}" class="periodontogram-tooth-image">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_11">
+                                        <li><label for="id_perio_tooth_11_0">
+                                            <input type="radio" name="perio_tooth_11" value="minor" id="id_perio_tooth_11_0" {% if 'minor' in periodontogram.perio_tooth_11 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_11_1"><input type="radio" name="perio_tooth_11" value="major" id="id_perio_tooth_11_1" {% if 'major' in periodontogram.perio_tooth_11 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_11_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_11" id="id_perio_tooth_11_2">{{ perio_tooth_11_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior12" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior12Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior12Label">Tooth 12 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_12.png' %}" class="periodontogram-tooth-image" style="width: 4rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_12">
+                                        <li><label for="id_perio_tooth_12_0">
+                                            <input type="radio" name="perio_tooth_12" value="minor" id="id_perio_tooth_12_0" {% if 'minor' in periodontogram.perio_tooth_12 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_12_1"><input type="radio" name="perio_tooth_12" value="major" id="id_perio_tooth_12_1" {% if 'major' in periodontogram.perio_tooth_12 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_12_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_12" id="id_perio_tooth_12_2">{{ perio_tooth_12_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior13" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior13Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior13Label">Tooth 13 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_13.png' %}" class="periodontogram-tooth-image" style="width: 5rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_13">
+                                        <li><label for="id_perio_tooth_13_0">
+                                            <input type="radio" name="perio_tooth_13" value="minor" id="id_perio_tooth_13_0" {% if 'minor' in periodontogram.perio_tooth_13 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_13_1"><input type="radio" name="perio_tooth_13" value="major" id="id_perio_tooth_13_1" {% if 'major' in periodontogram.perio_tooth_13 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_13_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_13" id="id_perio_tooth_13_2">{{ perio_tooth_13_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior14" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior14Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior14Label">Tooth 14 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_14.png' %}" class="periodontogram-tooth-image" style="width: 5rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_14">
+                                        <li><label for="id_perio_tooth_14_0">
+                                            <input type="radio" name="perio_tooth_14" value="minor" id="id_perio_tooth_14_0" {% if 'minor' in periodontogram.perio_tooth_14 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_14_1"><input type="radio" name="perio_tooth_14" value="major" id="id_perio_tooth_14_1" {% if 'major' in periodontogram.perio_tooth_14 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_14_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_14" id="id_perio_tooth_14_2">{{ perio_tooth_14_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior15" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior15Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior15Label">Tooth 15 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_15.png' %}" class="periodontogram-tooth-image" style="width: 5rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_15">
+                                        <li><label for="id_perio_tooth_15_0">
+                                            <input type="radio" name="perio_tooth_15" value="minor" id="id_perio_tooth_15_0" {% if 'minor' in periodontogram.perio_tooth_15 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_15_1"><input type="radio" name="perio_tooth_15" value="major" id="id_perio_tooth_15_1" {% if 'major' in periodontogram.perio_tooth_15 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_15_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_15" id="id_perio_tooth_15_2">{{ perio_tooth_15_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior16" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior16Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior16Label">Tooth 16 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_16.png' %}" class="periodontogram-tooth-image" style="width: 6rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_16">
+                                        <li><label for="id_perio_tooth_16_0">
+                                            <input type="radio" name="perio_tooth_16" value="minor" id="id_perio_tooth_16_0" {% if 'minor' in periodontogram.perio_tooth_16 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_16_1"><input type="radio" name="perio_tooth_16" value="major" id="id_perio_tooth_16_1" {% if 'major' in periodontogram.perio_tooth_16 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+
+                                            <label for="id_perio_tooth_16_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_16" id="id_perio_tooth_16_2">{{ perio_tooth_16_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior17" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior17Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior17Label">Tooth 17 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_17.png' %}" class="periodontogram-tooth-image" style="width: 6rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_17">
+                                        <li><label for="id_perio_tooth_17_0">
+                                            <input type="radio" name="perio_tooth_17" value="minor" id="id_perio_tooth_17_0" {% if 'minor' in periodontogram.perio_tooth_17 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_17_1"><input type="radio" name="perio_tooth_17" value="major" id="id_perio_tooth_17_1" {% if 'major' in periodontogram.perio_tooth_17 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_17_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_17" id="id_perio_tooth_17_2">{{ perio_tooth_17_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior18" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior18Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior18Label">Tooth 18 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_18.png' %}" class="periodontogram-tooth-image" style="width: 7rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_18">
+                                        <li><label for="id_perio_tooth_18_0">
+                                            <input type="radio" name="perio_tooth_18" value="minor" id="id_perio_tooth_18_0" {% if 'minor' in periodontogram.perio_tooth_18 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_18_1"><input type="radio" name="perio_tooth_18" value="major" id="id_perio_tooth_18_1" {% if 'major' in periodontogram.perio_tooth_18 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_18_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_18" id="id_perio_tooth_18_2">{{ perio_tooth_18_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior21" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior21Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior21Label">Tooth 21 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_21.png' %}" class="periodontogram-tooth-image" style="width: 6rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_21">
+                                        <li><label for="id_perio_tooth_21_0">
+                                            <input type="radio" name="perio_tooth_21" value="minor" id="id_perio_tooth_21_0" {% if 'minor' in periodontogram.perio_tooth_21 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_21_1"><input type="radio" name="perio_tooth_21" value="major" id="id_perio_tooth_21_1" {% if 'major' in periodontogram.perio_tooth_21 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_21_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_21" id="id_perio_tooth_21_2">{{ perio_tooth_21_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior22" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior22Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior22Label">Tooth 22 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_22.png' %}" class="periodontogram-tooth-image" style="width: 4rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_22">
+                                        <li><label for="id_perio_tooth_22_0">
+                                            <input type="radio" name="perio_tooth_22" value="minor" id="id_perio_tooth_22_0" {% if 'minor' in periodontogram.perio_tooth_22 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_22_1"><input type="radio" name="perio_tooth_22" value="major" id="id_perio_tooth_22_1" {% if 'major' in periodontogram.perio_tooth_22 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_22_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_22" id="id_perio_tooth_22_2">{{ perio_tooth_22_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior23" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior23Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior23Label">Tooth 23 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_23.png' %}" class="periodontogram-tooth-image" style="width: 5rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_23">
+                                        <li><label for="id_perio_tooth_23_0">
+                                            <input type="radio" name="perio_tooth_23" value="minor" id="id_perio_tooth_23_0" {% if 'minor' in periodontogram.perio_tooth_23 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_23_1"><input type="radio" name="perio_tooth_23" value="major" id="id_perio_tooth_23_1" {% if 'major' in periodontogram.perio_tooth_23 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_23_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_23" id="id_perio_tooth_23_2">{{ perio_tooth_23_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior24" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior24Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior24Label">Tooth 24 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_24.png' %}" class="periodontogram-tooth-image" style="width: 5rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_24">
+                                        <li><label for="id_perio_tooth_24_0">
+                                            <input type="radio" name="perio_tooth_24" value="minor" id="id_perio_tooth_24_0" {% if 'minor' in periodontogram.perio_tooth_24 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_24_1"><input type="radio" name="perio_tooth_24" value="major" id="id_perio_tooth_24_1" {% if 'major' in periodontogram.perio_tooth_24 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_24_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_24" id="id_perio_tooth_24_2">{{ perio_tooth_24_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior25" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior25Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior25Label">Tooth 25 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_25.png' %}" class="periodontogram-tooth-image" style="width: 5rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_25">
+                                        <li><label for="id_perio_tooth_25_0">
+                                            <input type="radio" name="perio_tooth_25" value="minor" id="id_perio_tooth_25_0" {% if 'minor' in periodontogram.perio_tooth_25 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_25_1"><input type="radio" name="perio_tooth_25" value="major" id="id_perio_tooth_25_1" {% if 'major' in periodontogram.perio_tooth_25 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_25_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_25" id="id_perio_tooth_25_2">{{ perio_tooth_25_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior26" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior26Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior26Label">Tooth 26 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_26.png' %}" class="periodontogram-tooth-image" style="width: 6rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_26">
+                                        <li><label for="id_perio_tooth_26_0">
+                                            <input type="radio" name="perio_tooth_26" value="minor" id="id_perio_tooth_26_0" {% if 'minor' in periodontogram.perio_tooth_26 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_26_1"><input type="radio" name="perio_tooth_26" value="major" id="id_perio_tooth_26_1" {% if 'major' in periodontogram.perio_tooth_26 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_26_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_26" id="id_perio_tooth_26_2">{{ perio_tooth_26_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior27" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior27Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior27Label">Tooth 27 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_27.png' %}" class="periodontogram-tooth-image" style="width: 6rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_27">
+                                        <li><label for="id_perio_tooth_27_0">
+                                            <input type="radio" name="perio_tooth_27" value="minor" id="id_perio_tooth_27_0" {% if 'minor' in periodontogram.perio_tooth_27 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_27_1"><input type="radio" name="perio_tooth_27" value="major" id="id_perio_tooth_27_1" {% if 'major' in periodontogram.perio_tooth_27 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_27_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_27" id="id_perio_tooth_27_2">{{ perio_tooth_27_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior28" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior28Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior28Label">Tooth 28 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_28.png' %}" class="periodontogram-tooth-image" style="width: 7rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_28">
+                                        <li><label for="id_perio_tooth_28_0">
+                                            <input type="radio" name="perio_tooth_28" value="minor" id="id_perio_tooth_28_0" {% if 'minor' in periodontogram.perio_tooth_28 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_28_1"><input type="radio" name="perio_tooth_28" value="major" id="id_perio_tooth_28_1" {% if 'major' in periodontogram.perio_tooth_28 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_28_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_28" id="id_perio_tooth_28_2">{{ perio_tooth_28_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior31" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior31Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior31Label">Tooth 31 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_31.png' %}" class="periodontogram-tooth-image" style="width: 6rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_31">
+                                        <li><label for="id_perio_tooth_31_0">
+                                            <input type="radio" name="perio_tooth_31" value="minor" id="id_perio_tooth_31_0" {% if 'minor' in periodontogram.perio_tooth_31 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_31_1"><input type="radio" name="perio_tooth_31" value="major" id="id_perio_tooth_31_1" {% if 'major' in periodontogram.perio_tooth_31 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_31_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_31" id="id_perio_tooth_31_2">{{ perio_tooth_31_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior32" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior32Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior32Label">Tooth 32 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_32.png' %}" class="periodontogram-tooth-image" style="width: 5rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_32">
+                                        <li><label for="id_perio_tooth_32_0">
+                                            <input type="radio" name="perio_tooth_32" value="minor" id="id_perio_tooth_32_0" {% if 'minor' in periodontogram.perio_tooth_32 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_32_1"><input type="radio" name="perio_tooth_32" value="major" id="id_perio_tooth_32_1" {% if 'major' in periodontogram.perio_tooth_32 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_32_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_32" id="id_perio_tooth_32_2">{{ perio_tooth_32_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior33" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior33Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior33Label">Tooth 33 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_33.png' %}" class="periodontogram-tooth-image" style="width: 5rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_33">
+                                        <li><label for="id_perio_tooth_33_0">
+                                            <input type="radio" name="perio_tooth_33" value="minor" id="id_perio_tooth_33_0" {% if 'minor' in periodontogram.perio_tooth_33 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_33_1"><input type="radio" name="perio_tooth_33" value="major" id="id_perio_tooth_33_1" {% if 'major' in periodontogram.perio_tooth_33 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_33_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_33" id="id_perio_tooth_33_2">{{ perio_tooth_33_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior34" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior34Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior34Label">Tooth 34 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_34.png' %}" class="periodontogram-tooth-image" style="width: 5rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_34">
+                                        <li><label for="id_perio_tooth_34_0">
+                                            <input type="radio" name="perio_tooth_34" value="minor" id="id_perio_tooth_34_0" {% if 'minor' in periodontogram.perio_tooth_34 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_34_1"><input type="radio" name="perio_tooth_34" value="major" id="id_perio_tooth_34_1" {% if 'major' in periodontogram.perio_tooth_34 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_34_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_34" id="id_perio_tooth_34_2">{{ perio_tooth_34_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior35" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior35Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior35Label">Tooth 35 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_35.png' %}" class="periodontogram-tooth-image" style="width: 5rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_35">
+                                        <li><label for="id_perio_tooth_35_0">
+                                            <input type="radio" name="perio_tooth_35" value="minor" id="id_perio_tooth_35_0" {% if 'minor' in periodontogram.perio_tooth_35 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_35_1"><input type="radio" name="perio_tooth_35" value="major" id="id_perio_tooth_35_1" {% if 'major' in periodontogram.perio_tooth_35 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_35_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_35" id="id_perio_tooth_35_2">{{ perio_tooth_35_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior36" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior36Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior36Label">Tooth 36 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_36.png' %}" class="periodontogram-tooth-image" style="width: 7rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_36">
+                                        <li><label for="id_perio_tooth_36_0">
+                                            <input type="radio" name="perio_tooth_36" value="minor" id="id_perio_tooth_36_0" {% if 'minor' in periodontogram.perio_tooth_36 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_36_1"><input type="radio" name="perio_tooth_36" value="major" id="id_perio_tooth_36_1" {% if 'major' in periodontogram.perio_tooth_36 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_36_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_36" id="id_perio_tooth_36_2">{{ perio_tooth_36_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior37" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior37Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior37Label">Tooth 37 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_37.png' %}" class="periodontogram-tooth-image" style="width: 7rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_37">
+                                        <li><label for="id_perio_tooth_37_0">
+                                            <input type="radio" name="perio_tooth_37" value="minor" id="id_perio_tooth_37_0" {% if 'minor' in periodontogram.perio_tooth_37 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_37_1"><input type="radio" name="perio_tooth_37" value="major" id="id_perio_tooth_37_1" {% if 'major' in periodontogram.perio_tooth_37 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_37_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_37" id="id_perio_tooth_37_2">{{ perio_tooth_37_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior38" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior38Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior38Label">Tooth 38 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_38.png' %}" class="periodontogram-tooth-image" style="width: 7rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_38">
+                                        <li><label for="id_perio_tooth_38_0">
+                                            <input type="radio" name="perio_tooth_38" value="minor" id="id_perio_tooth_38_0" {% if 'minor' in periodontogram.perio_tooth_38 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_38_1"><input type="radio" name="perio_tooth_38" value="major" id="id_perio_tooth_38_1" {% if 'major' in periodontogram.perio_tooth_38 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_38_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_38" id="id_perio_tooth_38_2">{{ perio_tooth_38_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior41" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior41Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior41Label">Tooth 41 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_41.png' %}" class="periodontogram-tooth-image" style="width: 6rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_41">
+                                        <li><label for="id_perio_tooth_41_0">
+                                            <input type="radio" name="perio_tooth_41" value="minor" id="id_perio_tooth_41_0" {% if 'minor' in periodontogram.perio_tooth_41 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_41_1"><input type="radio" name="perio_tooth_41" value="major" id="id_perio_tooth_41_1" {% if 'major' in periodontogram.perio_tooth_41 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_41_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_41" id="id_perio_tooth_41_2">{{ perio_tooth_41_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior42" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior42Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior42Label">Tooth 42 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_42.png' %}" class="periodontogram-tooth-image" style="width: 5rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_42">
+                                        <li><label for="id_perio_tooth_42_0">
+                                            <input type="radio" name="perio_tooth_42" value="minor" id="id_perio_tooth_42_0" {% if 'minor' in periodontogram.perio_tooth_42 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_42_1"><input type="radio" name="perio_tooth_42" value="major" id="id_perio_tooth_42_1" {% if 'major' in periodontogram.perio_tooth_42 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_42_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_42" id="id_perio_tooth_42_2">{{ perio_tooth_42_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior43" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior43Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior43Label">Tooth 43 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_43.png' %}" class="periodontogram-tooth-image" style="width: 5rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_43">
+                                        <li><label for="id_perio_tooth_43_0">
+                                            <input type="radio" name="perio_tooth_43" value="minor" id="id_perio_tooth_43_0" {% if 'minor' in periodontogram.perio_tooth_43 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_43_1"><input type="radio" name="perio_tooth_43" value="major" id="id_perio_tooth_43_1" {% if 'major' in periodontogram.perio_tooth_43 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_43_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_43" id="id_perio_tooth_43_2">{{ perio_tooth_43_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior44" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior44Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior44Label">Tooth 44 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_44.png' %}" class="periodontogram-tooth-image" style="width: 5rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_44">
+                                        <li><label for="id_perio_tooth_44_0">
+                                            <input type="radio" name="perio_tooth_44" value="minor" id="id_perio_tooth_44_0" {% if 'minor' in periodontogram.perio_tooth_44 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_44_1"><input type="radio" name="perio_tooth_44" value="major" id="id_perio_tooth_44_1" {% if 'major' in periodontogram.perio_tooth_44 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_44_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_44" id="id_perio_tooth_44_2">{{ perio_tooth_44_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior45" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior45Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior45Label">Tooth 45 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_45.png' %}" class="periodontogram-tooth-image" style="width: 5rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_45">
+                                        <li><label for="id_perio_tooth_45_0">
+                                            <input type="radio" name="perio_tooth_45" value="minor" id="id_perio_tooth_45_0" {% if 'minor' in periodontogram.perio_tooth_45 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_45_1"><input type="radio" name="perio_tooth_45" value="major" id="id_perio_tooth_45_1" {% if 'major' in periodontogram.perio_tooth_45 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_45_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_45" id="id_perio_tooth_45_2">{{ perio_tooth_45_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior46" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior46Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior46Label">Tooth 46 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_46.png' %}" class="periodontogram-tooth-image" style="width: 7rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_46">
+                                        <li><label for="id_perio_tooth_46_0">
+                                            <input type="radio" name="perio_tooth_46" value="minor" id="id_perio_tooth_46_0" {% if 'minor' in periodontogram.perio_tooth_46 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_46_1"><input type="radio" name="perio_tooth_46" value="major" id="id_perio_tooth_46_1" {% if 'major' in periodontogram.perio_tooth_46 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_46_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_46" id="id_perio_tooth_46_2">{{ perio_tooth_46_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior47" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior47Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior47Label">Tooth 47 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_47.png' %}" class="periodontogram-tooth-image" style="width: 7rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_47">
+                                        <li><label for="id_perio_tooth_47_0">
+                                            <input type="radio" name="perio_tooth_47" value="minor" id="id_perio_tooth_47_0" {% if 'minor' in periodontogram.perio_tooth_47 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_47_1"><input type="radio" name="perio_tooth_47" value="major" id="id_perio_tooth_47_1" {% if 'major' in periodontogram.perio_tooth_47 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_47_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_47" id="id_perio_tooth_47_2">{{ perio_tooth_47_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="periodontogramTopViewModalPosterior48" tabindex="-1" aria-labelledby="periodontogramTopViewModalPosterior48Label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form class="tooth-form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="periodontogramTopViewModalPosterior48Label">Tooth 48 Perio View</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="margin-bottom: 2rem;">
+                      <div class="odontogram-images">
+                        <img src="{% static 'images/dental/perio/tooth_48.png' %}" class="periodontogram-tooth-image" style="width: 7rem;">
+                      </div>
+                      <table class="perio-table">
+                          <tbody>
+                            <tr><th><label> </label>
+                            </th>
+                                <td>
+                                    <ul id="id_perio_tooth_48">
+                                        <li><label for="id_perio_tooth_48_0">
+                                            <input type="radio" name="perio_tooth_48" value="minor" id="id_perio_tooth_48_0" {% if 'minor' in periodontogram.perio_tooth_48 %}checked{% endif %} required="required">Minor</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_48_1"><input type="radio" name="perio_tooth_48" value="major" id="id_perio_tooth_48_1" {% if 'major' in periodontogram.perio_tooth_48 %}checked{% endif %}>Major</label>
+                                        </li>
+                                        <li>
+                                            <label for="id_perio_tooth_48_2">Notes:</label><textarea class="perio-textarea" name="perio_tooth_48" id="id_perio_tooth_48_2">{{ perio_tooth_48_notes }}</textarea>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="periodontogram-top-view-cancel">Cancel</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="clear-periodontogram-modal-data">Clear</button>
+                      <button type="submit" class="odontogram-top-view-save-button btn btn-primary" name="save-periodontogram">Save</button>
+                  </div>
+              </form>
+            </div>
+          </div>
       </div>
       <div class="tab-pane fade" id="nav-treatment-plan" role="tabpanel" aria-labelledby="nav-treatment-plan-tab">
           {% for treatment_plan_form in treatment_plan_form_list %}
@@ -3624,5 +5141,19 @@
           </form>
       </div>
     </div>
+
+    {% else %}
+
+    <div class="login-promt">
+        <body id="login-prompt-body">
+            <form action="/login/">
+                {% csrf_token %}
+                <p class="login-prompt-message">You are not logged in</p>
+                <button type="submit" name="login" class="btn btn-outline-primary" onclick="location.href='{% url 'login' %}'">Login</button>
+            </form>
+        </body>
+    </div>
+
+    {% endif %}
 
 {% endblock %}
