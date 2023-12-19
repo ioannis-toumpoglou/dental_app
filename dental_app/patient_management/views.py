@@ -1,17 +1,18 @@
 import os
 from datetime import datetime
-from django.http import FileResponse
-from django.shortcuts import render, redirect
-from django.views.generic.edit import FormView
 from pymongo import MongoClient
-from django.db.models import Q
 from pathlib import Path
 from os import listdir
 from os.path import isfile, join
 import shutil
+from datetime import datetime as dt
+from django.http import FileResponse
+from django.shortcuts import render, redirect
+from django.views.generic.edit import FormView
+from django.db.models import Q
 from django.conf import settings
 from django.template.defaulttags import register
-from datetime import datetime as dt
+from django.contrib.auth import logout
 
 from .forms import (PatientForm, MedicalHistoryForm, DentalHistoryForm, AppointmentForm, TreatmentPlanForm,
                     FinancialForm,
@@ -2697,3 +2698,8 @@ def backup_data(request):
 
 def copy_file(source_path, destination_path):
     shutil.copy2(source_path, destination_path)
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('login')

@@ -11,12 +11,15 @@
 
 {% block content %}
 
-    <div>
-        <div id="main-table-title">
-            <h3>My Patients</h3>
-        </div>
+    {% if user.is_authenticated %}
+    {% csrf_token %}
 
+    <div>
         <table id="patient-table">
+            <tbody>
+            <div id="main-table-title" style="margin-left: 16rem;">
+                <h3>My Patients</h3>
+            </div>
             <tr>
                 <th id="id-header">ID</th>
                 <th id="name-header">Full Name</th>
@@ -39,7 +42,22 @@
                 <td> {{ patient.date_of_birth }} </td>
             </tr>
             {% endfor %}
+            </tbody>
         </table>
     </div>
+
+    {% else %}
+
+    <div class="login-promt">
+        <body id="login-prompt-body">
+            <form action="/login/">
+                {% csrf_token %}
+                <p class="login-prompt-message">You are not logged in</p>
+                <button type="submit" name="login" class="btn btn-outline-primary" onclick="location.href='{% url 'login' %}'">Login</button>
+            </form>
+        </body>
+    </div>
+
+    {% endif %}
 
 {% endblock %}

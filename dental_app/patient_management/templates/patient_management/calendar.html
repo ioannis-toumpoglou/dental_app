@@ -59,6 +59,23 @@
 
 {% block content %}
 
+    {% if user.is_authenticated %}
+    {% csrf_token %}
+
     <div id='calendar'></div>
+
+    {% else %}
+
+    <div class="login-promt">
+        <body id="login-prompt-body">
+            <form action="/login/">
+                {% csrf_token %}
+                <p class="login-prompt-message">You are not logged in</p>
+                <button type="submit" name="login" class="btn btn-outline-primary" onclick="location.href='{% url 'login' %}'">Login</button>
+            </form>
+        </body>
+    </div>
+
+    {% endif %}
 
 {% endblock %}

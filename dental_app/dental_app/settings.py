@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 from django.core.servers.basehttp import WSGIServer
+from django.urls import reverse_lazy
 
 
 WSGIServer.handle_error = lambda *args, **kwargs: None
@@ -79,6 +80,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dental_app.wsgi.application'
 
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/main/'
+LOGOUT_REDIRECT_URL = reverse_lazy('/login/')
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
