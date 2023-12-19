@@ -1791,7 +1791,7 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
-        if 'save-periodontogram-top-view' in request.POST:
+        if 'save-periodontogram' in request.POST:
             if 'perio_tooth_11' in request.POST:
                 periodontogram.perio_tooth_11 = request.POST.getlist('perio_tooth_11')
                 perio_tooth_11_notes = periodontogram.perio_tooth_11[1]
@@ -2001,6 +2001,216 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
+        if 'clear-periodontogram-modal-data' in request.POST:
+            if 'perio_tooth_11' in request.POST:
+                periodontogram.perio_tooth_11 = None
+                perio_tooth_11_notes = ''
+            elif 'perio_tooth_12' in request.POST:
+                periodontogram.perio_tooth_12 = None
+                perio_tooth_12_notes = ''
+            elif 'perio_tooth_13' in request.POST:
+                periodontogram.perio_tooth_13 = None
+                perio_tooth_13_notes = ''
+            elif 'perio_tooth_14' in request.POST:
+                periodontogram.perio_tooth_14 = None
+                perio_tooth_14_notes = ''
+            elif 'perio_tooth_15' in request.POST:
+                periodontogram.perio_tooth_15 = None
+                perio_tooth_15_notes = ''
+            elif 'perio_tooth_16' in request.POST:
+                periodontogram.perio_tooth_16 = None
+                perio_tooth_16_notes = ''
+            elif 'perio_tooth_17' in request.POST:
+                periodontogram.perio_tooth_17 = None
+                perio_tooth_17_notes = ''
+            elif 'perio_tooth_18' in request.POST:
+                periodontogram.perio_tooth_18 = None
+                perio_tooth_18_notes = ''
+            elif 'perio_tooth_21' in request.POST:
+                periodontogram.perio_tooth_21 = None
+                perio_tooth_21_notes = ''
+            elif 'perio_tooth_22' in request.POST:
+                periodontogram.perio_tooth_22 = None
+                perio_tooth_22_notes = ''
+            elif 'perio_tooth_23' in request.POST:
+                periodontogram.perio_tooth_23 = None
+                perio_tooth_23_notes = ''
+            elif 'perio_tooth_24' in request.POST:
+                periodontogram.perio_tooth_24 = None
+                perio_tooth_24_notes = ''
+            elif 'perio_tooth_25' in request.POST:
+                periodontogram.perio_tooth_25 = None
+                perio_tooth_25_notes = ''
+            elif 'perio_tooth_26' in request.POST:
+                periodontogram.perio_tooth_26 = None
+                perio_tooth_26_notes = ''
+            elif 'perio_tooth_27' in request.POST:
+                periodontogram.perio_tooth_27 = None
+                perio_tooth_27_notes = ''
+            elif 'perio_tooth_28' in request.POST:
+                periodontogram.perio_tooth_28 = None
+                perio_tooth_28_notes = ''
+            elif 'perio_tooth_31' in request.POST:
+                periodontogram.perio_tooth_31 = None
+                perio_tooth_31_notes = ''
+            elif 'perio_tooth_32' in request.POST:
+                periodontogram.perio_tooth_32 = None
+                perio_tooth_32_notes = ''
+            elif 'perio_tooth_33' in request.POST:
+                periodontogram.perio_tooth_33 = None
+                perio_tooth_33_notes = ''
+            elif 'perio_tooth_34' in request.POST:
+                periodontogram.perio_tooth_34 = None
+                perio_tooth_34_notes = ''
+            elif 'perio_tooth_35' in request.POST:
+                periodontogram.perio_tooth_35 = None
+                perio_tooth_35_notes = ''
+            elif 'perio_tooth_36' in request.POST:
+                periodontogram.perio_tooth_36 = None
+                perio_tooth_36_notes = ''
+            elif 'perio_tooth_37' in request.POST:
+                periodontogram.perio_tooth_37 = None
+                perio_tooth_37_notes = ''
+            elif 'perio_tooth_38' in request.POST:
+                periodontogram.perio_tooth_38 = None
+                perio_tooth_38_notes = ''
+            elif 'perio_tooth_41' in request.POST:
+                periodontogram.perio_tooth_41 = None
+                perio_tooth_41_notes = ''
+            elif 'perio_tooth_42' in request.POST:
+                periodontogram.perio_tooth_42 = None
+                perio_tooth_42_notes = ''
+            elif 'perio_tooth_43' in request.POST:
+                periodontogram.perio_tooth_43 = None
+                perio_tooth_43_notes = ''
+            elif 'perio_tooth_44' in request.POST:
+                periodontogram.perio_tooth_44 = None
+                perio_tooth_44_notes = ''
+            elif 'perio_tooth_45' in request.POST:
+                periodontogram.perio_tooth_45 = None
+                perio_tooth_45_notes = ''
+            elif 'perio_tooth_46' in request.POST:
+                periodontogram.perio_tooth_46 = None
+                perio_tooth_46_notes = ''
+            elif 'perio_tooth_47' in request.POST:
+                periodontogram.perio_tooth_47 = None
+                perio_tooth_47_notes = ''
+            elif 'perio_tooth_48' in request.POST:
+                periodontogram.perio_tooth_48 = None
+                perio_tooth_48_notes = ''
+            periodontogram.save()
+
+            return render(request, 'patient_management/patient-details.html', {'patient': patient,
+                                                                               'form': patient_form,
+                                                                               'medical_form': medical_history_form,
+                                                                               'dental_form': dental_history_form,
+                                                                               'appointment_form': appointment_form,
+                                                                               'odontogram': odontogram,
+                                                                               'tooth_11_form': tooth_11_form,
+                                                                               'tooth_12_form': tooth_12_form,
+                                                                               'tooth_13_form': tooth_13_form,
+                                                                               'tooth_14_form': tooth_14_form,
+                                                                               'tooth_15_form': tooth_15_form,
+                                                                               'tooth_16_form': tooth_16_form,
+                                                                               'tooth_17_form': tooth_17_form,
+                                                                               'tooth_18_form': tooth_18_form,
+                                                                               'tooth_21_form': tooth_21_form,
+                                                                               'tooth_22_form': tooth_22_form,
+                                                                               'tooth_23_form': tooth_23_form,
+                                                                               'tooth_24_form': tooth_24_form,
+                                                                               'tooth_25_form': tooth_25_form,
+                                                                               'tooth_26_form': tooth_26_form,
+                                                                               'tooth_27_form': tooth_27_form,
+                                                                               'tooth_28_form': tooth_28_form,
+                                                                               'tooth_31_form': tooth_31_form,
+                                                                               'tooth_32_form': tooth_32_form,
+                                                                               'tooth_33_form': tooth_33_form,
+                                                                               'tooth_34_form': tooth_34_form,
+                                                                               'tooth_35_form': tooth_35_form,
+                                                                               'tooth_36_form': tooth_36_form,
+                                                                               'tooth_37_form': tooth_37_form,
+                                                                               'tooth_38_form': tooth_38_form,
+                                                                               'tooth_41_form': tooth_41_form,
+                                                                               'tooth_42_form': tooth_42_form,
+                                                                               'tooth_43_form': tooth_43_form,
+                                                                               'tooth_44_form': tooth_44_form,
+                                                                               'tooth_45_form': tooth_45_form,
+                                                                               'tooth_46_form': tooth_46_form,
+                                                                               'tooth_47_form': tooth_47_form,
+                                                                               'tooth_48_form': tooth_48_form,
+                                                                               'periodontogram': periodontogram,
+                                                                               'perio_tooth_11_form': perio_tooth_11_form,
+                                                                               'perio_tooth_11_notes': perio_tooth_11_notes,
+                                                                               'perio_tooth_12_form': perio_tooth_12_form,
+                                                                               'perio_tooth_12_notes': perio_tooth_12_notes,
+                                                                               'perio_tooth_13_form': perio_tooth_13_form,
+                                                                               'perio_tooth_13_notes': perio_tooth_13_notes,
+                                                                               'perio_tooth_14_form': perio_tooth_14_form,
+                                                                               'perio_tooth_14_notes': perio_tooth_14_notes,
+                                                                               'perio_tooth_15_form': perio_tooth_15_form,
+                                                                               'perio_tooth_15_notes': perio_tooth_15_notes,
+                                                                               'perio_tooth_16_form': perio_tooth_16_form,
+                                                                               'perio_tooth_16_notes': perio_tooth_16_notes,
+                                                                               'perio_tooth_17_form': perio_tooth_17_form,
+                                                                               'perio_tooth_17_notes': perio_tooth_17_notes,
+                                                                               'perio_tooth_18_form': perio_tooth_18_form,
+                                                                               'perio_tooth_18_notes': perio_tooth_18_notes,
+                                                                               'perio_tooth_21_form': perio_tooth_21_form,
+                                                                               'perio_tooth_21_notes': perio_tooth_21_notes,
+                                                                               'perio_tooth_22_form': perio_tooth_22_form,
+                                                                               'perio_tooth_22_notes': perio_tooth_22_notes,
+                                                                               'perio_tooth_23_form': perio_tooth_23_form,
+                                                                               'perio_tooth_23_notes': perio_tooth_23_notes,
+                                                                               'perio_tooth_24_form': perio_tooth_24_form,
+                                                                               'perio_tooth_24_notes': perio_tooth_24_notes,
+                                                                               'perio_tooth_25_form': perio_tooth_25_form,
+                                                                               'perio_tooth_25_notes': perio_tooth_25_notes,
+                                                                               'perio_tooth_26_form': perio_tooth_26_form,
+                                                                               'perio_tooth_26_notes': perio_tooth_26_notes,
+                                                                               'perio_tooth_27_form': perio_tooth_27_form,
+                                                                               'perio_tooth_27_notes': perio_tooth_27_notes,
+                                                                               'perio_tooth_28_form': perio_tooth_28_form,
+                                                                               'perio_tooth_28_notes': perio_tooth_28_notes,
+                                                                               'perio_tooth_31_form': perio_tooth_31_form,
+                                                                               'perio_tooth_31_notes': perio_tooth_31_notes,
+                                                                               'perio_tooth_32_form': perio_tooth_32_form,
+                                                                               'perio_tooth_32_notes': perio_tooth_32_notes,
+                                                                               'perio_tooth_33_form': perio_tooth_33_form,
+                                                                               'perio_tooth_33_notes': perio_tooth_33_notes,
+                                                                               'perio_tooth_34_form': perio_tooth_34_form,
+                                                                               'perio_tooth_34_notes': perio_tooth_34_notes,
+                                                                               'perio_tooth_35_form': perio_tooth_35_form,
+                                                                               'perio_tooth_35_notes': perio_tooth_35_notes,
+                                                                               'perio_tooth_36_form': perio_tooth_36_form,
+                                                                               'perio_tooth_36_notes': perio_tooth_36_notes,
+                                                                               'perio_tooth_37_form': perio_tooth_37_form,
+                                                                               'perio_tooth_37_notes': perio_tooth_37_notes,
+                                                                               'perio_tooth_38_form': perio_tooth_38_form,
+                                                                               'perio_tooth_38_notes': perio_tooth_38_notes,
+                                                                               'perio_tooth_41_form': perio_tooth_41_form,
+                                                                               'perio_tooth_41_notes': perio_tooth_41_notes,
+                                                                               'perio_tooth_42_form': perio_tooth_42_form,
+                                                                               'perio_tooth_42_notes': perio_tooth_42_notes,
+                                                                               'perio_tooth_43_form': perio_tooth_43_form,
+                                                                               'perio_tooth_43_notes': perio_tooth_43_notes,
+                                                                               'perio_tooth_44_form': perio_tooth_44_form,
+                                                                               'perio_tooth_44_notes': perio_tooth_44_notes,
+                                                                               'perio_tooth_45_form': perio_tooth_45_form,
+                                                                               'perio_tooth_45_notes': perio_tooth_45_notes,
+                                                                               'perio_tooth_46_form': perio_tooth_46_form,
+                                                                               'perio_tooth_46_notes': perio_tooth_46_notes,
+                                                                               'perio_tooth_47_form': perio_tooth_47_form,
+                                                                               'perio_tooth_47_notes': perio_tooth_47_notes,
+                                                                               'perio_tooth_48_form': perio_tooth_48_form,
+                                                                               'perio_tooth_48_notes': perio_tooth_48_notes,
+                                                                               'treatments': treatments,
+                                                                               'treatment_plan_form': treatment_plan_form,
+                                                                               'financial_form': financial_form,
+                                                                               'appointments_form_list': appointments_form_list,
+                                                                               'treatment_plan_form_list': treatment_plan_form_list,
+                                                                               'financial_form_lists': financial_form_lists,
+                                                                               'datafiles': datafiles_metadata})
+
         if 'file-upload' in request.POST:
             files = request.FILES.getlist('files')
             for file in files:
@@ -2013,6 +2223,7 @@ def edit_patient(request, patient_id):
                             'size': round((os.stat(os.path.join(path_name, file.name)).st_size / 1000000), 3)
                             }
                 datafiles_metadata.append(metadata)
+
             return render(request, 'patient_management/patient-details.html', {'patient': patient,
                                                                                'form': patient_form,
                                                                                'medical_form': medical_history_form,
@@ -2167,7 +2378,6 @@ def edit_patient(request, patient_id):
                                                                                'tooth_47_form': tooth_47_form,
                                                                                'tooth_48_form': tooth_48_form,
                                                                                'periodontogram': periodontogram,
-                                                                               'severity': severity,
                                                                                'perio_tooth_11_form': perio_tooth_11_form,
                                                                                'perio_tooth_11_notes': perio_tooth_11_notes,
                                                                                'perio_tooth_12_form': perio_tooth_12_form,
@@ -2279,7 +2489,6 @@ def edit_patient(request, patient_id):
                                                                        'tooth_47_form': tooth_47_form,
                                                                        'tooth_48_form': tooth_48_form,
                                                                        'periodontogram': periodontogram,
-                                                                       'severity': severity,
                                                                        'perio_tooth_11_form': perio_tooth_11_form,
                                                                        'perio_tooth_11_notes': perio_tooth_11_notes,
                                                                        'perio_tooth_12_form': perio_tooth_12_form,
