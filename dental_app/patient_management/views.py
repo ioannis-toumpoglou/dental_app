@@ -13,6 +13,9 @@ from django.db.models import Q
 from django.conf import settings
 from django.template.defaulttags import register
 from django.contrib.auth import logout
+from django.views.decorators.cache import cache_control
+from django.views.decorators.cache import never_cache
+from django.utils.decorators import method_decorator
 
 from .forms import (PatientForm, MedicalHistoryForm, DentalHistoryForm, AppointmentForm, TreatmentPlanForm,
                     FinancialForm,
@@ -34,6 +37,7 @@ from .models import (Patient, MedicalHistory, DentalHistory, Appointment, Treatm
 
 # Create your views here.
 
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def main(request):
     filtered_patients = Patient.objects.all()
     if request.GET.get('search'):
@@ -65,6 +69,7 @@ def connect_to_database(uri, db_name):
         print(str(err))
 
 
+@method_decorator([never_cache,], name='dispatch')
 class AddPatientFormView(FormView):
     form_class = PatientForm
     template_name = 'patient_management/add-patient.html'
@@ -88,6 +93,7 @@ class AddPatientFormView(FormView):
             return redirect('main')
 
 
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def delete_financial(request, financial_form_id):
     transaction = Financial.objects.get(id=financial_form_id)
     treatment_plan_id = transaction.treatment.id
@@ -97,6 +103,7 @@ def delete_financial(request, financial_form_id):
     return redirect(f'/patient-details/{patient_id}')
 
 
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def edit_patient(request, patient_id):
     patient = Patient.objects.filter(pk=patient_id).first()
     patient_form = PatientForm(instance=patient)
@@ -2642,6 +2649,7 @@ def handle_uploaded_file(patient_name, destination_folder, file):
             destination.write(chunk)
 
 
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def calendar_data(request):
     appointment_list = Appointment.objects.all()
     return render(request,
@@ -2674,6 +2682,7 @@ def initiate_forms(patient_id):
     return appointments_form_list, treatment_plan_form_list, financial_form_lists
 
 
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def backup_data(request):
     # Check if the temp folder exists
     temp_folder = os.path.join(settings.BASE_DIR, 'temp')
@@ -2700,6 +2709,7 @@ def copy_file(source_path, destination_path):
     shutil.copy2(source_path, destination_path)
 
 
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def logout_user(request):
     logout(request)
     return redirect('login')
