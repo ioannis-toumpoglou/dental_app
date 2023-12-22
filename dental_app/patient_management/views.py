@@ -848,11 +848,9 @@ def edit_patient(request, patient_id):
         if 'edit-appointment' in request.POST:
             appointment_id = request.POST.get('id')
             edited_appointment = Appointment.objects.get(id=appointment_id)
-            edited_appointment.appointment_date = request.POST.get('appointment_date')
-            edited_appointment.appointment_start_time = request.POST.get('appointment_start_time')
-            edited_appointment.appointment_end_time = request.POST.get('appointment_end_time')
-            edited_appointment.notes = request.POST.get('notes')
-            edited_appointment.save()
+            appointment_form = AppointmentForm(request.POST, instance=edited_appointment)
+            appointment_form.save()
+
             appointment_form = AppointmentForm()
 
             appointments_form_list = get_appointments_form_list(patient_id=patient_id) \
