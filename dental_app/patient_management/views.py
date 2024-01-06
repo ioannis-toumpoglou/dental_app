@@ -2696,7 +2696,7 @@ def backup_data(request):
                 os.remove(path)
     # Create a copy of the sqlite database file adding datetime in the name
     now = dt.now().strftime("%Y%m%d_%H%M%S")
-    source_file = os.path.join(settings.BASE_DIR, 'db.sqlite3')
+    source_file = os.path.join(settings.BASE_DIR, 'data/db.sqlite3')
     destination_file = os.path.join(settings.BASE_DIR, temp_folder, f'db_{now}.sqlite3')
     copy_file(source_path=source_file,
               destination_path=destination_file)

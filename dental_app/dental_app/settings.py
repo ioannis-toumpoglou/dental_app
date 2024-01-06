@@ -90,7 +90,7 @@ LOGOUT_REDIRECT_URL = reverse_lazy('/login/')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'data/db.sqlite3',
     }
 }
 
