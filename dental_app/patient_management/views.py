@@ -2647,14 +2647,6 @@ def handle_uploaded_file(patient_name, destination_folder, file):
             destination.write(chunk)
 
 
-@cache_control(no_cache=True, must_revalidate=True, no_store=True)
-def calendar_data(request):
-    appointment_list = Appointment.objects.all()
-    return render(request,
-                  'patient_management/calendar.html',
-                  {'appointment_list': appointment_list})
-
-
 @register.filter
 def get_item(dictionary, key):
     return dictionary.get(key)

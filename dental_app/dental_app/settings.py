@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'django_bootstrap5',
-    'patient_management'
+    'patient_management',
+    'appointment_calendar'
 ]
 
 MIDDLEWARE = [
