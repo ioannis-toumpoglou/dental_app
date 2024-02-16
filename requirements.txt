@@ -1,7 +1,10 @@
-Django==5.0
+Django==5.0.2
 djangorestframework==3.14.0
 pymongo==4.6.1
-dnspython==2.4.2
+dnspython==2.5.0
 django-apscheduler==0.6.2
 django-widget-tweaks==1.5.0
 django-bootstrap5==23.4
+google-api-python-client==2.118.0
+google-auth-httplib2
+google-auth-oauthlib==1.2.0
