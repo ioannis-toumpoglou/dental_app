@@ -123,9 +123,9 @@
           <form class="edit-patient-form" action="" method="POST">
             {% csrf_token %}
             <div class="grid-container">
-                <div class="grid-item"><p><label>Last Name:</label></p></div>
+                <div class="grid-item"><p><label><span style="color:red; margin-right:6px; margin-left:-13px;">*</span>Last Name:</label></p></div>
                 <div class="grid-item"><p>{{ form.last_name }}</p></div>
-                <div class="grid-item"><p><label>First Name:</label></p></div>
+                <div class="grid-item"><p><label><span style="color:red; margin-right:6px; margin-left:-13px;">*</span>First Name:</label></p></div>
                 <div class="grid-item"><p>{{ form.first_name }}</p></div>
                 <div class="grid-item"><p><label>Address:</label></p></div>
                 <div class="grid-item"><p>{{ form.address }}</p></div>
@@ -133,14 +133,14 @@
                 <div class="grid-item"><p>{{ form.email }}</p></div>
                 <div class="grid-item"><p><label>Phone:</label></p></div>
                 <div class="grid-item"><p>{{ form.phone }}</p></div>
-                <div class="grid-item"><p><label>Mobile phone:</label></p></div>
+                <div class="grid-item"><p><label><span style="color:red; margin-right:6px; margin-left:-13px;">*</span>Mobile phone:</label></p></div>
                 <div class="grid-item"><p>{{ form.mobile_phone }}</p></div>
                 <div class="grid-item"><p><label>AMKA:</label></p></div>
                 <div class="grid-item"><p>{{ form.amka }}</p></div>
                 <div class="grid-item"><p><label>Date of Birth:</label></p></div>
                 <div class="grid-item" id="date-of-birth-edit"><p>{% render_field form.date_of_birth type="date" placeholder="dd/mm/yyyy" %}</p></div>
                 <div class="grid-item"><p><label>Notes:</label></p></div>
-                <div class="grid-item"><p>{{ form.notes }}</p></div>
+                <div class="grid-item"><p>{{ form.notes }}</p><div style="color:red; font-weight:bold; font-size:12px; margin-bottom:-5px;">* Mandatory fields</div></div>
             </div>
             <br>
             <div class="add-form-button">

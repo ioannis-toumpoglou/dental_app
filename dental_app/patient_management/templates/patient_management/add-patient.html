@@ -21,9 +21,9 @@
             <h3>Add patient</h3>
         </div>
             <div class="grid-container">
-                <div class="grid-item"><p><label for="id_last_name">Last Name:</label></p></div>
+                <div class="grid-item"><p><label for="id_last_name"><span style="color:red; margin-right:6px; margin-left:-13px;">*</span>Last Name:</label></p></div>
                 <div class="grid-item"><p>{{ form.last_name }}</p></div>
-                <div class="grid-item"><p><label for="id_first_name">First Name:</label></p></div>
+                <div class="grid-item"><p><label for="id_first_name"><span style="color:red; margin-right:6px; margin-left:-13px;">*</span>First Name:</label></p></div>
                 <div class="grid-item"><p>{{ form.first_name }}</p></div>
                 <div class="grid-item"><p><label for="id_address">Address:</label></p></div>
                 <div class="grid-item"><p>{{ form.address }}</p></div>
@@ -31,14 +31,14 @@
                 <div class="grid-item"><p>{{ form.email }}</p></div>
                 <div class="grid-item"><p><label for="id_phone">Phone:</label></p></div>
                 <div class="grid-item"><p>{{ form.phone }}</p></div>
-                <div class="grid-item"><p><label for="id_last_name">Mobile phone:</label></p></div>
+                <div class="grid-item"><p><label for="id_last_name"><span style="color:red; margin-right:6px; margin-left:-13px;">*</span>Mobile phone:</label></p></div>
                 <div class="grid-item"><p>{{ form.mobile_phone }}</p></div>
                 <div class="grid-item"><p><label for="id_amka">AMKA:</label></p></div>
                 <div class="grid-item"><p>{{ form.amka }}</p></div>
                 <div class="grid-item"><p><label for="id_date_of_birth">Date of Birth:</label></p></div>
                 <div class="grid-item" id="date-of-birth"><p>{% render_field form.date_of_birth type="date" placeholder="dd/mm/yyyy" %}</p></div>
                 <div class="grid-item"><p><label for="id_notes">Notes:</label></p></div>
-                <div class="grid-item"><p>{{ form.notes }}</p></div>
+                <div class="grid-item"><p>{{ form.notes }}</p><div style="color:red; font-weight:bold; font-size:12px; margin-bottom:-5px;">* Mandatory fields</div></div>
             </div>
 
         <br>
