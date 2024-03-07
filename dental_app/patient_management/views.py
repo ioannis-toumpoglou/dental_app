@@ -108,6 +108,9 @@ def edit_patient(request, patient_id):
     patient = Patient.objects.filter(pk=patient_id).first()
     patient_form = PatientForm(instance=patient)
 
+    initial_first_name = patient.first_name
+    initial_last_name = patient.last_name
+
     medical_history = MedicalHistory.objects.filter(patient=patient_id).first()
 
     if medical_history is None:
@@ -265,7 +268,7 @@ def edit_patient(request, patient_id):
             patient.delete()
             return redirect('main')
 
-        if 'save-medical' in request.POST:
+        elif 'save-medical' in request.POST:
             medical_history.patient = patient
             medical_history_form = MedicalHistoryForm(request.POST, instance=medical_history)
             medical_history_form.save()
@@ -380,7 +383,7 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
-        if 'clear-medical' in request.POST:
+        elif 'clear-medical' in request.POST:
             medical_history = MedicalHistory.objects.get(patient_id=patient_id)
             medical_history.delete()
             medical_history = MedicalHistory.objects.create(patient_id=patient_id)
@@ -496,7 +499,7 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
-        if 'save-dental' in request.POST:
+        elif 'save-dental' in request.POST:
             dental_history.patient = patient
             dental_history_form = DentalHistoryForm(request.POST, instance=dental_history)
             dental_history_form.save()
@@ -611,7 +614,7 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
-        if 'clear-dental' in request.POST:
+        elif 'clear-dental' in request.POST:
             dental_history = DentalHistory.objects.get(patient_id=patient_id)
             dental_history.delete()
             dental_history = DentalHistory.objects.create(patient_id=patient_id)
@@ -727,7 +730,7 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
-        if 'save-appointment' in request.POST:
+        elif 'save-appointment' in request.POST:
             appointment = Appointment.objects.create(patient_id=patient_id)
             appointment.patient = patient
             appointment_form = AppointmentForm(request.POST, instance=appointment)
@@ -845,7 +848,7 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
-        if 'edit-appointment' in request.POST:
+        elif 'edit-appointment' in request.POST:
             appointment_id = request.POST.get('id')
             edited_appointment = Appointment.objects.get(id=appointment_id)
             appointment_form = AppointmentForm(request.POST, instance=edited_appointment)
@@ -967,7 +970,7 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
-        if 'delete-appointment' in request.POST:
+        elif 'delete-appointment' in request.POST:
             appointment_id = request.POST.get('id')
             appointment = Appointment.objects.get(id=appointment_id)
             appointment.delete()
@@ -1085,7 +1088,7 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
-        if 'save-treatment-plan' in request.POST:
+        elif 'save-treatment-plan' in request.POST:
             treatment_plan = TreatmentPlan.objects.create(patient_id=patient_id)
             treatment_plan.patient = patient
             treatment_plan_form = TreatmentPlanForm(request.POST, instance=treatment_plan)
@@ -1203,7 +1206,7 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
-        if 'edit-treatment-plan' in request.POST:
+        elif 'edit-treatment-plan' in request.POST:
             treatment_plan_id = request.POST.get('id')
             edited_treatment_plan = TreatmentPlan.objects.get(id=treatment_plan_id)
             edited_treatment_plan.treatment_plan_description = request.POST.get('treatment_plan_description')
@@ -1336,7 +1339,7 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
-        if 'delete-treatment-plan' in request.POST:
+        elif 'delete-treatment-plan' in request.POST:
             treatment_plan_id = request.POST.get('id')
             treatment_plan = TreatmentPlan.objects.get(id=treatment_plan_id)
             treatment_plan.delete()
@@ -1454,7 +1457,7 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
-        if 'save-financial' in request.POST:
+        elif 'save-financial' in request.POST:
             treatment_plan_id = request.POST.get('id')
             transaction = Financial.objects.create(treatment_id=treatment_plan_id)
             treatment_plan = TreatmentPlan.objects.get(id=treatment_plan_id)
@@ -1586,7 +1589,7 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
-        if 'save-odontogram-top-view' in request.POST:
+        elif 'save-odontogram-top-view' in request.POST:
             if 'tooth_11' in request.POST:
                 tooth_11_form = Tooth11Form(request.POST, instance=odontogram)
                 tooth_11_form.save()
@@ -1797,7 +1800,7 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
-        if 'save-periodontogram' in request.POST:
+        elif 'save-periodontogram' in request.POST:
             if 'perio_tooth_11' in request.POST:
                 periodontogram.perio_tooth_11 = request.POST.getlist('perio_tooth_11')
                 perio_tooth_11_notes = periodontogram.perio_tooth_11[1]
@@ -2007,7 +2010,7 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
-        if 'clear-periodontogram-modal-data' in request.POST:
+        elif 'clear-periodontogram-modal-data' in request.POST:
             if 'perio_tooth_11' in request.POST:
                 periodontogram.perio_tooth_11 = None
                 perio_tooth_11_notes = ''
@@ -2217,7 +2220,7 @@ def edit_patient(request, patient_id):
                                                                                'financial_form_lists': financial_form_lists,
                                                                                'datafiles': datafiles_metadata})
 
-        if 'file-upload' in request.POST:
+        elif 'file-upload' in request.POST:
             files = request.FILES.getlist('files')
             for file in files:
                 handle_uploaded_file(patient_name=f'{patient_name}_{patient.pk}',
@@ -2344,6 +2347,14 @@ def edit_patient(request, patient_id):
         patient_form = PatientForm(request.POST, instance=patient)
 
         if patient_form.is_valid():
+            first_name = request.POST.get('first_name')
+            last_name = request.POST.get('last_name')
+
+            if initial_first_name != first_name or initial_last_name != last_name:
+                new_patient_name = f'{last_name}_{first_name}'
+                new_path_name = data_path / f'{new_patient_name}_{patient.pk}'
+                os.rename(path_name, new_path_name)
+
             patient_form.save()
             return render(request, 'patient_management/patient-details.html', {'patient': patient,
                                                                                'form': patient_form,
