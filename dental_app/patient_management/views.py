@@ -126,7 +126,7 @@ def edit_patient(request, patient_id):
     appointments_form_list, treatment_plan_form_list, financial_form_lists = initiate_forms(patient_id=patient_id)
 
     context = {}
-    appointment_form = AppointmentForm(request.POST)
+    appointment_form = AppointmentForm()
     context['appointment_form'] = appointment_form
 
     treatment_plan_form = TreatmentPlanForm(request.POST)
