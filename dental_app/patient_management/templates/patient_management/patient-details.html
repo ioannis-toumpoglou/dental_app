@@ -52,8 +52,10 @@
                 <div class="grid-item"><p>{{ patient.amka }}</p></div>
                 <div class="grid-item"><p><label>Date of Birth:</label></p></div>
                 <div class="grid-item" id="date-of-birth-general"><p>{{ patient.date_of_birth }}</p></div>
+                <div class="grid-item"><p><label>Notes:</label></p></div>
+                <textarea class="grid-item" name="textarea" rows="7" cols="40" readonly>{{ patient.notes }}</textarea>
             </div>
-            <div class="add-form-button">
+            <div class="add-form-button" style="margin-top: -11rem;">
                 <button type="button" id="new-appointment-button" class="save-button" data-bs-toggle="modal" data-bs-target="#newAppointmentModal">New Appointment</button>
                 <button type="button" id="new-treatment-plan-button" class="save-button" data-bs-toggle="modal" data-bs-target="#newTreatmentPlanModal">New Treatment Plan</button>
             </div>
