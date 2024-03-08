@@ -16,12 +16,16 @@ class MedicalHistoryForm(forms.ModelForm):
     class Meta:
         model = MedicalHistory
         exclude = ['patient']
+        widgets = {
+            'notes': forms.Textarea(attrs={'rows': '4'})}
 
 
 class DentalHistoryForm(forms.ModelForm):
     class Meta:
         model = DentalHistory
         exclude = ['patient']
+        widgets = {
+            'notes': forms.Textarea(attrs={'rows': '5'})}
 
 
 class AppointmentForm(forms.ModelForm):
