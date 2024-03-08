@@ -174,5 +174,5 @@ class Appointment(models.Model):
     appointment_start_time = models.TimeField(null=True)
     appointment_end_time = models.TimeField(null=True, blank=True)
     appointment_header = models.CharField(max_length=500, null=False, blank=True)
-    notes = models.CharField(max_length=500, null=True, blank=True)
+    notes = models.CharField(max_length=5000, null=True, blank=True)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
