@@ -46,6 +46,7 @@ class MedicalHistory(models.Model):
     radiation_treatments = models.BooleanField(default=False)
     rheumatoid_arthritis = models.BooleanField(default=False)
     thyroid_disease = models.BooleanField(default=False)
+    notes = models.CharField(max_length=5000, null=True, blank=True)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 
 
@@ -70,6 +71,7 @@ class DentalHistory(models.Model):
     clench_teeth_during_day_night = models.BooleanField(default=False)
     wear_or_worn_bite_appliance = models.BooleanField(default=False)
     ever_whitened_bleached_teeth = models.BooleanField(default=False)
+    notes = models.CharField(max_length=5000, null=True, blank=True)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 
 
