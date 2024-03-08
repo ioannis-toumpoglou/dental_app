@@ -12,7 +12,7 @@ class Patient(models.Model):
     mobile_phone = models.CharField(max_length=100)
     amka = models.CharField(max_length=100, blank=True)
     date_of_birth = models.DateField(null=True, blank=True)
-    notes = models.CharField(max_length=500, null=True, blank=True)
+    notes = models.CharField(max_length=5000, null=True, blank=True)
 
     def full_name(self):
         return f'{self.first_name} {self.last_name}'
@@ -77,7 +77,7 @@ class TreatmentPlan(models.Model):
     treatment_plan_description = models.CharField(max_length=500, blank=False)
     treatment_plan_start_date = models.DateField(blank=True, null=True)
     treatment_plan_end_date = models.DateField(blank=True, null=True)
-    treatment_plan_notes = models.CharField(max_length=500, blank=True, null=True)
+    treatment_plan_notes = models.CharField(max_length=5000, blank=True, null=True)
     total_cost = models.FloatField(default=0.0, blank=True, null=True)
     treatment_plan_balance = models.FloatField(default=0.0, blank=True, null=True)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
