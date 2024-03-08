@@ -208,6 +208,11 @@ textarea {
     width: 204%;
     height: 95%;
     resize: none;
+    border-radius: 5px;
+}
+
+input {
+    border-radius: 5px;
 }
 
 #patient-table {
