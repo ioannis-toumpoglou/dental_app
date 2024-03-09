@@ -16,6 +16,7 @@ from django.contrib.auth import logout
 from django.views.decorators.cache import cache_control
 from django.views.decorators.cache import never_cache
 from django.utils.decorators import method_decorator
+import zipfile
 
 from .forms import (PatientForm, MedicalHistoryForm, DentalHistoryForm, AppointmentForm, TreatmentPlanForm,
                     FinancialForm,
@@ -2697,13 +2698,17 @@ def backup_data(request):
                 shutil.rmtree(path)
             except OSError:
                 os.remove(path)
-    # Create a copy of the sqlite database file adding datetime in the name
+    # Create a zip file containing the sqlite database file
+    # plus the patient data files, using datetime in the name
     now = dt.now().strftime("%Y%m%d_%H%M%S")
-    source_file = os.path.join(settings.BASE_DIR, 'data/db.sqlite3')
-    destination_file = os.path.join(settings.BASE_DIR, temp_folder, f'db_{now}.sqlite3')
-    copy_file(source_path=source_file,
-              destination_path=destination_file)
-    return FileResponse(open(destination_file, 'rb'), as_attachment=True)
+    fp_zip = os.path.join(settings.BASE_DIR, temp_folder, f'backup_{now}.zip')
+    directory_to_archive = Path(settings.BASE_DIR / 'patient_management/static/patient_data')
+
+    with zipfile.ZipFile(fp_zip, 'w', zipfile.ZIP_DEFLATED) as zipf:
+        for fp in directory_to_archive.glob('**/*'):
+            zipf.write(fp, arcname=fp.relative_to(directory_to_archive))
+
+    return FileResponse(open(fp_zip, 'rb'), as_attachment=True)
 
 
 def copy_file(source_path, destination_path):
