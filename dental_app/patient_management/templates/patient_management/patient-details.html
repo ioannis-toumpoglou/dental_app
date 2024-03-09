@@ -53,7 +53,7 @@
                 <div class="grid-item"><p><label>Date of Birth:</label></p></div>
                 <div class="grid-item" id="date-of-birth-general"><p>{{ patient.date_of_birth }}</p></div>
                 <div class="grid-item"><p><label>Notes:</label></p></div>
-                <textarea class="grid-item" name="textarea" rows="7" cols="40" readonly>{{ patient.notes }}</textarea>
+                <textarea class="grid-item" id="patient-info-textarea" name="textarea" rows="7" cols="40" readonly>{{ patient.notes }}</textarea>
             </div>
             <div class="add-form-button" style="margin-top: -11rem;">
                 <button type="button" id="new-appointment-button" class="save-button" data-bs-toggle="modal" data-bs-target="#newAppointmentModal">New Appointment</button>
@@ -159,9 +159,6 @@
                   {{ medical_form.as_table }}
                 </tbody>
             </table>
-            <br>
-            <br>
-            <br>
             <div class="add-form-button">
                 <button type="submit" name="save-medical" class="save-button">Save</button>
                 <button type="submit" name="clear-medical" class="reset-button" onclick="return confirm('Are you sure you want to clear the medical history tab?');">Reset</button>
@@ -176,9 +173,6 @@
                 {{ dental_form.as_table }}
               </tbody>
             </table>
-            <br>
-            <br>
-            <br>
             <div class="add-form-button">
                 <button type="submit" name="save-dental" class="save-button">Save</button>
                 <button type="submit" name="clear-dental" class="reset-button" onclick="return confirm('Are you sure you want to clear the dental history tab?');">Reset</button>

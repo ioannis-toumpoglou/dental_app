@@ -179,6 +179,14 @@
 
 #medical-history-table tr {
     padding-right: 5rem;
+    margin-bottom: -0.4rem;
+}
+
+#medical-history-table textarea {
+    width: 4250%;
+    margin-left: -9rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 #medical-history-table td {
@@ -186,9 +194,14 @@
     padding-left: 1rem;
 }
 
+#medical-history-table tr:nth-child(25) label {
+    margin-bottom: 6rem;
+}
+
 #dental-history-table tbody {
   display: grid;
   grid-template-columns: repeat(2, auto);
+  margin-left: 2rem;
 }
 
 #dental-history-table label {
@@ -197,15 +210,33 @@
 
 #dental-history-table tr {
     margin-right: 4rem;
-    margin-bottom: 0.3rem;
+    margin-bottom: -0.4rem;
+}
+
+#dental-history-table textarea {
+    width: 5100%;
+    margin-left: -16rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 #dental-history-table label {
     width: 20rem;
 }
 
+#dental-history-table tr:nth-child(21) label {
+    margin-bottom: 8rem;
+}
+
 textarea {
-    width: 204%;
+    width: 200%;
+    height: 95%;
+    resize: none;
+    border-radius: 5px;
+}
+
+#patient-info-textarea {
+    width: 180%;
     height: 95%;
     resize: none;
     border-radius: 5px;
