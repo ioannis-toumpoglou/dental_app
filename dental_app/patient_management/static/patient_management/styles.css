@@ -225,7 +225,25 @@
 }
 
 #dental-history-table tr:nth-child(21) label {
+    margin-top: 1rem;
     margin-bottom: 8rem;
+}
+
+#dental-history-table tr:nth-child(22) label {
+    margin-bottom: 4rem;
+    margin-left: -25rem;
+}
+
+#id_main_complaint {
+    margin-top: 0.5rem;
+    margin-left: -11rem;
+    margin-bottom: 7rem;
+    width: 4500%;
+}
+
+#dental-history-table tr:nth-child(22) textarea {
+    margin-top: 4rem;
+    width: 470%;
 }
 
 textarea {
