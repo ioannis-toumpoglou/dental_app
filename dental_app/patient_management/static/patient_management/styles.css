@@ -189,7 +189,7 @@
     width: 4250%;
     margin-left: -9rem;
     margin-top: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 #medical-history-table td {
@@ -197,7 +197,7 @@
     padding-left: 1rem;
 }
 
-#medical-history-table tr:nth-child(25) label {
+#medical-history-table tr:nth-child(27) label {
     margin-bottom: 6rem;
 }
 

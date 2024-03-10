@@ -17,7 +17,7 @@ class MedicalHistoryForm(forms.ModelForm):
         model = MedicalHistory
         exclude = ['patient']
         widgets = {
-            'notes': forms.Textarea(attrs={'rows': '4'})}
+            'notes': forms.Textarea(attrs={'rows': '3'})}
 
 
 class DentalHistoryForm(forms.ModelForm):

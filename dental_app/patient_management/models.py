@@ -42,6 +42,8 @@ class MedicalHistory(models.Model):
     hemophilia = models.BooleanField(default=False)
     high_blood_pressure = models.BooleanField(default=False)
     high_cholesterol = models.BooleanField(default=False)
+    hyperthyroidism = models.BooleanField(default=False)
+    hypothyroidism = models.BooleanField(default=False)
     low_blood_pressure = models.BooleanField(default=False)
     osteoporosis = models.BooleanField(default=False)
     pain_in_jaw_joints = models.BooleanField(default=False)
