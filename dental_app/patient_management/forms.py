@@ -9,7 +9,7 @@ class PatientForm(forms.ModelForm):
         model = Patient
         fields = '__all__'
         widgets = {
-            'notes': forms.Textarea(attrs={'rows': 5})}
+            'notes': forms.Textarea(attrs={'rows': 3})}
 
 
 class MedicalHistoryForm(forms.ModelForm):
