@@ -12,6 +12,7 @@ class Patient(models.Model):
     mobile_phone = models.CharField(max_length=100)
     amka = models.CharField(max_length=100, blank=True)
     date_of_birth = models.DateField(null=True, blank=True)
+    occupation = models.CharField(max_length=100, blank=True)
     previous_dentist_visit = models.CharField(max_length=100, blank=True)
     found_in = models.CharField(max_length=100, blank=True)
     notes = models.CharField(max_length=5000, null=True, blank=True)

@@ -157,6 +157,10 @@
   height: 30.5rem;
 }
 
+#id_date_of_birth {
+    width: 12rem;
+}
+
 #main-table-title {
   margin: 1rem 0rem 1rem 3rem;
 }
@@ -165,7 +169,6 @@
   display: grid;
   grid-template-columns: 7rem 21rem 9rem 23rem;
   margin-left: 2rem;
-  margin-top: 1rem;
 }
 
 #medical-history-table tbody {

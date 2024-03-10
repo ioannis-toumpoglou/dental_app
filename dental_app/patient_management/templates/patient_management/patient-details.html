@@ -52,14 +52,18 @@
                 <div class="grid-item"><p>{{ patient.amka }}</p></div>
                 <div class="grid-item"><p><label>Date of Birth:</label></p></div>
                 <div class="grid-item" id="date-of-birth-general"><p>{{ patient.date_of_birth }}</p></div>
+                <div class="grid-item"><p><label>Occupation:</label></p></div>
+                <div class="grid-item"><p>{{ patient.occupation }}</p></div>
                 <div class="grid-item"><p><label>Previous visit:</label></p></div>
                 <div class="grid-item"><p>{{ patient.previous_dentist_visit }}</p></div>
                 <div class="grid-item"><p><label>Found in:</label></p></div>
                 <div class="grid-item"><p>{{ patient.found_in }}</p></div>
+                <div class="grid-item"><p></p></div>
+                <div class="grid-item"><p></p></div>
                 <div class="grid-item"><p><label>Notes:</label></p></div>
                 <textarea class="grid-item" id="patient-info-textarea" name="textarea" rows="5" cols="40" readonly>{{ patient.notes }}</textarea>
             </div>
-            <div class="add-form-button" style="margin-top: -10rem;">
+            <div class="add-form-button" style="margin-top: -11.5rem;">
                 <button type="button" id="new-appointment-button" class="save-button" data-bs-toggle="modal" data-bs-target="#newAppointmentModal">New Appointment</button>
                 <button type="button" id="new-treatment-plan-button" class="save-button" data-bs-toggle="modal" data-bs-target="#newTreatmentPlanModal">New Treatment Plan</button>
             </div>
@@ -145,12 +149,16 @@
                 <div class="grid-item"><p>{{ form.amka }}</p></div>
                 <div class="grid-item"><p><label>Date of Birth:</label></p></div>
                 <div class="grid-item" id="date-of-birth-edit"><p>{% render_field form.date_of_birth type="date" placeholder="dd/mm/yyyy" %}</p></div>
+                <div class="grid-item"><p><label>Occupation:</label></p></div>
+                <div class="grid-item"><p>{{ form.occupation }}</p></div>
                 <div class="grid-item"><p><label>Previous visit:</label></p></div>
                 <div class="grid-item"><p>{{ form.previous_dentist_visit }}</p></div>
                 <div class="grid-item"><p><label>Found in:</label></p></div>
                 <div class="grid-item"><p>{{ form.found_in }}</p></div>
+                <div class="grid-item"><p></p></div>
+                <div class="grid-item"><p></p></div>
                 <div class="grid-item"><p><label>Notes:</label></p></div>
-                <div class="grid-item"><p>{{ form.notes }}</p><div style="color:red; font-weight:bold; font-size:12px; margin-bottom:-5px;">* Mandatory fields</div></div>
+                <div class="grid-item"><p>{{ form.notes }}</p><div style="color:red; font-weight:bold; font-size:12px; margin-top:-1rem; margin-bottom:-1rem;">* Mandatory fields</div></div>
             </div>
             <br>
             <div class="add-form-button">
@@ -181,7 +189,7 @@
                 {{ dental_form.as_table }}
               </tbody>
             </table>
-            <div class="add-form-button" style="margin-top: -0.5rem;">
+            <div class="add-form-button" style="margin-top: -1rem;">
                 <button type="submit" name="save-dental" class="save-button">Save</button>
                 <button type="submit" name="clear-dental" class="reset-button" onclick="return confirm('Are you sure you want to clear the dental history tab?');">Reset</button>
             </div>
