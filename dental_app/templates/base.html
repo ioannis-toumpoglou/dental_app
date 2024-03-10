@@ -36,6 +36,9 @@
                 <button class="btn btn-outline-primary" type="submit" name="backup" onclick="location.href='{% url 'backup' %}'">Backup</button>
               </li>
               <li class="nav-item">
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#restoreDataModal">Restore</button>
+              </li>
+              <li class="nav-item">
                 <button class="btn btn-outline-primary" type="submit" name="logout" onclick="location.href='{% url 'logout' %}'">Logout</button>
               </li>
             </ul>
@@ -49,10 +52,43 @@
         </div>
     </nav>
 
+    <div class="modal fade" id="restoreDataModal" tabindex="-1" aria-labelledby="restoreDataModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="restore-data-form" action="/restore/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="restoreDataModalLabel">Restore Data</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div>
+                  <label id="restore-data-form-label">Select files:</label>
+                  <br>
+                  <input type="file" name="file" id="upload-file-search">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary" type="submit" name="restore" onclick="location.href='{% url 'restore' %}'">Restore</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
   {% endif %}
 
   {% block content %}
   {% endblock %}
 
+  {% if message %}
+  <script>
+      confirm("{{ message }}");
+      window.location.href = "/main";
+  </script>
+  {% endif %}
+
 </body>
+
 </html>

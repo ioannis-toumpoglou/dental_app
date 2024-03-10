@@ -28,8 +28,8 @@ from .forms import (PatientForm, MedicalHistoryForm, DentalHistoryForm, Appointm
                     PerioTooth11Form, PerioTooth12Form, PerioTooth13Form, PerioTooth14Form, PerioTooth15Form,
                     PerioTooth16Form, PerioTooth17Form, PerioTooth18Form, PerioTooth21Form, PerioTooth22Form,
                     PerioTooth23Form, PerioTooth24Form, PerioTooth25Form, PerioTooth26Form, PerioTooth27Form,
-                    PerioTooth28Form,PerioTooth31Form, PerioTooth32Form, PerioTooth33Form, PerioTooth34Form,
-                    PerioTooth35Form, PerioTooth36Form, PerioTooth37Form, PerioTooth38Form,PerioTooth41Form,
+                    PerioTooth28Form, PerioTooth31Form, PerioTooth32Form, PerioTooth33Form, PerioTooth34Form,
+                    PerioTooth35Form, PerioTooth36Form, PerioTooth37Form, PerioTooth38Form, PerioTooth41Form,
                     PerioTooth42Form, PerioTooth43Form, PerioTooth44Form, PerioTooth45Form, PerioTooth46Form,
                     PerioTooth47Form, PerioTooth48Form)
 from .models import (Patient, MedicalHistory, DentalHistory, Appointment, TreatmentPlan, Financial,
@@ -70,7 +70,7 @@ def connect_to_database(uri, db_name):
         print(str(err))
 
 
-@method_decorator([never_cache,], name='dispatch')
+@method_decorator([never_cache, ], name='dispatch')
 class AddPatientFormView(FormView):
     form_class = PatientForm
     template_name = 'patient_management/add-patient.html'
@@ -1224,7 +1224,8 @@ def edit_patient(request, patient_id):
             edited_treatment_plan.save()
             appointment_form = AppointmentForm()
 
-            appointments_form_list, treatment_plan_form_list, financial_form_lists = initiate_forms(patient_id=patient_id)
+            appointments_form_list, treatment_plan_form_list, financial_form_lists = initiate_forms(
+                patient_id=patient_id)
 
             treatment_plan_form_list = get_treatment_plan_form_list(patient_id=patient_id) \
                 if len(get_treatment_plan_form_list(patient_id=patient_id)) > 0 else None
@@ -1471,7 +1472,8 @@ def edit_patient(request, patient_id):
             financial_form = FinancialForm(request.POST, instance=transaction)
             financial_form.save()
 
-            appointments_form_list, treatment_plan_form_list, financial_form_lists = initiate_forms(patient_id=patient_id)
+            appointments_form_list, treatment_plan_form_list, financial_form_lists = initiate_forms(
+                patient_id=patient_id)
 
             financial_form = FinancialForm()
 
@@ -2686,6 +2688,7 @@ def initiate_forms(patient_id):
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def backup_data(request):
+    print(f'[INFO] Data backup in progress...')
     # Check if the temp folder exists
     temp_folder = os.path.join(settings.BASE_DIR, 'temp')
     if not os.path.isdir(temp_folder):
@@ -2708,7 +2711,35 @@ def backup_data(request):
         for fp in directory_to_archive.glob('**/*'):
             zipf.write(fp, arcname=fp.relative_to(directory_to_archive))
 
+    print(f'[INFO] Data backup completed successfully')
+
     return FileResponse(open(fp_zip, 'rb'), as_attachment=True)
+
+
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def restore_data(request):
+    if 'restore' in request.POST:
+        uploaded_file = request.FILES['file']
+        if not uploaded_file.name.endswith('.zip'):
+            print(f'[INFO] The file must be in ZIP format')
+            print(f'[INFO] Please select a ZIP file')
+            return render(request,
+                          'patient_management/main.html',
+                          {'message': 'The file must be in ZIP format. Please select a ZIP file'})
+        else:
+            print(f'[INFO] Restoring data...')
+            extract_directory = Path(settings.BASE_DIR / 'patient_management/static')
+            file_to_extract = os.path.join(extract_directory, uploaded_file.name)
+            with open(file_to_extract, 'wb') as destination:
+                for chunk in uploaded_file.chunks():
+                    destination.write(chunk)
+            zipfile.ZipFile(file_to_extract).extractall(os.path.join(extract_directory, 'patient_data'))
+            os.remove(file_to_extract)
+            print(f'[INFO] Data restored successfully')
+            return render(request,
+                          'patient_management/main.html',
+                          {'message': 'Data restored successfully'})
+    return redirect('main')
 
 
 def copy_file(source_path, destination_path):
