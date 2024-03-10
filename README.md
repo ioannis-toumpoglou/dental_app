@@ -1,6 +1,6 @@
 **A dental patient management system**
 
-An application dadicated to assisting dentists in organizing their every day workflow. It offers all the necessary
+An application dedicated to assisting dentists in organizing their every day workflow. It offers all the necessary
 tools, like booking appointments, keeping track of treatment plans and storing patients' personal data, e.g. x-rays.
 
 The implementation was done using Python and the Django web framework.
