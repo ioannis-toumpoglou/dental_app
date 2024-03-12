@@ -88,13 +88,17 @@ LOGOUT_REDIRECT_URL = reverse_lazy('/login/')
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+data_directory = BASE_DIR / 'patient_management/static/patient_data'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'patient_management/static/patient_data/db.sqlite3'
+        'NAME': f'{data_directory}/db.sqlite3'
     }
 }
 
+if not os.path.isdir(data_directory):
+    os.mkdir(data_directory)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
