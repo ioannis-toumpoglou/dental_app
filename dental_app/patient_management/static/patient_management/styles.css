@@ -173,7 +173,9 @@
 
 #medical-history-table tbody {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(3, 18rem);
+  margin-left: -5rem;
+  margin-top: -1rem;
 }
 
 #medical-history-table label {
@@ -185,20 +187,36 @@
     margin-bottom: -0.4rem;
 }
 
-#medical-history-table textarea {
-    width: 4250%;
-    margin-left: -9rem;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-}
-
 #medical-history-table td {
     padding-right: 6rem;
     padding-left: 1rem;
 }
 
+#medical-history-notes-label {
+    margin: 0rem 0rem 3rem 0rem;
+}
+
 #medical-history-table tr:nth-child(27) label {
-    margin-bottom: 6rem;
+    margin: 2rem 0rem 7rem -36rem;
+}
+
+#medical-history-table tr:nth-child(30) textarea {
+    width: 45rem;
+    margin: -3rem 0rem 0rem -8rem;
+}
+
+#id_medicine {
+    width: 19rem;
+    margin: 1rem 0rem -4rem -8rem;
+}
+
+#allergies-label {
+    margin: 0.7rem 0rem 8.4rem -10rem;
+}
+
+#id_allergies {
+    width: 19rem;
+    margin: -1.7rem 0rem 1rem -8rem;
 }
 
 #dental-history-table tbody {
@@ -241,7 +259,7 @@
     margin-top: 0.5rem;
     margin-left: -11rem;
     margin-bottom: 7rem;
-    width: 4500%;
+    width: 4270%;
 }
 
 #dental-history-table tr:nth-child(22) textarea {

@@ -172,7 +172,181 @@
             {% csrf_token %}
             <table id="medical-history-table">
                 <tbody>
-                  {{ medical_form.as_table }}
+                  <tr>
+                    <th><label for="id_aids">Aids:</label></th>
+                    <td>
+                      {{ medical_form.aids }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_anemia">Anemia:</label></th>
+                    <td>
+                      {{ medical_form.anemia }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_arthritis">Arthritis:</label></th>
+                    <td>
+                      {{ medical_form.arthritis }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_artificial_joint">Artificial joint:</label></th>
+                    <td>
+                      {{ medical_form.artificial_joint }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_asthma">Asthma:</label></th>
+                    <td>
+                      {{ medical_form.asthma }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_blood_disease">Blood disease:</label></th>
+                    <td>
+                      {{ medical_form.blood_disease }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_breathing_problem">Breathing problem:</label></th>
+                    <td>
+                      {{ medical_form.breathing_problem }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_cancer">Cancer:</label></th>
+                    <td>
+                      {{ medical_form.cancer }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_chemotherapy">Chemotherapy:</label></th>
+                    <td>
+                      {{ medical_form.chemotherapy }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_cortisone_medicine">Cortisone medicine:</label></th>
+                    <td>
+                      {{ medical_form.cortisone_medicine }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_diabetes">Diabetes:</label></th>
+                    <td>
+                      {{ medical_form.diabetes }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_excessive_bleeding">Excessive bleeding:</label></th>
+                    <td>
+                      {{ medical_form.excessive_bleeding }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_hepatitis_A">Hepatitis A:</label></th>
+                    <td>
+                      {{ medical_form.hepatitis_A }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_hepatitis_B_or_C">Hepatitis B or C:</label></th>
+                    <td>
+                      {{ medical_form.hepatitis_B_or_C }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_hemophilia">Hemophilia:</label></th>
+                    <td>
+                      {{ medical_form.hemophilia }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_high_blood_pressure">High blood pressure:</label></th>
+                    <td>
+                      {{ medical_form.high_blood_pressure }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_high_cholesterol">High cholesterol:</label></th>
+                    <td>
+                      {{ medical_form.high_cholesterol }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_hyperthyroidism">Hyperthyroidism:</label></th>
+                    <td>
+                      {{ medical_form.hyperthyroidism }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_hypothyroidism">Hypothyroidism:</label></th>
+                    <td>
+                      {{ medical_form.hypothyroidism }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_low_blood_pressure">Low blood pressure:</label></th>
+                    <td>
+                      {{ medical_form.low_blood_pressure }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_osteoporosis">Osteoporosis:</label></th>
+                    <td>
+                      {{ medical_form.osteoporosis }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_pain_in_jaw_joints">Pain in jaw joints:</label></th>
+                    <td>
+                      {{ medical_form.pain_in_jaw_joints }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_parathyroid_disease">Parathyroid disease:</label></th>
+                    <td>
+                      {{ medical_form.parathyroid_disease }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_radiation_treatments">Radiation treatments:</label></th>
+                    <td>
+                      {{ medical_form.radiation_treatments }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_rheumatoid_arthritis">Rheumatoid arthritis:</label></th>
+                    <td>
+                      {{ medical_form.rheumatoid_arthritis }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label for="id_thyroid_disease">Thyroid disease:</label></th>
+                    <td>
+                      {{ medical_form.thyroid_disease }}
+                    </td>
+                  </tr>
+                  <tr></tr>
+                  <tr style="grid-column: span 2;">
+                    <th><label id="medicine-label" for="id_medicine">Medicine:</label></th>
+                    <td>
+                      {{ medical_form.medicine }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label id="allergies-label" for="id_allergies">Allergies:</label></th>
+                    <td>
+                      {{ medical_form.allergies }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><label id="medical-history-notes-label" for="id_notes">Notes:</label></th>
+                    <td>
+                      {{ medical_form.notes }}
+                    </td>
+                  </tr>
                 </tbody>
             </table>
             <div class="add-form-button">

@@ -51,6 +51,8 @@ class MedicalHistory(models.Model):
     radiation_treatments = models.BooleanField(default=False)
     rheumatoid_arthritis = models.BooleanField(default=False)
     thyroid_disease = models.BooleanField(default=False)
+    medicine = models.CharField(max_length=5000, null=True, blank=True)
+    allergies = models.CharField(max_length=5000, null=True, blank=True)
     notes = models.CharField(max_length=5000, null=True, blank=True)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 
